@@ -6,4 +6,4 @@
 
 ## How to download and open project 
 
-![Video](open-project.gif)
+![Video](https://thumbs.gfycat.com/GaseousMindlessCranefly-size_restricted.gif)
