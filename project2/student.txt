@@ -1,0 +1,4 @@
+Rodolfo|Cruz|78.6|99.7
+Maria|Vargas|90.5|100|100
+Julio|Perez|78.1
+Juan|Rodriguez
