@@ -5,14 +5,16 @@ package project2;
  * @author SRC Group
  */
 
+import java.sql.*;
 import java.util.*;
 import java.io.*;
-import javax.swing.JFileChooser;
+import javax.swing.*;
 
 
 public class StudentList {
 
     private ArrayList<Student> students = new ArrayList<>();
+    String path;
 
     public void readStudents() {
 
@@ -131,10 +133,54 @@ public class StudentList {
 
     
     
-    public void saveStudentsToDB(){
+    public void saveStudentsToDB() throws SQLException, FileNotFoundException, ClassNotFoundException{
         
         JFileChooser chooser = new JFileChooser();
+        
+        File accessDB = null;
         chooser.setDialogTitle("Open DataBase to save information");
+        
+        if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            accessDB = chooser.getSelectedFile();
+            path = accessDB.getAbsolutePath();
+        }
+        //Class.forName("net.ucanacess.jdbc.UcanaccessDriver");
+        
+        Connection connection = DriverManager.getConnection("jdbc:ucanaccess://"+path);
+        
+        
+        Statement add = connection.createStatement();
+        
+        
+        
+        System.out.println("up to now is fine");
+        
+        for(Student student : students){
+            
+            //Sql statements to add information to .accdb from .txt file
+            add.executeUpdate( 
+            "INSERT INTO StudentsTbl" 
+                    + "(FirstName,"
+                    + " LastName, "
+                    + " Grade1, "
+                    + " Grade2, "
+                    + " Grade3, "
+                    + " Average, "
+                    + " Status, "
+                    + " LetterGrade)"
+            + "values("
+                    + "'"+ student.getFirstName()+ "',"
+                    + "'"+ student.getLastName() + "',"
+                    + String.format("%.2f", student.getGrade1())+ ","
+                    + String.format("%.2f", student.getGrade2())+ ","
+                    + String.format("%.2f", student.getGrade3())+ ","
+                    + String.format("%.2f", student.computeAverage())+ "," 
+                    + "'"+ student.computeStatus() +"',"
+                    + "'"+ student.computeLetterGrade() +"');");
+        }
+        
+        
+        
         
         
     }
