@@ -11,7 +11,7 @@
 
 ## Edit and upload it
 
-I do recommend to use [GitHub Desktop](https://desktop.github.com) and watch this video to learn how to upload it to Github.
+I do recommend to use [GitHub Desktop](https://desktop.github.com) and watch [this video](https://www.youtube.com/watch?v=ci3W1T88mzw) to learn how to upload it to Github.
 
 
 ## Yeap
