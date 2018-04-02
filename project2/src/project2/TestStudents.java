@@ -27,8 +27,9 @@ public class TestStudents{
 //        
 //        
 //        System.out.println(s);
-    studentList.readStudents();
-    studentList.saveStudentsToDB();
+//      studentList.readStudents();
+//      studentList.saveStudentsToDB();
+        studentList.findStudent();
         
         //studentList.writeStudents();
     }

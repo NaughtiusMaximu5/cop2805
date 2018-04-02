@@ -130,9 +130,10 @@ public class Student {
     
 
     /**
-     * Compute the average of all grades
+     * Returns a double with the value of
+     * the average of all the grades
      * 
-     * @return average
+     * @return average  - average between all grades 
      */
 
     public double computeAverage(){
@@ -143,9 +144,15 @@ public class Student {
 
     
     /**
-     * Returns the String <b>Passing</b> if average is 
-     * greater than 70 otherwise returns <b>Failed</b>
+     * Returns an string telling if the student is
+     * passing the class or not
+     * 
      * @return 
+     * 
+     * <ul>
+     *  <li><b>Passing</b> if the student grade average is over 70</li>
+     *  <li><b>Failing</b> if the student grade average is below 70</li>
+     * </ul>
      */
     public String computeStatus() {
 
@@ -157,16 +164,18 @@ public class Student {
     }
     
     /**
-     * Compute Letter Grade 
+     * Compute Letter Grade returns a char value
+     * of the student's grade.
      * 
-     * @return
+     * @return 
      * 
-     * A if average greater or equals to 90
-     * B if average greater or equals to 80
-     * C if average greater or equals to 70
-     * D if average greater or equals to 60
-     * F average below 60
-     * 
+     * <ul>
+     *  <li>A if the average is greater or equals to 90</li>
+     *  <li>B if the average is greater or equals to 80</li>
+     *  <li>C if the average is greater or equals to 70</li>
+     *  <li>D if the average is greater or equals to 60</li>
+     *  <li>F is the average is below 60
+     * <ul>
      *  
      */
     public char computeLetterGrade(){
