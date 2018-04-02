@@ -27,7 +27,7 @@ public class StudentList {
     public void readStudents() {
 
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Select file to with Student information");
+        chooser.setDialogTitle("Select file with Student Information");
 
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 
@@ -130,15 +130,14 @@ public class StudentList {
         }
     }
 
-    
     /**
-     * Prompts the user for a student name and last name and shows
-     * a message indicating that the student was either found or not
-     * found in the DB. Continue asking the user until the user enters end.
-     * 
+     * Prompts the user for a student name and last name and shows a message
+     * indicating that the student was either found or not found in the DB.
+     * Continue asking the user until the user enters end.
+     *
      */
     public void findStudent() {
-        
+
 //        JFrame f = new JFrame();
 //        f.setTitle("Find Student");
 //        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -156,107 +155,126 @@ public class StudentList {
 //        f.setSize(400, 200);
 //        f.setVisible(true);
         JTextField nameField,
-                lastNameField;  
+                lastNameField;
         JButton findButton,
                 endButton;
-        JLabel copyrigthLabel,
-                titleLabel,
-                nameLabel,
-                lastNameLabel,
-                foundLabel,
-                infoTitleLabel;
-  
-    
-     
+        
+        //==================    LABELS    =======================
+        //      Find Student        Student Info
+        JLabel titleLabel,          infoTitleLabel,
+                nameLabel,          nameInfoLabel,
+                lastNameLabel,      lastNameInfoLabel,
+                foundLabel,         averageLabel,
+                copyrigthLabel,     gradeLabel,
+                                    statusLabel;     
+
         JFrame frame = new JFrame();
         frame.setTitle("Find Student");
-        
+
         //Labels of the titles
         titleLabel = new JLabel("<html><h1 font='Verdana';>Find Student</h1></html>");
         titleLabel.setBounds(50, 10, 200, 100);
         infoTitleLabel = new JLabel("<html><h1 font='Verdana';>Student Information</h1></html>");
         infoTitleLabel.setBounds(350, 10, 300, 100);
-        
-        
+
         //Label and Field for name
-        nameField = new JTextField();  
-        nameField.setBounds(50,110,150,20);  
+        nameField = new JTextField();
+        nameField.setBounds(50, 110, 150, 20);
         nameLabel = new JLabel();
         nameLabel.setText("<html><p font='Verdana';>First Name</p></html>");
         nameLabel.setBounds(50, 50, 200, 100);
-        
-        
+
         //Label and Field for last name
-        lastNameField=new JTextField();  
-        lastNameField.setBounds(50,160,150,20);
+        lastNameField = new JTextField();
+        lastNameField.setBounds(50, 160, 150, 20);
         lastNameLabel = new JLabel();
         lastNameLabel.setText("<html><p font='Verdana';>Last Name</p></html>");
         lastNameLabel.setBounds(50, 100, 200, 100);
-        
+
         //Buttons to find and to finish the program 
-        findButton=new JButton("Find");  
-        findButton.setBounds(420,280,70,40);  
-        endButton=new JButton("End");  
-        endButton.setBounds(500,280,70,40);  
+        findButton = new JButton("Find");
+        findButton.setBounds(420, 280, 70, 40);
+        endButton = new JButton("End");
+        endButton.setBounds(500, 280, 70, 40);
+        
+        
+        //Student Information Labels
+        nameInfoLabel =  new JLabel();
+        nameInfoLabel.setText("<html><p font='Verdana';>Name:</p></html>");
+        nameInfoLabel.setBounds(350, 60, 200, 100);
+        frame.add(nameInfoLabel);
+        lastNameInfoLabel =  new JLabel();
+        lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name:</p></html>");
+        lastNameInfoLabel.setBounds(350, 85, 200, 100);
+        frame.add(lastNameInfoLabel);
+        averageLabel =  new JLabel();
+        averageLabel.setText("<html><p font='Verdana';>Average:</p></html>");
+        averageLabel.setBounds(350, 110, 200, 100);
+        frame.add(averageLabel);
+        gradeLabel =  new JLabel();
+        gradeLabel.setText("<html><p font='Verdana';>Grade:</p></html>");
+        gradeLabel.setBounds(350, 135, 200, 100);
+        frame.add(gradeLabel);
+        statusLabel =  new JLabel();
+        statusLabel.setText("<html><p font='Verdana';>Status:</p></html>");
+        statusLabel.setBounds(350, 160, 200, 100);
+        frame.add(statusLabel);
+        
         
         //Label of the copyrigth
         copyrigthLabel = new JLabel();
         copyrigthLabel.setText("<html><h3 font='Verdana';> 2018 &copy; 𝓢𝓡𝓒 Group.</h3></html>");
         copyrigthLabel.setBounds(50, 260, 200, 100);
-        
-        
+
         JPanel panel = new JPanel();
         panel.setVisible(true);
         panel.setBounds(50, 200, 150, 20);
         panel.setBackground(Color.red);
         panel.setBorder(new LineBorder(Color.BLACK));
-        
+
         //Label that tell if the student were found or not
         foundLabel = new JLabel();
-        foundLabel.setFont(new Font("Verdana",1,12));
+        foundLabel.setFont(new Font("Verdana", 1, 12));
         //Align text inside the panel box vertically
         foundLabel.setBorder(BorderFactory.createEmptyBorder(-4/*TOP*/, 0, 0, 0));
         panel.add(foundLabel);
         
         
-        
-        ActionListener actionListener = new ActionListener(){
+        ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
+                Statement statement = new connection.
                 String name = nameField.getText();
                 String lastName = lastNameField.getText();
-                
-                if(e.getSource() == findButton){
+
+                if (e.getSource() == findButton) {
                     //result =   String.valueOf(s1+" " +s2);
                     panel.setBackground(Color.red);
                     foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
-                }
-                else if(e.getSource() == endButton){
+                } else if (e.getSource() == endButton) {
                     panel.setBackground(Color.GREEN);
                     foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
                 }
-            }  
+            }
         };
-                
-        
-        
+
         findButton.addActionListener(actionListener);
-        endButton.addActionListener(actionListener);  
-        
+        endButton.addActionListener(actionListener);
+
         frame.add(nameField);
         frame.add(lastNameField);
         frame.add(findButton);
-        frame.add(endButton); 
+        frame.add(endButton);
         frame.add(panel);
         frame.add(nameLabel);
         frame.add(lastNameLabel);
         frame.add(copyrigthLabel);
         frame.add(titleLabel);
         frame.add(infoTitleLabel);
-        frame.setSize(700,400);  
-        frame.setLayout(null);  
-        frame.setVisible(true);  
+        frame.setSize(645, 400);
+        frame.setLayout(null);
+        frame.setVisible(true);
     }
 
     //Remove array list getter, just for testing
