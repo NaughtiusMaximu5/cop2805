@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -19,6 +21,7 @@ public class StudentList {
 
     private ArrayList<Student> students = new ArrayList<>();
     private String path;
+    Connection connection;
 
     /**
      * Prompts the user for an input file name and reads the contents of the
@@ -90,7 +93,7 @@ public class StudentList {
      * Prompts the user for an DataBase file name (.accdb) and writes the
      * contents of students to the DB.
      */
-    public void saveStudentsToDB() throws SQLException, FileNotFoundException, ClassNotFoundException {
+    public void saveStudentsToDB() {
 
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Open DataBase to save information");
@@ -102,32 +105,37 @@ public class StudentList {
             path = accessDB.getAbsolutePath();
         }
 
-        Connection connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
-        Statement add = connection.createStatement();
+        try {
+            connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+            Statement add = connection.createStatement();
 
-        for (Student student : students) {
+            for (Student student : students) {
 
-            //Sql statements to add information to .accdb from .txt file
-            add.executeUpdate(
-                    "INSERT INTO StudentsTbl"
-                    + "(FirstName,"
-                    + " LastName, "
-                    + " Grade1, "
-                    + " Grade2, "
-                    + " Grade3, "
-                    + " Average, "
-                    + " Status, "
-                    + " LetterGrade)"
-                    + "values("
-                    + "'" + student.getFirstName() + "',"
-                    + "'" + student.getLastName() + "',"
-                    + String.format("%.2f", student.getGrade1()) + ","
-                    + String.format("%.2f", student.getGrade2()) + ","
-                    + String.format("%.2f", student.getGrade3()) + ","
-                    + String.format("%.2f", student.computeAverage()) + ","
-                    + "'" + student.computeStatus() + "',"
-                    + "'" + student.computeLetterGrade() + "');");
+                //Sql statements to add information to .accdb from .txt file
+                add.executeUpdate(
+                        "INSERT INTO StudentsTbl"
+                        + "(FirstName,"
+                        + " LastName, "
+                        + " Grade1, "
+                        + " Grade2, "
+                        + " Grade3, "
+                        + " Average, "
+                        + " Status, "
+                        + " LetterGrade)"
+                        + "values("
+                        + "'" + student.getFirstName() + "',"
+                        + "'" + student.getLastName() + "',"
+                        + String.format("%.2f", student.getGrade1()) + ","
+                        + String.format("%.2f", student.getGrade2()) + ","
+                        + String.format("%.2f", student.getGrade3()) + ","
+                        + String.format("%.2f", student.computeAverage()) + ","
+                        + "'" + student.computeStatus() + "',"
+                        + "'" + student.computeLetterGrade() + "');");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error reading from DataBase");
         }
+
     }
 
     /**
@@ -138,35 +146,19 @@ public class StudentList {
      */
     public void findStudent() {
 
-//        JFrame f = new JFrame();
-//        f.setTitle("Find Student");
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        
-//        JPanel panel = (JPanel)f.getContentPane();
-//        panel.setLayout(null);
-//        
-//        
-//        Dimension labelSize = label.getPreferredSize();
-//        Dimension buttonSize = button.getPreferredSize();
-//        label.setBounds(40, 25, labelSize.width, labelSize.height);
-//        button.setBounds(275, 120, buttonSize.width, buttonSize.height);
-//        
-//        
-//        f.setSize(400, 200);
-//        f.setVisible(true);
         JTextField nameField,
                 lastNameField;
         JButton findButton,
                 endButton;
-        
+
         //==================    LABELS    =======================
         //      Find Student        Student Info
-        JLabel titleLabel,          infoTitleLabel,
-                nameLabel,          nameInfoLabel,
-                lastNameLabel,      lastNameInfoLabel,
-                foundLabel,         averageLabel,
-                copyrigthLabel,     gradeLabel,
-                                    statusLabel;     
+        JLabel titleLabel, infoTitleLabel,
+                nameLabel, nameInfoLabel,
+                lastNameLabel, lastNameInfoLabel,
+                foundLabel, averageLabel,
+                copyrigthLabel, gradeLabel,
+                statusLabel;
 
         JFrame frame = new JFrame();
         frame.setTitle("Find Student");
@@ -196,31 +188,29 @@ public class StudentList {
         findButton.setBounds(420, 280, 70, 40);
         endButton = new JButton("End");
         endButton.setBounds(500, 280, 70, 40);
-        
-        
+
         //Student Information Labels
-        nameInfoLabel =  new JLabel();
+        nameInfoLabel = new JLabel();
         nameInfoLabel.setText("<html><p font='Verdana';>Name:</p></html>");
         nameInfoLabel.setBounds(350, 60, 200, 100);
         frame.add(nameInfoLabel);
-        lastNameInfoLabel =  new JLabel();
+        lastNameInfoLabel = new JLabel();
         lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name:</p></html>");
         lastNameInfoLabel.setBounds(350, 85, 200, 100);
         frame.add(lastNameInfoLabel);
-        averageLabel =  new JLabel();
+        averageLabel = new JLabel();
         averageLabel.setText("<html><p font='Verdana';>Average:</p></html>");
         averageLabel.setBounds(350, 110, 200, 100);
         frame.add(averageLabel);
-        gradeLabel =  new JLabel();
+        gradeLabel = new JLabel();
         gradeLabel.setText("<html><p font='Verdana';>Grade:</p></html>");
         gradeLabel.setBounds(350, 135, 200, 100);
         frame.add(gradeLabel);
-        statusLabel =  new JLabel();
+        statusLabel = new JLabel();
         statusLabel.setText("<html><p font='Verdana';>Status:</p></html>");
         statusLabel.setBounds(350, 160, 200, 100);
         frame.add(statusLabel);
-        
-        
+
         //Label of the copyrigth
         copyrigthLabel = new JLabel();
         copyrigthLabel.setText("<html><h3 font='Verdana';> 2018 &copy; 𝓢𝓡𝓒 Group.</h3></html>");
@@ -238,23 +228,57 @@ public class StudentList {
         //Align text inside the panel box vertically
         foundLabel.setBorder(BorderFactory.createEmptyBorder(-4/*TOP*/, 0, 0, 0));
         panel.add(foundLabel);
-        
-        
+
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                Statement statement = new connection.
+
+                //Get text from fields 
                 String name = nameField.getText();
                 String lastName = lastNameField.getText();
 
-                if (e.getSource() == findButton) {
-                    //result =   String.valueOf(s1+" " +s2);
-                    panel.setBackground(Color.red);
-                    foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
-                } else if (e.getSource() == endButton) {
-                    panel.setBackground(Color.GREEN);
-                    foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
+                try {
+                    connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+                    Statement readFromDB = connection.createStatement();
+                    ResultSet result = readFromDB.executeQuery("SELECT *"
+                            + "FROM StudentsTbl where firstName = '"
+                            + name + "'and lastName = '" + lastName + "';");
+
+                    if (e.getSource() == findButton) {
+
+                        if (result.next()) {
+                            panel.setBackground(Color.GREEN);
+                            foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
+                            nameInfoLabel.setText("<html><p font='Verdana';>Name: &ensp;"
+                                    + result.getString(2) + "</p></html>");
+                            lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: &ensp;"
+                                    + result.getString(3) + "</p></html>");
+                            averageLabel.setText("<html><p font='Verdana';>Average: &ensp;"
+                                    + String.format("%.2f", result.getDouble(7)) + "</p></html>");
+                            gradeLabel.setText("<html><p font='Verdana';>Grade: &ensp;"
+                                    + result.getString(9) + "</p></html>");
+                            statusLabel.setText("<html><p font='Verdana';>Status: &ensp;"
+                                    + result.getString(8) + "</p></html>");
+                        } else {
+                            panel.setBackground(Color.red);
+                            foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
+                            foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
+                            nameInfoLabel.setText("<html><p font='Verdana';>Name: </p></html>");
+                            lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: </p></html>");
+                            averageLabel.setText("<html><p font='Verdana';>Average: </p></html>");
+                            gradeLabel.setText("<html><p font='Verdana';>Grade: </p></html>");
+                            statusLabel.setText("<html><p font='Verdana';>Status: </p></html>");
+                        }
+                    }
+                    
+                    //End
+                    if (e.getSource() == endButton) {
+                        connection.close();
+                        frame.dispose();
+                    }
+
+                } catch (SQLException ex) {
+                    System.out.println("Error reading from DataBase");
                 }
             }
         };
