@@ -1,8 +1,1 @@
-Name			Grade 1		Grade 2		Grade 3		Average		Letter Grade	Status		
-
-
-Juan Rodriguez		0.00		0.00		0.00		0.00		Failing		F
-Julio Perez		78.00		0.00		0.00		26.00		Failing		F
-Rodolfo Cruz		78.00		99.00		0.00		59.00		Failing		F
-Maria Vargas		90.00		100.00		100.00		96.00		Passing		A
 
