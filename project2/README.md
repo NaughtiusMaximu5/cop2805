@@ -1,5 +1,7 @@
 # Project 2
 
+![Screen Shot of Find Students](Files/find-student.png)
+
 ### Design a class **Student** that contains the following members:
 
 - String fields **firstName**, **lastName** and **status**.
@@ -61,8 +63,8 @@ the user enters `end`.
 the contents of the StudentsTbl from the DB to the output file with the following format:
 
 ```
-Name          Grade 1  Grade 2  Grade 3  Average  Letter Status Grade
-
+Name          Grade 1  Grade 2  Grade 3  Average  Letter Status
+                                                  Grade
 Rodolfo Cruz  100.00   100.00   100.00   100.00   A      Passing
 Julio Perez    60.00    60.00    60.00    60.00   F      Failing
 ```
@@ -72,7 +74,8 @@ writes the contents of the **StudentsTbl** from the DB to the output file in asc
 average (use order by SQL clause) with the following format:
 
 ```
-Name          Grade 1  Grade 2  Grade 3  Average  Letter Status Grade
+Name          Grade 1  Grade 2  Grade 3  Average  Letter Status
+                                                  Grade
 Rodolfo Cruz  100.00   100.00   100.00   100.00   A      Passing
 Julio Perez    60.00    60.00    60.00    60.00   F      Failing
 ```
