@@ -80,7 +80,7 @@ public class StudentList {
                             student.setGrade2(Double.parseDouble(tempArray[3]));
                             student.setGrade3(0);
                             break;
-                        //When thre are three quizes
+                        //When there are three quizes
                         case 5:
                             student.setGrade1(Double.parseDouble(tempArray[2]));
                             student.setGrade2(Double.parseDouble(tempArray[3]));
