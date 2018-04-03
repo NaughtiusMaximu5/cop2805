@@ -244,8 +244,9 @@ public class StudentList {
             try {
                 connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
                 Statement readFromDB = connection.createStatement();
-                ResultSet result = readFromDB.executeQuery("SELECT *"
-                        + "FROM StudentsTbl where firstName = '"
+                ResultSet result = readFromDB.executeQuery(
+                       "SELECT *"
+                        + " FROM StudentsTbl where firstName = '"
                         + name + "'and lastName = '" + lastName + "';");
                 
                 if (e.getSource() == findButton) {
