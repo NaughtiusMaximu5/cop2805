@@ -1,20 +1,26 @@
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+Group Members: Carlos Abraham Hernandez
+               Junior Betancour
+               Andy Tamayo
+Student IDs: Student IDs of Group members
+COP 2805C –Java Programming 2
+Spring 2018 - T Th 6:15 PM - 9:30PM
+Project # 2
+Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
+whole or otherwise plagiarized the work of other students and/or persons.
+
+@author SRC Group
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 package project2;
 
-/**
- *
- * @author SRC Group COP2805
- */
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.*;
 import java.sql.*;
 import java.util.*;
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Font;
 import javax.swing.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.border.LineBorder;
 
 public class StudentList {
@@ -98,7 +104,7 @@ public class StudentList {
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Open DataBase to save information");
 
-        File accessDB = null;
+        File accessDB;
 
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             accessDB = chooser.getSelectedFile();
@@ -153,12 +159,12 @@ public class StudentList {
 
         //==================    LABELS    =======================
         //      Find Student        Student Info
-        JLabel titleLabel, infoTitleLabel,
-                nameLabel, nameInfoLabel,
-                lastNameLabel, lastNameInfoLabel,
-                foundLabel, averageLabel,
-                copyrigthLabel, gradeLabel,
-                statusLabel;
+        JLabel titleLabel,          infoTitleLabel,
+                nameLabel,          nameInfoLabel,
+                lastNameLabel,      lastNameInfoLabel,
+                foundLabel,         averageLabel,
+                copyrigthLabel,     gradeLabel,
+                                    statusLabel;
 
         JFrame frame = new JFrame();
         frame.setTitle("Find Student");
@@ -193,29 +199,30 @@ public class StudentList {
         nameInfoLabel = new JLabel();
         nameInfoLabel.setText("<html><p font='Verdana';>Name:</p></html>");
         nameInfoLabel.setBounds(350, 60, 200, 100);
-        frame.add(nameInfoLabel);
+        
         lastNameInfoLabel = new JLabel();
         lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name:</p></html>");
         lastNameInfoLabel.setBounds(350, 85, 200, 100);
-        frame.add(lastNameInfoLabel);
+        
         averageLabel = new JLabel();
         averageLabel.setText("<html><p font='Verdana';>Average:</p></html>");
         averageLabel.setBounds(350, 110, 200, 100);
-        frame.add(averageLabel);
+        
         gradeLabel = new JLabel();
         gradeLabel.setText("<html><p font='Verdana';>Grade:</p></html>");
         gradeLabel.setBounds(350, 135, 200, 100);
-        frame.add(gradeLabel);
+        
         statusLabel = new JLabel();
         statusLabel.setText("<html><p font='Verdana';>Status:</p></html>");
         statusLabel.setBounds(350, 160, 200, 100);
-        frame.add(statusLabel);
+        
 
         //Label of the copyrigth
         copyrigthLabel = new JLabel();
         copyrigthLabel.setText("<html><h3 font='Verdana';> 2018 &copy; 𝓢𝓡𝓒 Group.</h3></html>");
         copyrigthLabel.setBounds(50, 260, 200, 100);
-
+        
+        //Box that change color (green or red) Set it default to red
         JPanel panel = new JPanel();
         panel.setVisible(true);
         panel.setBounds(50, 200, 150, 20);
@@ -229,57 +236,53 @@ public class StudentList {
         foundLabel.setBorder(BorderFactory.createEmptyBorder(-4/*TOP*/, 0, 0, 0));
         panel.add(foundLabel);
 
-        ActionListener actionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                //Get text from fields 
-                String name = nameField.getText();
-                String lastName = lastNameField.getText();
-
-                try {
-                    connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
-                    Statement readFromDB = connection.createStatement();
-                    ResultSet result = readFromDB.executeQuery("SELECT *"
-                            + "FROM StudentsTbl where firstName = '"
-                            + name + "'and lastName = '" + lastName + "';");
-
-                    if (e.getSource() == findButton) {
-
-                        if (result.next()) {
-                            panel.setBackground(Color.GREEN);
-                            foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
-                            nameInfoLabel.setText("<html><p font='Verdana';>Name: &ensp;"
-                                    + result.getString(2) + "</p></html>");
-                            lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: &ensp;"
-                                    + result.getString(3) + "</p></html>");
-                            averageLabel.setText("<html><p font='Verdana';>Average: &ensp;"
-                                    + String.format("%.2f", result.getDouble(7)) + "</p></html>");
-                            gradeLabel.setText("<html><p font='Verdana';>Grade: &ensp;"
-                                    + result.getString(9) + "</p></html>");
-                            statusLabel.setText("<html><p font='Verdana';>Status: &ensp;"
-                                    + result.getString(8) + "</p></html>");
-                        } else {
-                            panel.setBackground(Color.red);
-                            foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
-                            foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
-                            nameInfoLabel.setText("<html><p font='Verdana';>Name: </p></html>");
-                            lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: </p></html>");
-                            averageLabel.setText("<html><p font='Verdana';>Average: </p></html>");
-                            gradeLabel.setText("<html><p font='Verdana';>Grade: </p></html>");
-                            statusLabel.setText("<html><p font='Verdana';>Status: </p></html>");
-                        }
-                    }
+        ActionListener actionListener = (ActionEvent e) -> {
+            //Get text from fields
+            String name = nameField.getText();
+            String lastName = lastNameField.getText();
+            
+            try {
+                connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+                Statement readFromDB = connection.createStatement();
+                ResultSet result = readFromDB.executeQuery("SELECT *"
+                        + "FROM StudentsTbl where firstName = '"
+                        + name + "'and lastName = '" + lastName + "';");
+                
+                if (e.getSource() == findButton) {
                     
-                    //End
-                    if (e.getSource() == endButton) {
-                        connection.close();
-                        frame.dispose();
+                    if (result.next()) {
+                        panel.setBackground(Color.GREEN);
+                        foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
+                        nameInfoLabel.setText("<html><p font='Verdana';>Name: &ensp;"
+                                + result.getString(2) + "</p></html>");
+                        lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: &ensp;"
+                                + result.getString(3) + "</p></html>");
+                        averageLabel.setText("<html><p font='Verdana';>Average: &ensp;"
+                                + String.format("%.2f", result.getDouble(7)) + "</p></html>");
+                        gradeLabel.setText("<html><p font='Verdana';>Grade: &ensp;"
+                                + result.getString(8) + "</p></html>");
+                        statusLabel.setText("<html><p font='Verdana';>Status: &ensp;"
+                                + result.getString(9) + "</p></html>");
+                    } else {
+                        panel.setBackground(Color.red);
+                        foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
+                        foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
+                        nameInfoLabel.setText("<html><p font='Verdana';>Name: </p></html>");
+                        lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: </p></html>");
+                        averageLabel.setText("<html><p font='Verdana';>Average: </p></html>");
+                        gradeLabel.setText("<html><p font='Verdana';>Grade: </p></html>");
+                        statusLabel.setText("<html><p font='Verdana';>Status: </p></html>");
                     }
-
-                } catch (SQLException ex) {
-                    System.out.println("Error reading from DataBase");
                 }
+                
+                //We don't write END 😎 we discovered "THE BUTTON"
+                if (e.getSource() == endButton) {
+                    connection.close();
+                    frame.dispose();
+                }
+                
+            } catch (SQLException ex) {
+                System.out.println("Error reading from DataBase");
             }
         };
 
@@ -296,13 +299,120 @@ public class StudentList {
         frame.add(copyrigthLabel);
         frame.add(titleLabel);
         frame.add(infoTitleLabel);
+        frame.add(nameInfoLabel);
+        frame.add(lastNameInfoLabel);
+        frame.add(averageLabel);
+        frame.add(gradeLabel);
+        frame.add(statusLabel);
         frame.setSize(645, 400);
         frame.setLayout(null);
         frame.setVisible(true);
     }
 
-    //Remove array list getter, just for testing
-    public ArrayList<Student> getStudents() {
-        return students;
+    /**
+     * Prompts the user for an output file name (use JFileChooser) and writes
+     * the contents of the StudentsTbl from the DB to the output file.
+     */
+    public void writeStudents() {
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open file to save information from DataBase");
+
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            PrintWriter output = null;
+
+            try {
+                connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+                Statement statement = connection.createStatement();
+
+                ResultSet result = statement.executeQuery(
+                        "SELECT * FROM StudentsTbl");
+                File file = chooser.getSelectedFile();
+                output = new PrintWriter(file);
+
+                output.println(
+                        "Name\t\t\t"
+                        + "Grade 1\t\t"
+                        + "Grade 2\t\t"
+                        + "Grade 3\t\t"
+                        + "Average\t\t"
+                        + "Letter Grade\t"
+                        + "Status\t\t");
+                output.println("\n");
+
+                while (result.next()) {
+                    output.println(result.getString(2)
+                            + " " + result.getString(3)
+                            + "\t\t" + String.format("%.2f", result.getDouble(4))
+                            + "\t\t" + String.format("%.2f", result.getDouble(5))
+                            + "\t\t" + String.format("%.2f", result.getDouble(6))
+                            + "\t\t" + String.format("%.2f", result.getDouble(7))
+                            + "\t\t" + result.getString(9)
+                            + "\t\t" + result.getString(8));
+                }
+                output.println();
+
+            } catch (FileNotFoundException e) {
+                System.out.println("File not Found");
+            } catch (SQLException e) {
+                System.out.println("Problem with the connection in writeStudents() method");
+            } finally {
+                output.close();
+            }
+        }
+    }
+
+    /**
+     * Prompts the user for an output file name (use JFileChooser) and writes
+     * the contents of the StudentsTbl from the DB to the output file in
+     * ascending order of average (use order by SQL clause).
+     */
+    public void writeSortedStudents() {
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open file to save information Sorted from DataBase");
+
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            PrintWriter output = null;
+
+            try {
+                connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+                Statement statement = connection.createStatement();
+
+                ResultSet result = statement.executeQuery(
+                        "SELECT * FROM StudentsTbl ORDER BY Average ASC");
+                File file = chooser.getSelectedFile();
+                output = new PrintWriter(file);
+
+                output.println(
+                        "Name\t\t\t"
+                        + "Grade 1\t\t"
+                        + "Grade 2\t\t"
+                        + "Grade 3\t\t"
+                        + "Average\t\t"
+                        + "Letter Grade\t"
+                        + "Status\t\t");
+                output.println("\n");
+
+                while (result.next()) {
+                    output.println(result.getString(2)
+                            + " " + result.getString(3)
+                            + "\t\t" + String.format("%.2f", result.getDouble(4))
+                            + "\t\t" + String.format("%.2f", result.getDouble(5))
+                            + "\t\t" + String.format("%.2f", result.getDouble(6))
+                            + "\t\t" + String.format("%.2f", result.getDouble(7))
+                            + "\t\t" + result.getString(9)
+                            + "\t\t" + result.getString(8));
+                }
+                output.println();
+
+            } catch (FileNotFoundException e) {
+                System.out.println("File not Found");
+            } catch (SQLException e) {
+                System.out.println("Problem with the connection in writeStudents() method");
+            } finally {
+                output.close();
+            }
+        }
     }
 }
