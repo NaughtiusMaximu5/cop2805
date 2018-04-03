@@ -1,5 +1,5 @@
 package tests;
-public class Student {
+public class Student implements comparable<>{
 
     private String name;
     private String status;
