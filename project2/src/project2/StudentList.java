@@ -5,15 +5,12 @@ package project2;
  * @author SRC Group COP2805
  */
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -256,9 +253,9 @@ public class StudentList {
                             averageLabel.setText("<html><p font='Verdana';>Average: &ensp;"
                                     + String.format("%.2f", result.getDouble(7)) + "</p></html>");
                             gradeLabel.setText("<html><p font='Verdana';>Grade: &ensp;"
-                                    + result.getString(9) + "</p></html>");
-                            statusLabel.setText("<html><p font='Verdana';>Status: &ensp;"
                                     + result.getString(8) + "</p></html>");
+                            statusLabel.setText("<html><p font='Verdana';>Status: &ensp;"
+                                    + result.getString(9) + "</p></html>");
                         } else {
                             panel.setBackground(Color.red);
                             foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
@@ -300,9 +297,116 @@ public class StudentList {
         frame.setLayout(null);
         frame.setVisible(true);
     }
-
-    //Remove array list getter, just for testing
-    public ArrayList<Student> getStudents() {
-        return students;
+    
+    /**
+     * Prompts the user for an output file name (use JFileChooser) and writes
+     * the contents of the StudentsTbl from the DB to the output file.
+     */
+    
+    public void writeStudents(){
+        
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open file to save information from DataBase");
+        
+        if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            PrintWriter output = null;
+            
+            try{
+                connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+                Statement statement = connection.createStatement();
+                
+                ResultSet result = statement.executeQuery(
+                "SELECT * FROM StudentsTbl");
+                File file = chooser.getSelectedFile();
+                output = new PrintWriter(file);
+                
+                output.println(
+                            "Name\t\t\t"
+                            + "Grade 1\t\t"
+                            + "Grade 2\t\t"
+                            + "Grade 3\t\t"
+                            + "Average\t\t"
+                            + "Letter Grade\t"
+                            + "Status\t\t");
+                output.println("\n");
+                
+                while(result.next()){
+                output.println(result.getString(2)
+                        + " " + result.getString(3)
+                        + "\t\t" + String.format("%.2f", result.getDouble(4))
+                        + "\t\t" + String.format("%.2f", result.getDouble(5))
+                        + "\t\t" + String.format("%.2f", result.getDouble(6))
+                        + "\t\t" + String.format("%.2f", result.getDouble(7))
+                        + "\t\t" + result.getString(9)
+                        + "\t\t" + result.getString(8));
+            }
+                output.println();
+                
+            }catch(FileNotFoundException e){
+                System.out.println("File not Found");
+            } catch(SQLException e){
+                System.out.println("Problem with the connection in writeStudents() method");
+            }
+            finally{
+                output.close();
+                System.out.println("Connection Closed");
+            }
+        }
+    }
+    
+    /**
+     * Prompts the user for an output file name (use JFileChooser) and writes 
+     * the contents of the StudentsTbl from the DB to the output file in 
+     * ascending order of average (use order by SQL clause).
+     */
+    public void writeSortedStudents(){
+        
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open file to save information from DataBase");
+        
+        if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            PrintWriter output = null;
+            
+            try{
+                connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
+                Statement statement = connection.createStatement();
+                
+                ResultSet result = statement.executeQuery(
+                "SELECT * FROM StudentsTbl ORDER BY Average ASC");
+                File file = chooser.getSelectedFile();
+                output = new PrintWriter(file);
+                
+                output.println(
+                            "Name\t\t\t"
+                            + "Grade 1\t\t"
+                            + "Grade 2\t\t"
+                            + "Grade 3\t\t"
+                            + "Average\t\t"
+                            + "Letter Grade\t"
+                            + "Status\t\t");
+                output.println("\n");
+                
+                while(result.next()){
+                output.println(result.getString(2)
+                        + " " + result.getString(3)
+                        + "\t\t" + String.format("%.2f", result.getDouble(4))
+                        + "\t\t" + String.format("%.2f", result.getDouble(5))
+                        + "\t\t" + String.format("%.2f", result.getDouble(6))
+                        + "\t\t" + String.format("%.2f", result.getDouble(7))
+                        + "\t\t" + result.getString(9)
+                        + "\t\t" + result.getString(8));
+            }
+                output.println();
+                
+            }catch(FileNotFoundException e){
+                System.out.println("File not Found");
+            } catch(SQLException e){
+                System.out.println("Problem with the connection in writeStudents() method");
+            }
+            finally{
+                output.close();
+                System.out.println("Connection Closed");
+            }
+        }
     }
 }
