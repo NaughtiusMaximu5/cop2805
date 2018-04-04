@@ -112,7 +112,7 @@ public class Student {
      * @return average - average between all grades
      */
     public double computeAverage() {
-        return (grade1 + grade2 + grade3) / 3;
+        return (grade1 + grade2 + grade3) / 3.0;
     }
 
     /**
