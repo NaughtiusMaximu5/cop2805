@@ -1,7 +1,7 @@
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 Group Members: Carlos Abraham Hernandez
-               Junior Betancour
-               Andy Tamayo
+               Junior Betancourt
+               Andy Gonzalez
 Student IDs: Student IDs of Group members
 COP 2805C –Java Programming 2
 Spring 2018 - T Th 6:15 PM - 9:30PM
