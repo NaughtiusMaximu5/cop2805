@@ -27,7 +27,7 @@ public class StudentList {
 
     private ArrayList<Student> students = new ArrayList<>();
     private String path;
-    Connection connection;
+    private Connection connection;
 
     /**
      * Prompts the user for an input file name and reads the contents of the
