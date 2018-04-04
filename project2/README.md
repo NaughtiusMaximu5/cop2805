@@ -111,3 +111,8 @@ whole or otherwise plagiarized the work of other students and/or persons.
 
 Submission guidelines: Send your code files (Student.java, StudentList.java and TestStudents.java)
 as attachments to my email rcruz2@mdc.edu, with the subject Adv. Java Project 2
+
+
+# UML Diagram
+
+![Screen Shot of Find Students](Files/uml.png)
