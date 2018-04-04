@@ -267,7 +267,6 @@ public class StudentList {
                     } else {
                         panel.setBackground(Color.red);
                         foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
-                        foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
                         nameInfoLabel.setText("<html><p font='Verdana';>Name: </p></html>");
                         lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: </p></html>");
                         averageLabel.setText("<html><p font='Verdana';>Average: </p></html>");
