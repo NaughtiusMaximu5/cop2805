@@ -19,8 +19,9 @@ import java.util.*;
 import java.awt.Font;
 import javax.swing.*;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.border.LineBorder;
 
 public class StudentList {
@@ -245,7 +246,7 @@ public class StudentList {
                 connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
                 Statement readFromDB = connection.createStatement();
                 ResultSet result = readFromDB.executeQuery(
-                       "SELECT *"
+                       "SELECT firstName, lastName,  Average, letterGrade, Status"
                         + " FROM StudentsTbl where firstName = '"
                         + name + "'and lastName = '" + lastName + "';");
                 
@@ -255,15 +256,15 @@ public class StudentList {
                         panel.setBackground(Color.GREEN);
                         foundLabel.setText("<html><div color='#00000'> Student Found</div></html>");
                         nameInfoLabel.setText("<html><p font='Verdana';>Name: &ensp;"
-                                + result.getString(2) + "</p></html>");
+                                + result.getString(1) + "</p></html>");
                         lastNameInfoLabel.setText("<html><p font='Verdana';>Last Name: &ensp;"
-                                + result.getString(3) + "</p></html>");
+                                + result.getString(2) + "</p></html>");
                         averageLabel.setText("<html><p font='Verdana';>Average: &ensp;"
-                                + String.format("%.2f", result.getDouble(7)) + "</p></html>");
+                                + String.format("%.2f", result.getDouble(3)) + "</p></html>");
                         gradeLabel.setText("<html><p font='Verdana';>Grade: &ensp;"
-                                + result.getString(8) + "</p></html>");
+                                + result.getString(4) + "</p></html>");
                         statusLabel.setText("<html><p font='Verdana';>Status: &ensp;"
-                                + result.getString(9) + "</p></html>");
+                                + result.getString(5) + "</p></html>");
                     } else {
                         panel.setBackground(Color.red);
                         foundLabel.setText("<html><div color='#FFFFFF'> Student Not Found</div></html>");
@@ -326,12 +327,11 @@ public class StudentList {
                 Statement statement = connection.createStatement();
 
                 ResultSet result = statement.executeQuery(
-                        "SELECT * FROM StudentsTbl");
+                        "SELECT firstName, lastName, Grade1, Grade2, Grade3, Average, letterGrade, Status FROM StudentsTbl");
                 File file = chooser.getSelectedFile();
                 output = new PrintWriter(file);
 
-                output.println(
-                        "Name\t\t\t"
+                output.println(String.format("%-32s", "Name")
                         + "Grade 1\t\t"
                         + "Grade 2\t\t"
                         + "Grade 3\t\t"
@@ -341,14 +341,14 @@ public class StudentList {
                 output.println("\n");
 
                 while (result.next()) {
-                    output.println(result.getString(2)
-                            + " " + result.getString(3)
-                            + "\t\t" + String.format("%.2f", result.getDouble(4))
-                            + "\t\t" + String.format("%.2f", result.getDouble(5))
-                            + "\t\t" + String.format("%.2f", result.getDouble(6))
-                            + "\t\t" + String.format("%.2f", result.getDouble(7))
-                            + "\t\t" + result.getString(9)
-                            + "\t\t" + result.getString(8));
+                    output.println(String.format("%-20s", result.getString(1) +" "+ result.getString(2))                          
+                            + "\t\t" +  result.getString(3)
+                            + "\t\t" +  result.getString(4)
+                            + "\t\t" +  result.getString(5)
+                            + "\t\t" +  result.getString(6)
+                            + "\t\t" +  result.getString(7)
+                            + "\t\t" +  result.getString(8)
+                    );
                 }
                 output.println();
 
@@ -380,29 +380,38 @@ public class StudentList {
                 Statement statement = connection.createStatement();
 
                 ResultSet result = statement.executeQuery(
-                        "SELECT * FROM StudentsTbl ORDER BY Average ASC");
+                        "SELECT firstName,"
+                        + " lastName,"
+                                + " Grade1,"
+                                + " Grade2,"
+                                + " Grade3,"
+                                + " Average,"
+                                + " letterGrade,"
+                                + " Status"
+                                + " FROM StudentsTbl"
+                                + " ORDER BY Average ASC");
                 File file = chooser.getSelectedFile();
                 output = new PrintWriter(file);
 
-                output.println(
-                        "Name\t\t\t"
+                output.println(String.format("%-32s", "Name")
                         + "Grade 1\t\t"
                         + "Grade 2\t\t"
                         + "Grade 3\t\t"
                         + "Average\t\t"
-                        + "Letter Grade\t"
-                        + "Status\t\t");
-                output.println("\n");
+                        + "Letter \t\t"
+                        + "Status\t\t"
+                );
+                output.println(String.format("\n%101s","Grade"));
 
                 while (result.next()) {
-                    output.println(result.getString(2)
-                            + " " + result.getString(3)
-                            + "\t\t" + String.format("%.2f", result.getDouble(4))
-                            + "\t\t" + String.format("%.2f", result.getDouble(5))
-                            + "\t\t" + String.format("%.2f", result.getDouble(6))
-                            + "\t\t" + String.format("%.2f", result.getDouble(7))
-                            + "\t\t" + result.getString(9)
-                            + "\t\t" + result.getString(8));
+                    output.println(String.format("%-20s", result.getString(1) +" "+ result.getString(2))                          
+                            + "\t\t" +  result.getString(3)
+                            + "\t\t" +  result.getString(4)
+                            + "\t\t" +  result.getString(5)
+                            + "\t\t" +  result.getString(6)
+                            + "\t\t" +  result.getString(7)
+                            + "\t\t" +  result.getString(8)
+                    );
                 }
                 output.println();
 
