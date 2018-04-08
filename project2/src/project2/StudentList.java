@@ -1,8 +1,10 @@
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 Group Members: Carlos Abraham Hernandez
-               Junior Betancour
-               Andy Tamayo
-Student IDs: Student IDs of Group members
+               Junior Betancourt
+               Andy Gonzalez
+Student IDs:   4000026424
+               1002223305
+               1000784524
 COP 2805C –Java Programming 2
 Spring 2018 - T Th 6:15 PM - 9:30PM
 Project # 2
@@ -19,9 +21,8 @@ import java.util.*;
 import java.awt.Font;
 import javax.swing.*;
 import java.awt.Color;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.border.LineBorder;
 
 public class StudentList {
@@ -38,16 +39,13 @@ public class StudentList {
 
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Select file with Student Information");
-
-        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-
-            File fileObject = chooser.getSelectedFile();
-
+            
+        if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            File file = chooser.getSelectedFile();
             Scanner input;
 
             try {
-
-                input = new Scanner(fileObject);
+                input = new Scanner(file);
 
                 while (input.hasNext()) {
 
@@ -246,9 +244,15 @@ public class StudentList {
                 connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
                 Statement readFromDB = connection.createStatement();
                 ResultSet result = readFromDB.executeQuery(
-                       "SELECT firstName, lastName,  Average, letterGrade, Status"
-                        + " FROM StudentsTbl where firstName = '"
-                        + name + "'and lastName = '" + lastName + "';");
+                       "SELECT firstName,"
+                               + " lastName,"
+                               + "  Average,"
+                               + " letterGrade,"
+                               + " Status"
+                               + " FROM StudentsTbl"
+                               + " where firstName = '" + name + "' "
+                               + " and lastName = '" + lastName + "';"
+                );
                 
                 if (e.getSource() == findButton) {
                     
@@ -327,21 +331,33 @@ public class StudentList {
                 Statement statement = connection.createStatement();
 
                 ResultSet result = statement.executeQuery(
-                        "SELECT firstName, lastName, Grade1, Grade2, Grade3, Average, letterGrade, Status FROM StudentsTbl");
+                        "SELECT firstName,"
+                                + " lastName,"
+                                + " Grade1,"
+                                + " Grade2,"
+                                + " Grade3,"
+                                + " Average,"
+                                + " letterGrade,"
+                                + " Status"
+                                + " FROM StudentsTbl");
+
                 File file = chooser.getSelectedFile();
                 output = new PrintWriter(file);
 
-                output.println(String.format("%-32s", "Name")
+                output.println(
+                        String.format("%-32s", "Name")
                         + "Grade 1\t\t"
                         + "Grade 2\t\t"
                         + "Grade 3\t\t"
                         + "Average\t\t"
-                        + "Letter Grade\t"
-                        + "Status\t\t");
-                output.println("\n");
+                        + "Letter\t\t"
+                        + "Status\t\t"
+                );
+                output.println(String.format("\n%101s","Grade"));
 
                 while (result.next()) {
-                    output.println(String.format("%-20s", result.getString(1) +" "+ result.getString(2))                          
+                    output.println(
+                            String.format("%-20s", result.getString(1) +" "+ result.getString(2))                          
                             + "\t\t" +  result.getString(3)
                             + "\t\t" +  result.getString(4)
                             + "\t\t" +  result.getString(5)
@@ -373,15 +389,16 @@ public class StudentList {
         chooser.setDialogTitle("Open file to save information Sorted from DataBase");
 
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            
             PrintWriter output = null;
-
+            
             try {
                 connection = DriverManager.getConnection("jdbc:ucanaccess://" + path);
                 Statement statement = connection.createStatement();
 
                 ResultSet result = statement.executeQuery(
                         "SELECT firstName,"
-                        + " lastName,"
+                                + " lastName,"
                                 + " Grade1,"
                                 + " Grade2,"
                                 + " Grade3,"
@@ -390,6 +407,7 @@ public class StudentList {
                                 + " Status"
                                 + " FROM StudentsTbl"
                                 + " ORDER BY Average ASC");
+                
                 File file = chooser.getSelectedFile();
                 output = new PrintWriter(file);
 
@@ -402,15 +420,17 @@ public class StudentList {
                         + "Status\t\t"
                 );
                 output.println(String.format("\n%101s","Grade"));
-
                 while (result.next()) {
-                    output.println(String.format("%-20s", result.getString(1) +" "+ result.getString(2))                          
+
+                    output.println(
+                            String.format("%-20s", result.getString(1) +" "+ result.getString(2))                          
                             + "\t\t" +  result.getString(3)
                             + "\t\t" +  result.getString(4)
                             + "\t\t" +  result.getString(5)
                             + "\t\t" +  result.getString(6)
                             + "\t\t" +  result.getString(7)
                             + "\t\t" +  result.getString(8)
+
                     );
                 }
                 output.println();
