@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author jose.aparicio002
  */
-public class JavaFXApplication3 extends Application {
+public class Project3 extends Application {
     
     @Override
     public void start(Stage primaryStage) {
