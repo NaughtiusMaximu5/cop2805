@@ -116,3 +116,7 @@ as attachments to my email rcruz2@mdc.edu, with the subject Adv. Java Project 2
 # UML Diagram
 
 ![Screen Shot of Find Students](Files/uml.png)
+
+ # Yeap
+ 
+ <p>2018 &copy; 𝓢𝓡𝓒 Group</p>
