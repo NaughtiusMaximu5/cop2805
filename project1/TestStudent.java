@@ -1,4 +1,4 @@
-package project1;
+package tests;
 
 public class TestStudents{
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package project1;
+package tests;
 
 import java.util.*;
 import java.io.*;
@@ -67,6 +67,7 @@ public class StudentList {
             } finally {
                 output.close();
             }
+
         }
     }
 }
