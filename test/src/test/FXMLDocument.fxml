@@ -24,10 +24,10 @@
             <BoxBlur width="32.32" />
          </effect>
       </Arc>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="109.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="65.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="47.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="186.0" layoutX="380.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="47.0" />
+      <Rectangle arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="54.5" />
+      <Rectangle arcWidth="5.0" fill="#f56c11" height="249.0" layoutX="329.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-4.0" translateY="-1.0" width="54.5" />
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="32.5" />
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="1.0" width="23.5" />
       <!-- left orange turbo-->
       <Polygon fill="#fa812a" layoutX="238.0" layoutY="424.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0">
         <points>
@@ -113,5 +113,12 @@
             <Double fx:value="20.0" />
          </points>
       </Polygon>
+      <Rectangle arcWidth="5.0" fill="#fcda4e" height="10.0" layoutX="293.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="65.0" />
+      <Rectangle arcWidth="5.0" fill="#ffdd54" height="5.0" layoutX="298.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="5.0" translateY="2.0" width="13.0" />
+      <Rectangle arcWidth="5.0" fill="#ffdd54" height="5.0" layoutX="330.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" width="13.0" />
+      <Rectangle arcWidth="5.0" fill="#fcd9bd" height="186.0" layoutX="326.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="32.5" />
+      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="249.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="5.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="375.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" translateY="4.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="403.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="23.5" />
    </children>
 </Pane>
