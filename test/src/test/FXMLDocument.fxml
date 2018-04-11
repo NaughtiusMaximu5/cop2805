@@ -2,16 +2,14 @@
 
 <?import java.lang.Double?>
 <?import javafx.scene.effect.BoxBlur?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Arc?>
-<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #001229;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Ellipse fill="#003380" layoutX="533.0" layoutY="581.0" radiusX="566.0" radiusY="302.0" rotate="-21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+<!--      <Ellipse fill="#003380" layoutX="533.0" layoutY="581.0" radiusX="566.0" radiusY="302.0" rotate="-21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
          <effect>
             <DropShadow color="#003380" height="247.71" radius="125.17750000000001" spread="0.77" width="255.0" />
          </effect>
@@ -20,41 +18,98 @@
          <effect>
             <DropShadow color="#1e2e42" height="176.55" radius="43.6375" spread="0.74" width="0.0" />
          </effect>
-      </Ellipse>
+      </Ellipse>-->
       <Arc fill="#00132b" layoutX="112.0" layoutY="76.0" length="20.0" opacity="0.56" radiusX="240.0" radiusY="209.0" rotate="9.7" startAngle="26.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND">
          <effect>
             <BoxBlur width="32.32" />
          </effect>
       </Arc>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="109.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" width="47.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="200.0" layoutX="381.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="47.0" />
-      <Polygon fill="#1f93ff" layoutX="238.0" layoutY="424.0" scaleX="3.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="65.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="186.0" layoutX="380.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="47.0" />
+      <!-- left orange turbo-->
+      <Polygon fill="#fa812a" layoutX="238.0" layoutY="424.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0">
         <points>
           
-                    <Double fx:value="5.0" />
+                    <Double fx:value="1.0" /><!-- xtop/left value-->
                 <Double fx:value="10.0" />
 
-                    <Double fx:value="15.0" />
+                    <Double fx:value="18.0" /><!-- xtop/rigth value-->
                 <Double fx:value="10.0" />
 
-                    <Double fx:value="20.0" />
+                    <Double fx:value="21.0" /><!-- xbottom/rigth value-->
                 <Double fx:value="20.0" />
 
-                    <Double fx:value="0.0" />
+                    <Double fx:value="-2.0" /><!-- xbottom/left value-->
                 <Double fx:value="20.0" />
         </points>
       </Polygon>
-      <Polygon fill="#1f93ff" layoutX="395.0" layoutY="429.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+      <!-- left yellow turbo-->
+      <Polygon fill="#fae061" layoutX="395.0" layoutY="429.0" scaleX="3.0" scaleY="1.5" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-157.0" translateY="5.0">
          <points>
-            <Double fx:value="5.0" />
+            <Double fx:value="0.0" /><!-- xtop/left value-->
             <Double fx:value="10.0" />
-            <Double fx:value="15.0" />
+            
+            <Double fx:value="19.0" /><!-- xtop/rigth value-->
             <Double fx:value="10.0" />
+            
+            <Double fx:value="22.0" /><!-- xbottom/rigth value-->
             <Double fx:value="20.0" />
+            
+            <Double fx:value="-3.0" /><!-- xbottom/left value-->
             <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <!-- left orange dark turbo-->
+      <Polygon fill="#fc6c05" layoutX="233.0" layoutY="488.0" scaleX="2.0" stroke="#fa6b05" strokeType="INSIDE" strokeWidth="0.0" translateX="5.0" translateY="-67.0">
+         <points>
+            <Double fx:value="1.0" /><!-- xtop/left value-->
+                <Double fx:value="15.0" />
+
+                    <Double fx:value="18.0" /><!-- xtop/rigth value-->
+                <Double fx:value="15.0" />
+
+                    <Double fx:value="21.0" /><!-- xbottom/rigth value-->
+                <Double fx:value="20.0" />
+
+                    <Double fx:value="-2.0" /><!-- xbottom/left value-->
+                <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fa812a" layoutX="395.0" layoutY="422.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0">
+         <points>
+            <Double fx:value="1.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="18.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="21.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-2.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fae061" layoutX="405.0" layoutY="439.0" scaleX="3.0" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-11.0" translateY="-7.0">
+         <points>
             <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="19.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="22.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-3.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fc6c05" layoutX="243.0" layoutY="498.0" scaleX="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="152.0" translateY="-79.0">
+         <points>
+            <Double fx:value="1.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="18.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="21.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-2.0" />
             <Double fx:value="20.0" />
          </points>
       </Polygon>
