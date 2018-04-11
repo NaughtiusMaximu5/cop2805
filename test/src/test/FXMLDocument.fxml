@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.Double?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Ellipse?>
-
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #001229;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -12,5 +16,47 @@
             <DropShadow color="#003380" height="247.71" radius="125.17750000000001" spread="0.77" width="255.0" />
          </effect>
       </Ellipse>
+      <Ellipse fill="#1e2e42" layoutX="168.0" layoutY="26.0" radiusX="204.0" radiusY="47.0" rotate="-12.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <DropShadow color="#1e2e42" height="176.55" radius="43.6375" spread="0.74" width="0.0" />
+         </effect>
+      </Ellipse>
+      <Arc fill="#00132b" layoutX="112.0" layoutY="76.0" length="20.0" opacity="0.56" radiusX="240.0" radiusY="209.0" rotate="9.7" startAngle="26.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND">
+         <effect>
+            <BoxBlur width="32.32" />
+         </effect>
+      </Arc>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="109.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcd2b3" height="200.0" layoutX="381.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="47.0" />
+      <Polygon fill="#1f93ff" layoutX="238.0" layoutY="424.0" scaleX="3.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+        <points>
+          
+                    <Double fx:value="5.0" />
+                <Double fx:value="10.0" />
+
+                    <Double fx:value="15.0" />
+                <Double fx:value="10.0" />
+
+                    <Double fx:value="20.0" />
+                <Double fx:value="20.0" />
+
+                    <Double fx:value="0.0" />
+                <Double fx:value="20.0" />
+        </points>
+      </Polygon>
+      <Polygon fill="#1f93ff" layoutX="395.0" layoutY="429.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <points>
+            <Double fx:value="5.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
    </children>
 </Pane>
