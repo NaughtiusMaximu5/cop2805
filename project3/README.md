@@ -7,17 +7,17 @@ is not. In addition, it must include the following:
 
 - At least 7 distinct colors
 - Must use the following classes at least once in a non-trivial manner: 
-    - [x] Color
+    - [ ] Color
     - [x] Pane
-    - [x] Image
+    - [ ] Image
     - [ ] ImageView
-    - [x] Line
-    - [x] Circle
-    - [x] Rectangle
-    - [x] Ellipse
-    - [x] Arc
-    - [x] Polygon
-    - [x] Polyline
+    - [ ] Line
+    - [ ] Circle
+    - [ ] Rectangle
+    - [ ] Ellipse
+    - [ ] Arc
+    - [ ] Polygon
+    - [ ] Polyline
     
 For this assignment, you must actually draw the picture in the scene with the methods available in JavaFX
 classes. You are not restricted to methods discussed in class, but you are restricted to JavaFX classes and
