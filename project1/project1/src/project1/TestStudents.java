@@ -1,4 +1,4 @@
-package tests;
+package project1;
 
 public class TestStudents{
     public static void main(String[] args) {
@@ -6,4 +6,5 @@ public class TestStudents{
 
         studentList.readStudents();
         studentList.writeStudents();
-     
+    }
+}
