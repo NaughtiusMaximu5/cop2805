@@ -1,5 +1,5 @@
-package tests;
-public class Student implements comparable<Student>{
+package project1;
+public class Student implements Comparable<Student>{
 
     private String name;
     private String status;
@@ -67,7 +67,8 @@ public class Student implements comparable<Student>{
      * 
      * @param AverageChecker
      */
-    public void compareTo(Student AverageChecker ) {
+    @Override
+    public int compareTo(Student AverageChecker ) {
         
         if(average < AverageChecker.average){
             System.out.println("Its Higher");
@@ -78,6 +79,7 @@ public class Student implements comparable<Student>{
         else {
             System.out.println("Same");
         }
+        return 0;
     }
     
     /**
