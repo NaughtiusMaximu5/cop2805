@@ -120,5 +120,31 @@
       <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="249.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="5.0" width="23.5" />
       <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="375.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" translateY="4.0" width="23.5" />
       <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="403.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="23.5" />
+      <Rectangle arcWidth="5.0" height="2.0" layoutX="303.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="13.0" />
+      <Rectangle arcWidth="5.0" height="2.0" layoutX="332.0" layoutY="448.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="2.0" translateY="-1.0" width="13.0" />
+      <Polygon fill="#fae061" layoutX="298.0" layoutY="441.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="2.0" translateY="-5.0">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="19.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="22.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-3.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fae061" layoutX="331.0" layoutY="438.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-1.0">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="19.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="22.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-3.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
    </children>
 </Pane>
