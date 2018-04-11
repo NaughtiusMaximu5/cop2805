@@ -57,6 +57,11 @@ whole or otherwise plagiarized the work of other students and/or persons.
 Submission guidelines: Send your code files (CreativeScene.java,) as attachment to my email
 rcruz2@mdc.edu, with the subject Adv. Java Project 2
 
+# Idea
+
+> Draw a rocket Image
+
+![Image](media/rocket.jpg)
 # Yeap
 
 2018 © **AAA Group**

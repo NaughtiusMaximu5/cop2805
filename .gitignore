@@ -23,3 +23,6 @@ hs_err_pid*
 
 /project1/project1/nbproject/private/
 /project1/project1/build/
+/project3/nbproject/private/
+/project3/build/
+/project3/dist/
