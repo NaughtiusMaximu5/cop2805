@@ -1,14 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.Double?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #001229;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Ellipse layoutX="326.0" layoutY="164.0" radiusX="55.0" radiusY="89.0" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#752f00" />
+                  <Stop color="#752f00" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+         <fill>
+            <LinearGradient endX="0.09523809523809522" endY="0.13333333333333333" startX="0.5476190476190477" startY="0.2952380952380953">
+               <stops>
+                  <Stop color="#752f00" />
+                  <Stop color="#cd5200" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Ellipse>
+      <Ellipse fill="#003380" layoutX="533.0" layoutY="581.0" radiusX="566.0" radiusY="302.0" rotate="-21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <DropShadow color="#003380" height="247.71" radius="125.17750000000001" spread="0.77" width="255.0" />
+         </effect>
+      </Ellipse>
+      <Ellipse fill="#1e2e42" layoutX="168.0" layoutY="26.0" radiusX="204.0" radiusY="47.0" rotate="-12.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <DropShadow color="#1e2e42" height="176.55" radius="43.6375" spread="0.74" width="0.0" />
+         </effect>
+      </Ellipse>
+      <Arc fill="#00132b" layoutX="112.0" layoutY="76.0" length="20.0" opacity="0.56" radiusX="240.0" radiusY="209.0" rotate="9.7" startAngle="26.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND">
+         <effect>
+            <BoxBlur width="32.32" />
+         </effect>
+      </Arc>
+      <Ellipse layoutX="249.0" layoutY="244.0" radiusX="23.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0">
+         <fill>
+            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.047619047619047616">
+               <stops>
+                  <Stop color="#fcd4b8" />
+                  <Stop color="#ffe9d6" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Ellipse>
+      <Ellipse layoutX="402.0" layoutY="244.0" radiusX="23.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <fill>
+            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="0.5047619047619046" startY="0.047619047619047616">
+               <stops>
+                  <Stop color="#fcd4b8" />
+                  <Stop color="#ffe9d6" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Ellipse>
+      <Rectangle arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="54.5" />
+      <Rectangle arcWidth="5.0" fill="#f56c11" height="249.0" layoutX="329.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-4.0" translateY="-1.0" width="54.5" />
+      <Ellipse layoutX="327.0" layoutY="256.0" radiusX="32.5" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-2.0" translateY="-9.0">
+         <fill>
+            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.04285714285714286">
+               <stops>
+                  <Stop color="#fcd9bd" />
+                  <Stop color="#ffe9d6" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Ellipse>
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="32.5" />
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="1.0" width="23.5" />
+      <!-- left orange turbo-->
+      <Polygon fill="#fa812a" layoutX="238.0" layoutY="424.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0">
+        <points>
+          
+                    <Double fx:value="1.0" /><!-- xtop/left value-->
+                <Double fx:value="10.0" />
+
+                    <Double fx:value="18.0" /><!-- xtop/rigth value-->
+                <Double fx:value="10.0" />
+
+                    <Double fx:value="21.0" /><!-- xbottom/rigth value-->
+                <Double fx:value="20.0" />
+
+                    <Double fx:value="-2.0" /><!-- xbottom/left value-->
+                <Double fx:value="20.0" />
+        </points>
+      </Polygon>
+      <!-- left yellow turbo-->
+      <Polygon fill="#fae061" layoutX="395.0" layoutY="429.0" scaleX="3.0" scaleY="1.5" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-157.0" translateY="5.0">
+         <points>
+            <Double fx:value="0.0" /><!-- xtop/left value-->
+            <Double fx:value="10.0" />
+            
+            <Double fx:value="19.0" /><!-- xtop/rigth value-->
+            <Double fx:value="10.0" />
+            
+            <Double fx:value="22.0" /><!-- xbottom/rigth value-->
+            <Double fx:value="20.0" />
+            
+            <Double fx:value="-3.0" /><!-- xbottom/left value-->
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <!-- left orange dark turbo-->
+      <Polygon fill="#fc6c05" layoutX="233.0" layoutY="488.0" scaleX="2.0" stroke="#fa6b05" strokeType="INSIDE" strokeWidth="0.0" translateX="5.0" translateY="-67.0">
+         <points>
+            <Double fx:value="1.0" /><!-- xtop/left value-->
+                <Double fx:value="15.0" />
+
+                    <Double fx:value="18.0" /><!-- xtop/rigth value-->
+                <Double fx:value="15.0" />
+
+                    <Double fx:value="21.0" /><!-- xbottom/rigth value-->
+                <Double fx:value="20.0" />
+
+                    <Double fx:value="-2.0" /><!-- xbottom/left value-->
+                <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fa812a" layoutX="395.0" layoutY="422.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0">
+         <points>
+            <Double fx:value="1.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="18.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="21.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-2.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fae061" layoutX="405.0" layoutY="439.0" scaleX="3.0" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-11.0" translateY="-7.0">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="19.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="22.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-3.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fc6c05" layoutX="243.0" layoutY="498.0" scaleX="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="152.0" translateY="-79.0">
+         <points>
+            <Double fx:value="1.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="18.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="21.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-2.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Rectangle arcWidth="5.0" fill="#fcda4e" height="10.0" layoutX="293.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="65.0" />
+      <Rectangle arcWidth="5.0" fill="#ffdd54" height="5.0" layoutX="298.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="5.0" translateY="2.0" width="13.0" />
+      <Rectangle arcWidth="5.0" fill="#ffdd54" height="5.0" layoutX="330.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" width="13.0" />
+      <Rectangle arcWidth="5.0" fill="#fcd9bd" height="186.0" layoutX="326.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="32.5" />
+      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="249.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="5.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="375.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" translateY="4.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="403.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="23.5" />
+      <Rectangle arcWidth="5.0" height="2.0" layoutX="303.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="13.0" />
+      <Rectangle arcWidth="5.0" height="2.0" layoutX="332.0" layoutY="448.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="2.0" translateY="-1.0" width="13.0" />
+      <Polygon fill="#fae061" layoutX="298.0" layoutY="441.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="2.0" translateY="-5.0">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="19.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="22.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-3.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Polygon fill="#fae061" layoutX="331.0" layoutY="438.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-1.0">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="19.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="22.0" />
+            <Double fx:value="20.0" />
+            <Double fx:value="-3.0" />
+            <Double fx:value="20.0" />
+         </points>
+      </Polygon>
+      <Line endX="99.5" layoutX="106.0" layoutY="217.0" scaleZ="0.0" startX="68.0" stroke="#d69267" strokeWidth="2.0" translateX="151.0" translateY="29.0" />
+      <Line endX="97.5" layoutX="229.0" layoutY="246.0" startX="67.0" stroke="#e6c6ae" strokeWidth="2.0" translateX="-2.5" />
+      <Line endX="97.5" layoutX="229.0" layoutY="380.0" startX="67.0" stroke="#e6c6ae" strokeWidth="2.0" translateX="-2.0" translateY="-14.0" />
+      <Line endX="98.5" layoutX="258.0" layoutY="367.0" startX="68.0" stroke="#d69267" strokeWidth="2.0" translateY="-1.0" />
+      <ImageView fitHeight="95.0" fitWidth="62.5" layoutX="297.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" translateX="-1.0">
+         <image>
+            <Image url="@nasa.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
