@@ -17,7 +17,7 @@ is not. In addition, it must include the following:
     - [x] Ellipse
     - [x] Arc
     - [x] Polygon
-    - [ ] Polyline
+    - [x] Polyline
     
 For this assignment, you must actually draw the picture in the scene with the methods available in JavaFX
 classes. You are not restricted to methods discussed in class, but you are restricted to JavaFX classes and
