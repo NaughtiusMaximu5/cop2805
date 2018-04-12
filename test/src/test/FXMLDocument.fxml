@@ -49,11 +49,13 @@
             <BoxBlur width="32.32" />
          </effect>
       </Arc>
-      <Ellipse layoutX="249.0" layoutY="244.0" radiusX="23.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0">
+      <Rectangle arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="54.5" />
+      <Rectangle arcWidth="5.0" fill="#f56c11" height="249.0" layoutX="329.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-4.0" translateY="-1.0" width="54.5" />
+      <Ellipse layoutX="327.0" layoutY="256.0" radiusX="32.5" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-2.0" translateY="-9.0">
          <fill>
-            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.047619047619047616">
+            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.04285714285714286">
                <stops>
-                  <Stop color="#fcd4b8" />
+                  <Stop color="#fcd9bd" />
                   <Stop color="#ffe9d6" offset="1.0" />
                </stops>
             </LinearGradient>
@@ -69,20 +71,55 @@
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Rectangle arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="54.5" />
-      <Rectangle arcWidth="5.0" fill="#f56c11" height="249.0" layoutX="329.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-4.0" translateY="-1.0" width="54.5" />
-      <Ellipse layoutX="327.0" layoutY="256.0" radiusX="32.5" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-2.0" translateY="-9.0">
+      <Ellipse layoutX="249.0" layoutY="244.0" radiusX="23.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0">
          <fill>
-            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.04285714285714286">
+            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.047619047619047616">
                <stops>
-                  <Stop color="#fcd9bd" />
+                  <Stop color="#fcd4b8" />
                   <Stop color="#ffe9d6" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>
       </Ellipse>
-      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="32.5" />
       <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="1.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="249.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="5.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="0.5" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="248.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-3.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="248.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-3.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="248.0" layoutY="321.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-3.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="375.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" translateY="4.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="403.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="379.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="378.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="378.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="402.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="401.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0" width="24.0" />
+      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="401.0" layoutY="320.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0" width="24.0" />
+      <Arc fill="#f56c11" layoutX="358.0" layoutY="419.0" length="90.0" radiusX="94.0" radiusY="102.0" stroke="#f0c243" strokeType="INSIDE" strokeWidth="2.0" translateX="-3.0" translateY="1.0" type="ROUND" />
+      <Arc fill="#f56c11" layoutX="294.0" layoutY="451.0" length="90.0" radiusX="94.0" radiusY="102.0" startAngle="90.0" stroke="#f0c243" strokeType="INSIDE" strokeWidth="2.0" translateX="1.0" translateY="-31.0" type="ROUND" />
+      <Arc fill="#f56c11" layoutX="357.0" layoutY="307.0" length="180.0" radiusX="28.0" radiusY="48.0" startAngle="270.0" strokeType="INSIDE" strokeWidth="2.0" translateX="-1.0" translateY="1.0" type="ROUND">
+         <stroke>
+            <LinearGradient endX="0.08653846153846156" endY="0.8365384615384615" proportional="false" startY="1.0">
+               <stops>
+                  <Stop color="#f56c11" />
+                  <Stop color="#f0c243" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Arc>
+      <Arc fill="#f56c11" layoutX="293.0" layoutY="339.0" length="180.0" radiusX="28.0" radiusY="48.0" startAngle="90.0" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="2.0" translateX="1.0" translateY="-31.0" type="ROUND">
+         <stroke>
+            <LinearGradient endX="0.08653846153846156" endY="0.8365384615384615" proportional="false" startX="0.18269230769230768" startY="1.0">
+               <stops>
+                  <Stop color="#f56c11" />
+                  <Stop color="#f0c243" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Arc>
+      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="293.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="32.5" />
       <!-- left orange turbo-->
       <Polygon fill="#fa812a" layoutX="238.0" layoutY="424.0" scaleX="2.0" scaleZ="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0">
         <points>
@@ -168,13 +205,10 @@
             <Double fx:value="20.0" />
          </points>
       </Polygon>
-      <Rectangle arcWidth="5.0" fill="#fcda4e" height="10.0" layoutX="293.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="65.0" />
       <Rectangle arcWidth="5.0" fill="#ffdd54" height="5.0" layoutX="298.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="5.0" translateY="2.0" width="13.0" />
       <Rectangle arcWidth="5.0" fill="#ffdd54" height="5.0" layoutX="330.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" width="13.0" />
       <Rectangle arcWidth="5.0" fill="#fcd9bd" height="186.0" layoutX="326.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="32.5" />
-      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="249.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="5.0" width="23.5" />
-      <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="375.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="4.0" translateY="4.0" width="23.5" />
-      <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="403.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" width="23.5" />
+      <Rectangle arcWidth="5.0" fill="#fcda4e" height="17.0" layoutX="293.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-7.0" width="65.0" />
       <Rectangle arcWidth="5.0" height="2.0" layoutX="303.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="13.0" />
       <Rectangle arcWidth="5.0" height="2.0" layoutX="332.0" layoutY="448.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="2.0" translateY="-1.0" width="13.0" />
       <Polygon fill="#fae061" layoutX="298.0" layoutY="441.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="2.0" translateY="-5.0">
@@ -189,7 +223,7 @@
             <Double fx:value="20.0" />
          </points>
       </Polygon>
-      <Polygon fill="#fae061" layoutX="331.0" layoutY="438.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-1.0">
+      <Polygon fill="#fae061" layoutX="331.0" layoutY="441.0" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-4.0">
          <points>
             <Double fx:value="0.0" />
             <Double fx:value="10.0" />
@@ -230,17 +264,7 @@
       <Rectangle arcWidth="5.0" fill="#fce6d4" height="15.0" layoutX="301.0" layoutY="223.0" rotate="132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-3.0" translateY="-4.0" width="10.0" />
       <Rectangle arcWidth="5.0" fill="#fcd9bd" height="21.0" layoutX="317.0" layoutY="214.0" rotate="-132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="19.0" translateY="-9.0" width="5.0" />
       <Rectangle arcWidth="5.0" fill="#fcd9bd" height="15.0" layoutX="311.0" layoutY="233.0" rotate="-132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="31.0" translateY="-13.0" width="10.0" />
-      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="0.5" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="379.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="378.0" layoutY="300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="378.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="248.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-3.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="248.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-3.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="248.0" layoutY="321.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-3.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="402.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="401.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0" width="24.0" />
-      <Rectangle arcWidth="5.0" fill="#301d0e" height="12.0" layoutX="401.0" layoutY="320.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-2.0" width="24.0" />
+      <Rectangle arcWidth="5.0" height="12.0" layoutX="225.0" layoutY="415.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="5.0" width="47.0" />
+      <Rectangle arcWidth="5.0" height="12.0" layoutX="235.0" layoutY="425.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="144.0" translateY="-5.0" width="47.0" />
    </children>
 </Pane>
