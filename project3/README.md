@@ -62,6 +62,13 @@ rcruz2@mdc.edu, with the subject Adv. Java Project 2
 > Draw a rocket Image
 
 ![Image](media/rocket.jpg)
+
+# Result
+
+> Static 
+
+![Image](media/rocket.png)
+
 # Yeap
 
 2018 © **AAA Group**
