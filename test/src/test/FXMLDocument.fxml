@@ -266,5 +266,7 @@
       <Rectangle arcWidth="5.0" fill="#fcd9bd" height="15.0" layoutX="311.0" layoutY="233.0" rotate="-132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="31.0" translateY="-13.0" width="10.0" />
       <Rectangle arcWidth="5.0" height="12.0" layoutX="225.0" layoutY="415.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="5.0" width="47.0" />
       <Rectangle arcWidth="5.0" height="12.0" layoutX="235.0" layoutY="425.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="144.0" translateY="-5.0" width="47.0" />
+      <Rectangle arcWidth="5.0" fill="#fff4d1" height="5.0" layoutX="259.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="12.0" translateY="-4.0" width="54.5" />
+      <Rectangle arcWidth="5.0" fill="#fce386" height="5.0" layoutX="312.0" layoutY="168.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="13.0" width="54.5" />
    </children>
 </Pane>
