@@ -9,10 +9,10 @@ is not. In addition, it must include the following:
 - Must use the following classes at least once in a non-trivial manner: 
     - [x] Color
     - [x] Pane
-    - [ ] Image
-    - [ ] ImageView
-    - [ ] Line
-    - [ ] Circle
+    - [x] Image
+    - [x] ImageView
+    - [x] Line
+    - [x] Circle
     - [x] Rectangle
     - [x] Ellipse
     - [x] Arc
