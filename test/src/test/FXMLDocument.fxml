@@ -7,33 +7,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.shape.Rectangle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #001229;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Ellipse layoutX="326.0" layoutY="164.0" radiusX="55.0" radiusY="89.0" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0">
-         <stroke>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#752f00" />
-                  <Stop color="#752f00" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </stroke>
-         <fill>
-            <LinearGradient endX="0.09523809523809522" endY="0.13333333333333333" startX="0.5476190476190477" startY="0.2952380952380953">
-               <stops>
-                  <Stop color="#752f00" />
-                  <Stop color="#cd5200" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Ellipse>
       <Ellipse fill="#003380" layoutX="533.0" layoutY="581.0" radiusX="566.0" radiusY="302.0" rotate="-21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
          <effect>
             <DropShadow color="#003380" height="247.71" radius="125.17750000000001" spread="0.77" width="255.0" />
@@ -51,36 +36,8 @@
       </Arc>
       <Rectangle arcWidth="5.0" fill="#fa812a" height="249.0" layoutX="271.0" layoutY="164.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="54.5" />
       <Rectangle arcWidth="5.0" fill="#f56c11" height="249.0" layoutX="329.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-4.0" translateY="-1.0" width="54.5" />
-      <Ellipse layoutX="327.0" layoutY="256.0" radiusX="32.5" radiusY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-2.0" translateY="-9.0">
-         <fill>
-            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.04285714285714286">
-               <stops>
-                  <Stop color="#fcd9bd" />
-                  <Stop color="#ffe9d6" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Ellipse>
-      <Ellipse layoutX="402.0" layoutY="244.0" radiusX="23.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-         <fill>
-            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="0.5047619047619046" startY="0.047619047619047616">
-               <stops>
-                  <Stop color="#fcd4b8" />
-                  <Stop color="#ffe9d6" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Ellipse>
-      <Ellipse layoutX="249.0" layoutY="244.0" radiusX="23.0" radiusY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0">
-         <fill>
-            <LinearGradient endX="0.37142857142857144" endY="0.052380952380952396" proportional="false" startX="1.0" startY="0.047619047619047616">
-               <stops>
-                  <Stop color="#fcd4b8" />
-                  <Stop color="#ffe9d6" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Ellipse>
+      <Arc fill="#ffe9d6" layoutX="322.0" layoutY="242.0" length="90.0" radiusX="32.5" radiusY="70.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="3.0" translateY="6.0" type="ROUND" />
+      <Arc fill="#fcd9bd" layoutX="322.0" layoutY="242.0" length="90.0" radiusX="32.5" radiusY="72.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="3.0" translateY="8.0" type="ROUND" />
       <Rectangle arcWidth="5.0" fill="#ffe9d6" height="186.0" layoutX="224.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="1.0" width="23.5" />
       <Rectangle arcWidth="5.0" fill="#fcd4b8" height="186.0" layoutX="249.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="5.0" width="23.5" />
       <Rectangle arcWidth="5.0" fill="#4d2c15" height="12.0" layoutX="224.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="0.5" width="24.0" />
@@ -250,16 +207,6 @@
          </image>
       </ImageView>
       <Arc fill="#262120" layoutX="326.0" layoutY="224.0" length="180.0" radiusX="25.0" radiusY="23.0" stroke="BLACK" strokeType="INSIDE" translateX="-1.0" translateY="1.0" type="ROUND" />
-      <Arc layoutX="326.0" layoutY="236.0" length="180.0" radiusX="19.0" radiusY="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-1.0" translateY="-3.0" type="ROUND">
-         <fill>
-            <LinearGradient endX="1.0" endY="0.28846153846153844" proportional="false" startY="0.2692307692307692">
-               <stops>
-                  <Stop color="#ffe9d6" />
-                  <Stop color="#fcd9bd" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Arc>
       <Rectangle arcWidth="5.0" fill="#fce6d4" height="21.0" layoutX="307.0" layoutY="204.0" rotate="132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="5.0" />
       <Rectangle arcWidth="5.0" fill="#fce6d4" height="15.0" layoutX="301.0" layoutY="223.0" rotate="132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-3.0" translateY="-4.0" width="10.0" />
       <Rectangle arcWidth="5.0" fill="#fcd9bd" height="21.0" layoutX="317.0" layoutY="214.0" rotate="-132.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="19.0" translateY="-9.0" width="5.0" />
@@ -465,5 +412,117 @@
             <DropShadow color="WHITE" height="48.32" radius="19.1075" spread="0.4" width="30.11" />
          </effect>
       </Ellipse>
+      
+      <Polyline fill="#b0b4b8" layoutX="102.0" layoutY="73.0" scaleZ="0.0" strokeType="INSIDE" strokeWidth="0.0" translateX="139.0" translateY="-66.0">
+        <points>
+          <Double fx:value="7.5" /> <!-- Ax -->
+          <Double fx:value="0.0" /> <!-- Ay -->
+          
+          <Double fx:value="10.0" /> <!-- Bx -->
+          <Double fx:value="0.0" /><!-- By -->
+          
+          <Double fx:value="10.0" /><!-- Cx -->
+          <Double fx:value="5.0" /><!-- Cy -->
+          
+          <Double fx:value="17.5" /><!-- Dx -->
+          <Double fx:value="5.0" /><!-- Dy -->
+          
+          <Double fx:value="17.5" /><!-- Ex -->
+          <Double fx:value="7.5" /><!-- Ey -->
+          
+          <Double fx:value="10.0" /><!-- Fx -->
+          <Double fx:value="7.5" /><!-- Fy -->
+          
+          <Double fx:value="10.0" /><!-- Gx -->
+          <Double fx:value="15.0" /><!-- Gy -->
+          
+          <Double fx:value="7.5" /><!-- Hx -->
+          <Double fx:value="15.0" /><!-- Hy -->
+          
+          <Double fx:value="7.5" /><!-- Ix -->
+          <Double fx:value="7.5" /><!-- Iy -->
+          
+          <Double fx:value="0.0" /><!-- Jx -->
+          <Double fx:value="7.5" /><!-- Jy -->
+          
+          <Double fx:value="0.0" /><!-- Kx -->
+          <Double fx:value="5.0" /><!-- Ky -->
+          
+          <Double fx:value="7.5" /><!-- Lx -->
+          <Double fx:value="5.0" /><!-- Ly -->
+          
+          <Double fx:value="7.5" /><!-- Mx -->
+          <Double fx:value="00.0" /><!-- My -->
+          
+        </points>
+      </Polyline>
+      <Polyline fill="#c4cad0" layoutX="112.0" layoutY="83.0" strokeType="INSIDE" strokeWidth="0.0" translateX="22.0" translateY="30.0">
+         <points>
+            <Double fx:value="7.5" />
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="5.0" />
+            <Double fx:value="17.5" />
+            <Double fx:value="5.0" />
+            <Double fx:value="17.5" />
+            <Double fx:value="7.5" />
+            <Double fx:value="10.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="10.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="15.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="7.5" />
+            <Double fx:value="0.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="0.0" />
+            <Double fx:value="5.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="5.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="00.0" />
+         </points>
+      </Polyline>
+      <Circle fill="#6b7685" layoutX="124.0" layoutY="48.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="101.0" layoutY="197.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="23.0" layoutY="40.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="48.0" layoutY="125.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="506.0" layoutY="64.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="632.0" layoutY="128.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="248.0" layoutY="144.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="414.0" layoutY="56.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="42.0" layoutY="228.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="46.0" layoutY="356.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="121.0" layoutY="308.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="139.0" layoutY="291.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="199.0" layoutY="197.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="154.0" layoutY="152.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="428.0" layoutY="136.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="449.0" layoutY="152.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="532.0" layoutY="93.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="604.0" layoutY="34.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="543.0" layoutY="148.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="453.0" layoutY="22.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="170.0" layoutY="22.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Arc fill="#ffe9d6" layoutX="248.0" layoutY="247.0" length="90.0" radiusX="23.5" radiusY="58.0" scaleZ="0.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="1.0" translateY="-1.0" type="ROUND" />
+      <Arc fill="#fcd4b8" layoutX="248.0" layoutY="247.0" length="90.0" radiusX="23.5" radiusY="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-1.0" type="ROUND" />
+      <Arc fill="#ffe9d6" layoutX="258.0" layoutY="257.0" length="90.0" radiusX="23.5" radiusY="58.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="144.0" translateY="-11.0" type="ROUND" />
+      <Arc fill="#fcd4b8" layoutX="258.0" layoutY="257.0" length="90.0" radiusX="23.5" radiusY="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="144.0" translateY="-11.0" type="ROUND" />
+      <Arc fill="#fcd4b8" layoutX="99.0" layoutY="143.0" length="90.0" radiusX="21.0" radiusY="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="226.0" translateY="92.0" type="ROUND" />
+      <Arc fill="#ffe9d6" layoutX="99.0" layoutY="143.0" length="90.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="226.0" translateY="92.0" type="ROUND" />
+      <Arc fill="#752f00" layoutX="325.0" layoutY="170.0" length="90.0" radiusX="55.0" radiusY="89.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+      <Arc fill="#752f00" layoutX="326.0" layoutY="170.0" length="90.0" radiusX="55.0" radiusY="89.0" startAngle="90.0" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="41.0" type="ROUND">
+         <stroke>
+            <RadialGradient centerX="0.39887640449438205" centerY="0.27884615384615385" radius="0.5">
+               <stops>
+                  <Stop color="#ab7216" />
+                  <Stop color="#752f00" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </stroke>
+      </Arc>
    </children>
 </Pane>

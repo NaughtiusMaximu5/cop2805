@@ -9,9 +9,11 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.shape.Rectangle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: #001229;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
@@ -465,5 +467,100 @@
             <DropShadow color="WHITE" height="48.32" radius="19.1075" spread="0.4" width="30.11" />
          </effect>
       </Ellipse>
+      
+      <Polyline fill="#b0b4b8" layoutX="102.0" layoutY="73.0" scaleZ="0.0" strokeType="INSIDE" strokeWidth="0.0" translateX="139.0" translateY="-66.0">
+        <points>
+          <Double fx:value="7.5" /> <!-- Ax -->
+          <Double fx:value="0.0" /> <!-- Ay -->
+          
+          <Double fx:value="10.0" /> <!-- Bx -->
+          <Double fx:value="0.0" /><!-- By -->
+          
+          <Double fx:value="10.0" /><!-- Cx -->
+          <Double fx:value="5.0" /><!-- Cy -->
+          
+          <Double fx:value="17.5" /><!-- Dx -->
+          <Double fx:value="5.0" /><!-- Dy -->
+          
+          <Double fx:value="17.5" /><!-- Ex -->
+          <Double fx:value="7.5" /><!-- Ey -->
+          
+          <Double fx:value="10.0" /><!-- Fx -->
+          <Double fx:value="7.5" /><!-- Fy -->
+          
+          <Double fx:value="10.0" /><!-- Gx -->
+          <Double fx:value="15.0" /><!-- Gy -->
+          
+          <Double fx:value="7.5" /><!-- Hx -->
+          <Double fx:value="15.0" /><!-- Hy -->
+          
+          <Double fx:value="7.5" /><!-- Ix -->
+          <Double fx:value="7.5" /><!-- Iy -->
+          
+          <Double fx:value="0.0" /><!-- Jx -->
+          <Double fx:value="7.5" /><!-- Jy -->
+          
+          <Double fx:value="0.0" /><!-- Kx -->
+          <Double fx:value="5.0" /><!-- Ky -->
+          
+          <Double fx:value="7.5" /><!-- Lx -->
+          <Double fx:value="5.0" /><!-- Ly -->
+          
+          <Double fx:value="7.5" /><!-- Mx -->
+          <Double fx:value="00.0" /><!-- My -->
+          
+        </points>
+      </Polyline>
+      <Polyline fill="#c4cad0" layoutX="112.0" layoutY="83.0" strokeType="INSIDE" strokeWidth="0.0" translateX="22.0" translateY="30.0">
+         <points>
+            <Double fx:value="7.5" />
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="10.0" />
+            <Double fx:value="5.0" />
+            <Double fx:value="17.5" />
+            <Double fx:value="5.0" />
+            <Double fx:value="17.5" />
+            <Double fx:value="7.5" />
+            <Double fx:value="10.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="10.0" />
+            <Double fx:value="15.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="15.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="7.5" />
+            <Double fx:value="0.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="0.0" />
+            <Double fx:value="5.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="5.0" />
+            <Double fx:value="7.5" />
+            <Double fx:value="00.0" />
+         </points>
+      </Polyline>
+      <Circle fill="#6b7685" layoutX="124.0" layoutY="48.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="101.0" layoutY="197.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="23.0" layoutY="40.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="48.0" layoutY="125.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="506.0" layoutY="64.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="632.0" layoutY="128.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="248.0" layoutY="144.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="414.0" layoutY="56.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="42.0" layoutY="228.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="46.0" layoutY="356.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="121.0" layoutY="308.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="139.0" layoutY="291.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="199.0" layoutY="197.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="154.0" layoutY="152.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="428.0" layoutY="136.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="449.0" layoutY="152.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="532.0" layoutY="93.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="604.0" layoutY="34.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="543.0" layoutY="148.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="453.0" layoutY="22.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#6b7685" layoutX="170.0" layoutY="22.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>
