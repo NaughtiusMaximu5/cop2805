@@ -12,31 +12,22 @@ import javafx.scene.layout.Pane;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-/**
- *  LL - Means left left
- *  LR - Means left right
- *  RL - Means right left
- *  RR - Means right right
- *   
- * @author abraham
- */
 
 public class CreativeScene extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        
+
         Pane pane = new Pane();
         /* Set color of the pain */
         pane.setStyle("-fx-background-color: #001229;");
-        
+
         Smoke smoke = new Smoke(220, 423, Color.WHITESMOKE);
         Smoke smoke1 = new Smoke(375, 423, Color.WHITESMOKE);
-        
+
         smoke.setOpacity(3);
         smoke1.setOpacity(3);
-        
-        
+
         /* Create Ellipse that represents the planet */
         Ellipse planet = new Ellipse();
         planet.setFill(Color.valueOf("#003380"));
@@ -46,7 +37,7 @@ public class CreativeScene extends Application {
         planet.setRadiusY(302.0);
         planet.setRotate(-21.0);
         planet.setStrokeWidth(0.0);
-        
+
         /* Add shadow effect to the ellipse created*/
         DropShadow planetShadow = new DropShadow();
         planetShadow.setColor(Color.valueOf("#003380"));
@@ -55,7 +46,7 @@ public class CreativeScene extends Application {
         planetShadow.setSpread(0.77);
         planetShadow.setWidth(255.0);
         planet.setEffect(planetShadow);
-        
+
         /* Create ellipse that represent a the top-left galaxy */
         Ellipse galaxy = new Ellipse();
         galaxy.setFill(Color.valueOf("#1e2e42"));
@@ -65,7 +56,7 @@ public class CreativeScene extends Application {
         galaxy.setRadiusY(47.0);
         galaxy.setRotate(-12.5);
         galaxy.setStrokeWidth(0.0);
-        
+
         /* Add shadow effet to the galaxy */
         DropShadow galaxyShadow = new DropShadow();
         galaxyShadow.setColor(Color.valueOf("#1e2e42"));
@@ -74,7 +65,7 @@ public class CreativeScene extends Application {
         galaxyShadow.setSpread(0.74);
         galaxyShadow.setWidth(0.0);
         galaxy.setEffect(galaxyShadow);
-        
+
         /* Create an arc that represents the black hole of the galaxy */
         Arc blackHole = new Arc();
         blackHole.setFill(Color.RED.valueOf("#00132b"));
@@ -88,12 +79,12 @@ public class CreativeScene extends Application {
         blackHole.setStartAngle(26.6);
         blackHole.setStrokeWidth(0.0);
         blackHole.setType(javafx.scene.shape.ArcType.ROUND);
-        
+
         /* Add some blur effect to the black hole */
         BoxBlur blackHoleBlur = new BoxBlur();
         blackHoleBlur.setWidth(32.32);
         blackHole.setEffect(blackHoleBlur);
-        
+
         /* Create a rectangle that represent the body
        of the Rocket. The Rocket is divided it into two
        rectangles to be able to change colors */
@@ -105,7 +96,7 @@ public class CreativeScene extends Application {
         rocketBodyLeft.setLayoutY(164.0);
         rocketBodyLeft.setStrokeWidth(0.0);
         rocketBodyLeft.setWidth(54.5);
-       
+
         Rectangle rocketBodyRight = new Rectangle();
         rocketBodyRight.setArcWidth(5.0);
         rocketBodyRight.setFill(Color.valueOf("#f56c11"));
@@ -116,7 +107,7 @@ public class CreativeScene extends Application {
         rocketBodyRight.setTranslateX(-4.0);
         rocketBodyRight.setTranslateY(-1.0);
         rocketBodyRight.setWidth(54.5);
-        
+
         /* Right part of the Rocket Nose Cone (TOP)*/
         Arc rightNoseCone = new Arc();
         rightNoseCone.setFill(Color.valueOf("#752f00"));
@@ -129,14 +120,14 @@ public class CreativeScene extends Application {
         rightNoseCone.setType(ArcType.ROUND);
 
         /* Defining color of the Linear Gradient in the top of the rocket*/
-        Stop[] stops = new Stop[] { 
+        Stop[] stops = new Stop[]{
             new Stop(0, Color.valueOf("#ab7216")),
             new Stop(1, Color.valueOf("#752f00"))
         };
-        
+
         /* Create Linear Gradient with the stops of the aboves colors*/
         LinearGradient lg = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE, stops);
-        
+
         /* Left Part of the Rocket Nose Cone (TOP)*/
         Arc leftNoseCone = new Arc();
         leftNoseCone.setFill(lg);
@@ -148,7 +139,7 @@ public class CreativeScene extends Application {
         leftNoseCone.setStartAngle(90.0);
         leftNoseCone.setStrokeWidth(40.0);
         leftNoseCone.setType(ArcType.ROUND);
-        
+
         /* Create two arcs that represent the inside Nose Cone */
         Arc insideLeftNoseCone = new Arc();
         insideLeftNoseCone.setFill(Color.valueOf("#ffe9d6"));
@@ -162,7 +153,7 @@ public class CreativeScene extends Application {
         insideLeftNoseCone.setTranslateX(3.0);
         insideLeftNoseCone.setTranslateY(6.0);
         insideLeftNoseCone.setType(ArcType.ROUND);
-        
+
         Arc insideRightNoseCone = new Arc();
         insideRightNoseCone.setFill(Color.valueOf("#fcd9bd"));
         insideRightNoseCone.setLayoutX(322.0);
@@ -174,10 +165,10 @@ public class CreativeScene extends Application {
         insideRightNoseCone.setTranslateX(3.0);
         insideRightNoseCone.setTranslateY(8.0);
         insideRightNoseCone.setType(ArcType.ROUND);
-        
+
         /* Rocket Turbine Left Side */
         Rectangle turbineLL = new Rectangle();
-         turbineLL.setArcWidth(5.0);
+        turbineLL.setArcWidth(5.0);
         turbineLL.setFill(Color.valueOf("#ffe9d6"));
         turbineLL.setHeight(186.0);
         turbineLL.setLayoutX(224.0);
@@ -185,7 +176,7 @@ public class CreativeScene extends Application {
         turbineLL.setStrokeWidth(0.0);
         turbineLL.setTranslateX(1.0);
         turbineLL.setWidth(23.5);
-        
+
         Rectangle turbineLR = new Rectangle();
         turbineLR.setArcWidth(5.0);
         turbineLR.setFill(Color.valueOf("#fcd4b8"));
@@ -196,9 +187,9 @@ public class CreativeScene extends Application {
         turbineLR.setTranslateX(-1.0);
         turbineLR.setTranslateY(5.0);
         turbineLR.setWidth(23.5);
-        
+
         /* Rectangles that represent the lines in the left turbine*/
-        Rectangle topLL = new Rectangle(); 
+        Rectangle topLL = new Rectangle();
         topLL.setArcWidth(5.0);
         topLL.setFill(Color.valueOf("#4d2c15"));
         topLL.setHeight(12.0);
@@ -207,7 +198,7 @@ public class CreativeScene extends Application {
         topLL.setStrokeWidth(0.0);
         topLL.setTranslateX(0.5);
         topLL.setWidth(24.0);
-        
+
         Rectangle topLR = new Rectangle();
         topLR.setArcWidth(5.0);
         topLR.setFill(Color.valueOf("#301d0e"));
@@ -226,7 +217,7 @@ public class CreativeScene extends Application {
         middleLL.setLayoutY(300.0);
         middleLL.setStrokeWidth(0.0);
         middleLL.setWidth(24.0);
-        
+
         Rectangle middleLR = new Rectangle();
         middleLR.setArcWidth(5.0);
         middleLR.setFill(Color.valueOf("#301d0e"));
@@ -236,7 +227,7 @@ public class CreativeScene extends Application {
         middleLR.setStrokeWidth(0.0);
         middleLR.setTranslateY(-3.0);
         middleLR.setWidth(24.0);
-       
+
         Rectangle bottomLR = new Rectangle();
         bottomLR.setArcWidth(5.0);
         bottomLR.setFill(Color.valueOf("#4d2c15"));
@@ -245,7 +236,7 @@ public class CreativeScene extends Application {
         bottomLR.setLayoutY(318.0);
         bottomLR.setStrokeWidth(0.0);
         bottomLR.setWidth(24.0);
-         
+
         Rectangle buttonLL = new Rectangle();
         buttonLL.setArcWidth(5.0);
         buttonLL.setFill(Color.valueOf("#301d0e"));
@@ -255,7 +246,7 @@ public class CreativeScene extends Application {
         buttonLL.setStrokeWidth(0.0);
         buttonLL.setTranslateY(-3.0);
         buttonLL.setWidth(24.0);
-        
+
         /* Rectangles that represent the lines in the right turbine*/
         Rectangle rectangle9 = new Rectangle();
         Rectangle rectangle10 = new Rectangle();
@@ -350,8 +341,10 @@ public class CreativeScene extends Application {
         rectangle16.setStrokeWidth(0.0);
         rectangle16.setTranslateY(-2.0);
         rectangle16.setWidth(24.0);
-        
-         /******************** UP TO HERE *************************/
+
+        /**
+         * ****************** UP TO HERE ************************
+         */
         Arc arc2 = new Arc();
         Arc arc3 = new Arc();
         Arc arc4 = new Arc();
@@ -368,7 +361,7 @@ public class CreativeScene extends Application {
         Rectangle rectangle110 = new Rectangle();
         Rectangle rectangle111 = new Rectangle();
         Rectangle rectangle112 = new Rectangle();
-        Rectangle  rectangle113 = new Rectangle();
+        Rectangle rectangle113 = new Rectangle();
         Polygon polygon5 = new Polygon();
         Polygon polygon6 = new Polygon();
         Line line = new Line();
@@ -381,7 +374,7 @@ public class CreativeScene extends Application {
         Rectangle rectangle114 = new Rectangle();
         Rectangle rectangle115 = new Rectangle();
         Rectangle rectangle116 = new Rectangle();
-        Rectangle  rectangle117 = new Rectangle();
+        Rectangle rectangle117 = new Rectangle();
         Rectangle rectangle118 = new Rectangle();
         Rectangle rectangle119 = new Rectangle();
         Rectangle rectangle1110 = new Rectangle();
@@ -409,7 +402,7 @@ public class CreativeScene extends Application {
         Ellipse ellipse11 = new Ellipse();
         DropShadow dropShadow11 = new DropShadow();
         Ellipse ellipse12 = new Ellipse();
-        DropShadow  dropShadow12 = new DropShadow();
+        DropShadow dropShadow12 = new DropShadow();
         Ellipse ellipse13 = new Ellipse();
         DropShadow dropShadow13 = new DropShadow();
         Ellipse ellipse14 = new Ellipse();
@@ -429,7 +422,7 @@ public class CreativeScene extends Application {
         Ellipse ellipse111 = new Ellipse();
         DropShadow dropShadow111 = new DropShadow();
         Ellipse ellipse112 = new Ellipse();
-        DropShadow  dropShadow112 = new DropShadow();
+        DropShadow dropShadow112 = new DropShadow();
         Ellipse ellipse113 = new Ellipse();
         DropShadow dropShadow113 = new DropShadow();
         Ellipse ellipse114 = new Ellipse();
@@ -454,7 +447,7 @@ public class CreativeScene extends Application {
         Ellipse ellipse11111 = new Ellipse();
         Ellipse ellipse11112 = new Ellipse();
         Ellipse ellipse11113 = new Ellipse();
-        Ellipse  ellipse11114 = new Ellipse();
+        Ellipse ellipse11114 = new Ellipse();
         Ellipse ellipse11115 = new Ellipse();
         Ellipse ellipse11116 = new Ellipse();
         Ellipse ellipse11117 = new Ellipse();
@@ -502,11 +495,11 @@ public class CreativeScene extends Application {
         Circle circle6 = new Circle();
         Circle circle7 = new Circle();
         Circle circle8 = new Circle();
-        Circle  circle9 = new Circle();
+        Circle circle9 = new Circle();
         Circle circle10 = new Circle();
         Circle circle11 = new Circle();
         Circle circle12 = new Circle();
-        Circle  circle13 = new Circle();
+        Circle circle13 = new Circle();
         Circle circle14 = new Circle();
         Circle circle15 = new Circle();
         Circle circle16 = new Circle();
@@ -617,8 +610,8 @@ public class CreativeScene extends Application {
         polygon1.setTranslateY(-67.0);
 
         polygon2.setFill(javafx.scene.paint.Color.valueOf("#fa812a"));
-        polygon2.setLayoutX(395.0); 
-        polygon2.setLayoutY(422.0); 
+        polygon2.setLayoutX(395.0);
+        polygon2.setLayoutY(422.0);
         polygon2.setScaleX(2.0);
         polygon2.setScaleZ(0.0);
         polygon2.setStroke(javafx.scene.paint.Color.BLACK);
@@ -1693,14 +1686,12 @@ public class CreativeScene extends Application {
 //        ellipse1111119.setStroke(javafx.scene.paint.Color.BLACK);
 //        ellipse1111119.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
 //        ellipse1111119.setStrokeWidth(0.0);
-
 //        dropShadow117.setColor(javafx.scene.paint.Color.WHITE);
 //        dropShadow117.setHeight(48.32);
 //        dropShadow117.setRadius(19.1075);
 //        dropShadow117.setSpread(0.4);
 //        dropShadow117.setWidth(30.11);
 //        ellipse1111119.setEffect(dropShadow117);
-
         ellipse11111110.setFill(javafx.scene.paint.Color.WHITE);
         ellipse11111110.setLayoutX(230.0);
         ellipse11111110.setLayoutY(573.0);
@@ -2010,7 +2001,6 @@ public class CreativeScene extends Application {
         arc12.setTranslateY(92.0);
         arc12.setType(javafx.scene.shape.ArcType.ROUND);
 
-        
         /* ADD ALL ELEMEMTS TO THE PANE */
         pane.getChildren().add(planet);
         pane.getChildren().add(galaxy);
@@ -2174,12 +2164,12 @@ public class CreativeScene extends Application {
         pane.getChildren().add(ellipse11111111);
         pane.getChildren().add(ellipse11111112);
         pane.getChildren().add(ellipse11111113);
-        
-    //Polylines are the starts (type of cross)
+
+        //Polylines are the starts (type of cross)
         polyline.getPoints().addAll(
                 7.5, 0.0, 10.0, 0.0,
                 10.0, 5.0, 17.5, 5.0,
-                17.5, 7.5, 10.0, 7.5, 
+                17.5, 7.5, 10.0, 7.5,
                 10.0, 15.0, 7.5, 15.0,
                 7.5, 7.5, 0.0, 7.5,
                 0.0, 5.0, 7.5, 5.0,
@@ -2189,7 +2179,7 @@ public class CreativeScene extends Application {
         polyline0.getPoints().addAll(
                 7.5, 0.0, 10.0, 0.0,
                 10.0, 5.0, 17.5, 5.0,
-                17.5, 7.5, 10.0, 7.5, 
+                17.5, 7.5, 10.0, 7.5,
                 10.0, 15.0, 7.5, 15.0,
                 7.5, 7.5, 0.0, 7.5,
                 0.0, 5.0, 7.5, 5.0,
@@ -2233,7 +2223,7 @@ public class CreativeScene extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
-        
+
         AnimationTimer gameloop = new AnimationTimer() {
             @Override
             public void handle(long arg0) {
@@ -2243,14 +2233,14 @@ public class CreativeScene extends Application {
         };
         gameloop.start();
     }
-    
-    
+
     public static void main(String[] args) {
         launch(args);
     }
 }
 
-class Smoke extends Group{
+class Smoke extends Group {
+
     WritableImage baseImg;
     ImageView[] lifeCycle;
 
@@ -2261,7 +2251,7 @@ class Smoke extends Group{
     double radius;
     Point2D midPoint;
 
-    double xThrow = 0 ; 
+    double xThrow = 0;
     int xWobble = 1;
     double yThrow = 5;
     int yWobble = 10;
@@ -2270,18 +2260,18 @@ class Smoke extends Group{
     int throttle;
     int throttleMax;
 
-    public Smoke(int xLoc, int yLoc, Color color){   
+    public Smoke(int xLoc, int yLoc, Color color) {
         throttleMax = 4; // 4 ==> 15 fps animation rate
         random = new Random();
 
-        midPoint = new Point2D(width/2, height/2);
-        radius = width/2 - 1;
+        midPoint = new Point2D(width / 2, height / 2);
+        radius = width / 2 - 1;
         lifeCycle = new ImageView[50];
 
-        double topAlpha = 0.5; 
-        double fadeAmount = topAlpha/FALLING_FRAMES;
-        double fadeInAmount = 
-                topAlpha/((FRAMES - FALLING_FRAMES) * 3);
+        double topAlpha = 0.5;
+        double fadeAmount = topAlpha / FALLING_FRAMES;
+        double fadeInAmount
+                = topAlpha / ((FRAMES - FALLING_FRAMES) * 3);
 
         double pixR = color.getRed();
         double pixG = color.getGreen();
@@ -2291,24 +2281,27 @@ class Smoke extends Group{
         // Create the base image. 
         // The color is constant, the alpha is a
         // computed radial gradient.
-        baseImg = new WritableImage(width, height); 
+        baseImg = new WritableImage(width, height);
         PixelWriter baseRaster = baseImg.getPixelWriter();
         double distance;
         double gradientFactor; // between 0 and 1
 
-        for (int jj = 0; jj < height; jj++){
-            for (int kk = 0; kk < width; kk++){
+        for (int jj = 0; jj < height; jj++) {
+            for (int kk = 0; kk < width; kk++) {
                 distance = midPoint.distance(jj, kk);
-                if (distance > radius) gradientFactor = 0.0;
-                else gradientFactor = (radius - distance) / radius;
+                if (distance > radius) {
+                    gradientFactor = 0.0;
+                } else {
+                    gradientFactor = (radius - distance) / radius;
+                }
 
-                pixA =  topAlpha * gradientFactor;
+                pixA = topAlpha * gradientFactor;
                 baseRaster.setColor(jj, kk, new Color(pixR, pixG, pixB, pixA));
-            }   
-        }   
+            }
+        }
 
-        for (int i = 0; i < FRAMES; ++i){
-            lifeCycle[i]= new ImageView();
+        for (int i = 0; i < FRAMES; ++i) {
+            lifeCycle[i] = new ImageView();
             lifeCycle[i].setImage(baseImg);
             lifeCycle[i].setX(xLoc);
             lifeCycle[i].setY(yLoc);
@@ -2316,30 +2309,33 @@ class Smoke extends Group{
         }
 
         // alpha will rise and fall over course of lifeCycle
-        for (int i = 0; i < FALLING_FRAMES; ++i){
+        for (int i = 0; i < FALLING_FRAMES; ++i) {
             lifeCycle[i].setOpacity((i + 1) * fadeAmount);
         }
 
-        for (int i = FALLING_FRAMES; i < FRAMES; i++){
+        for (int i = FALLING_FRAMES; i < FRAMES; i++) {
             lifeCycle[i].setOpacity(
                     topAlpha - (i - FALLING_FRAMES + 1) * fadeInAmount);
         }
     }
 
-    public void update() { 
+    public void update() {
         // Slow the animation by skipping cycles. 60 fps is overkill.
-        if (throttle -- > 0) return;
-        else throttle = throttleMax;
+        if (throttle-- > 0) {
+            return;
+        } else {
+            throttle = throttleMax;
+        }
 
         // Propagate location of particles, while adding 
         //     'throw' and 'wobble'
         // lifeCycle[n] is stationary (origin of stream, visually)
-        int n = FRAMES - 1; 
+        int n = FRAMES - 1;
         for (int i = 0; i < n; i++) {
-            lifeCycle[i].setX( lifeCycle[i+1].getX() 
-                + xThrow + random.nextInt(xWobble));
-            lifeCycle[i].setY( lifeCycle[i+1].getY() 
-                + yThrow + random.nextInt(yWobble)); 
-        }       
+            lifeCycle[i].setX(lifeCycle[i + 1].getX()
+                    + xThrow + random.nextInt(xWobble));
+            lifeCycle[i].setY(lifeCycle[i + 1].getY()
+                    + yThrow + random.nextInt(yWobble));
+        }
     }
 }
