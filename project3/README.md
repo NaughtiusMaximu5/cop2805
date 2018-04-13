@@ -1,5 +1,7 @@
 # Project No. 3
 
+![Gif](media/rocket.gif)
+
 Write a JavaFX scene that draws a picture of your choice in a `650 x 650` pixels window. Your picture
 must be a **coherent, describable depiction of a scene**. For example, “rocket ship traveling through
 space”, “at home taking care of my garden” are acceptable, but “bunch of shapes on a dark background”
@@ -68,6 +70,8 @@ rcruz2@mdc.edu, with the subject Adv. Java Project 2
 > Static 
 
 ![Image](media/rocket.png)
+
+> See non-static above
 
 # Yeap
 
