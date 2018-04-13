@@ -1,3 +1,5 @@
+![Java Logo](http://www.freepngimg.com/thumb/java/3-2-java-free-download-png-thumb.png)
+
 # MDC Projects
 
 - [Project 1](project1)
