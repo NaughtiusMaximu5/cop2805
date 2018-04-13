@@ -12,7 +12,14 @@ import javafx.scene.layout.Pane;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
-
+/**
+ *  LL - Means left left
+ *  LR - Means left right
+ *  RL - Means right left
+ *  RR - Means right right
+ *   
+ * @author abraham
+ */
 
 public class CreativeScene extends Application {
     
@@ -20,6 +27,8 @@ public class CreativeScene extends Application {
     public void start(Stage primaryStage) {
         
         Pane pane = new Pane();
+        /* Set color of the pain */
+        pane.setStyle("-fx-background-color: #001229;");
         
         Smoke smoke = new Smoke(220, 423, Color.WHITESMOKE);
         Smoke smoke1 = new Smoke(375, 423, Color.WHITESMOKE);
@@ -27,24 +36,227 @@ public class CreativeScene extends Application {
         smoke.setOpacity(3);
         smoke1.setOpacity(3);
         
-        Ellipse ellipse = new Ellipse();
-        DropShadow dropShadow = new DropShadow();
-        Ellipse ellipse0 = new Ellipse();
-        DropShadow dropShadow0 = new DropShadow();
-        Arc arc = new Arc();
-        BoxBlur boxBlur = new BoxBlur();
-        Rectangle rectangle = new Rectangle();
-        Rectangle rectangle0 = new Rectangle();
-        Arc arc0 = new Arc();
-        Arc arc1 = new Arc();
-        Rectangle rectangle1 = new Rectangle();
-        Rectangle rectangle2 = new Rectangle();
-        Rectangle rectangle3 = new Rectangle();
-        Rectangle rectangle4 = new Rectangle();
-        Rectangle rectangle5 = new Rectangle();
-        Rectangle rectangle6 = new Rectangle();
-        Rectangle rectangle7 = new Rectangle();
-        Rectangle rectangle8 = new Rectangle();
+        
+        /* Create Ellipse that represents the planet */
+        Ellipse planet = new Ellipse();
+        planet.setFill(Color.valueOf("#003380"));
+        planet.setLayoutX(533.0);
+        planet.setLayoutY(581.0);
+        planet.setRadiusX(566.0);
+        planet.setRadiusY(302.0);
+        planet.setRotate(-21.0);
+        planet.setStrokeWidth(0.0);
+        
+        /* Add shadow effect to the ellipse created*/
+        DropShadow planetShadow = new DropShadow();
+        planetShadow.setColor(Color.valueOf("#003380"));
+        planetShadow.setHeight(247.71);
+        planetShadow.setRadius(125.17750000000001);
+        planetShadow.setSpread(0.77);
+        planetShadow.setWidth(255.0);
+        planet.setEffect(planetShadow);
+        
+        /* Create ellipse that represent a the top-left galaxy */
+        Ellipse galaxy = new Ellipse();
+        galaxy.setFill(Color.valueOf("#1e2e42"));
+        galaxy.setLayoutX(168.0);
+        galaxy.setLayoutY(26.0);
+        galaxy.setRadiusX(204.0);
+        galaxy.setRadiusY(47.0);
+        galaxy.setRotate(-12.5);
+        galaxy.setStrokeWidth(0.0);
+        
+        /* Add shadow effet to the galaxy */
+        DropShadow galaxyShadow = new DropShadow();
+        galaxyShadow.setColor(Color.valueOf("#1e2e42"));
+        galaxyShadow.setHeight(176.55);
+        galaxyShadow.setRadius(43.6375);
+        galaxyShadow.setSpread(0.74);
+        galaxyShadow.setWidth(0.0);
+        galaxy.setEffect(galaxyShadow);
+        
+        /* Create an arc that represents the black hole of the galaxy */
+        Arc blackHole = new Arc();
+        blackHole.setFill(Color.RED.valueOf("#00132b"));
+        blackHole.setLayoutX(112.0);
+        blackHole.setLayoutY(76.0);
+        blackHole.setLength(20.0);
+        blackHole.setOpacity(0.56);
+        blackHole.setRadiusX(240.0);
+        blackHole.setRadiusY(209.0);
+        blackHole.setRotate(9.7);
+        blackHole.setStartAngle(26.6);
+        blackHole.setStrokeWidth(0.0);
+        blackHole.setType(javafx.scene.shape.ArcType.ROUND);
+        
+        /* Add some blur effect to the black hole */
+        BoxBlur blackHoleBlur = new BoxBlur();
+        blackHoleBlur.setWidth(32.32);
+        blackHole.setEffect(blackHoleBlur);
+        
+        /* Create a rectangle that represent the body
+       of the Rocket. The Rocket is divided it into two
+       rectangles to be able to change colors */
+        Rectangle rocketBodyLeft = new Rectangle();
+        rocketBodyLeft.setArcWidth(5.0);
+        rocketBodyLeft.setFill(Color.valueOf("#fa812a"));
+        rocketBodyLeft.setHeight(249.0);
+        rocketBodyLeft.setLayoutX(271.0);
+        rocketBodyLeft.setLayoutY(164.0);
+        rocketBodyLeft.setStrokeWidth(0.0);
+        rocketBodyLeft.setWidth(54.5);
+       
+        Rectangle rocketBodyRight = new Rectangle();
+        rocketBodyRight.setArcWidth(5.0);
+        rocketBodyRight.setFill(Color.valueOf("#f56c11"));
+        rocketBodyRight.setHeight(249.0);
+        rocketBodyRight.setLayoutX(329.0);
+        rocketBodyRight.setLayoutY(165.0);
+        rocketBodyRight.setStrokeWidth(0.0);
+        rocketBodyRight.setTranslateX(-4.0);
+        rocketBodyRight.setTranslateY(-1.0);
+        rocketBodyRight.setWidth(54.5);
+        
+        /* Right part of the Rocket Nose Cone (TOP)*/
+        Arc rightNoseCone = new Arc();
+        rightNoseCone.setFill(Color.valueOf("#752f00"));
+        rightNoseCone.setLayoutX(325.0);
+        rightNoseCone.setLayoutY(170.0);
+        rightNoseCone.setLength(90.0);
+        rightNoseCone.setRadiusX(55.0);
+        rightNoseCone.setRadiusY(89.0);
+        rightNoseCone.setStrokeWidth(0.0);
+        rightNoseCone.setType(ArcType.ROUND);
+
+        /* Defining color of the Linear Gradient in the top of the rocket*/
+        Stop[] stops = new Stop[] { 
+            new Stop(0, Color.valueOf("#ab7216")),
+            new Stop(1, Color.valueOf("#752f00"))
+        };
+        
+        /* Create Linear Gradient with the stops of the aboves colors*/
+        LinearGradient lg = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE, stops);
+        
+        /* Left Part of the Rocket Nose Cone (TOP)*/
+        Arc leftNoseCone = new Arc();
+        leftNoseCone.setFill(lg);
+        leftNoseCone.setLayoutX(326.0);
+        leftNoseCone.setLayoutY(170.0);
+        leftNoseCone.setLength(90.0);
+        leftNoseCone.setRadiusX(55.0);
+        leftNoseCone.setRadiusY(89.0);
+        leftNoseCone.setStartAngle(90.0);
+        leftNoseCone.setStrokeWidth(40.0);
+        leftNoseCone.setType(ArcType.ROUND);
+        
+        /* Create two arcs that represent the inside Nose Cone */
+        Arc insideLeftNoseCone = new Arc();
+        insideLeftNoseCone.setFill(Color.valueOf("#ffe9d6"));
+        insideLeftNoseCone.setLayoutX(322.0);
+        insideLeftNoseCone.setLayoutY(242.0);
+        insideLeftNoseCone.setLength(90.0);
+        insideLeftNoseCone.setRadiusX(32.5);
+        insideLeftNoseCone.setRadiusY(70.0);
+        insideLeftNoseCone.setStartAngle(90.0);
+        insideLeftNoseCone.setStrokeWidth(0.0);
+        insideLeftNoseCone.setTranslateX(3.0);
+        insideLeftNoseCone.setTranslateY(6.0);
+        insideLeftNoseCone.setType(ArcType.ROUND);
+        
+        Arc insideRightNoseCone = new Arc();
+        insideRightNoseCone.setFill(Color.valueOf("#fcd9bd"));
+        insideRightNoseCone.setLayoutX(322.0);
+        insideRightNoseCone.setLayoutY(242.0);
+        insideRightNoseCone.setLength(90.0);
+        insideRightNoseCone.setRadiusX(32.5);
+        insideRightNoseCone.setRadiusY(72.0);
+        insideRightNoseCone.setStrokeWidth(0.0);
+        insideRightNoseCone.setTranslateX(3.0);
+        insideRightNoseCone.setTranslateY(8.0);
+        insideRightNoseCone.setType(ArcType.ROUND);
+        
+        /* Rocket Turbine Left Side */
+        Rectangle turbineLL = new Rectangle();
+         turbineLL.setArcWidth(5.0);
+        turbineLL.setFill(Color.valueOf("#ffe9d6"));
+        turbineLL.setHeight(186.0);
+        turbineLL.setLayoutX(224.0);
+        turbineLL.setLayoutY(246.0);
+        turbineLL.setStrokeWidth(0.0);
+        turbineLL.setTranslateX(1.0);
+        turbineLL.setWidth(23.5);
+        
+        Rectangle turbineLR = new Rectangle();
+        turbineLR.setArcWidth(5.0);
+        turbineLR.setFill(Color.valueOf("#fcd4b8"));
+        turbineLR.setHeight(186.0);
+        turbineLR.setLayoutX(249.0);
+        turbineLR.setLayoutY(241.0);
+        turbineLR.setStrokeWidth(0.0);
+        turbineLR.setTranslateX(-1.0);
+        turbineLR.setTranslateY(5.0);
+        turbineLR.setWidth(23.5);
+        
+        /* Rectangles that represent the lines in the left turbine*/
+        Rectangle topLL = new Rectangle(); 
+        topLL.setArcWidth(5.0);
+        topLL.setFill(Color.valueOf("#4d2c15"));
+        topLL.setHeight(12.0);
+        topLL.setLayoutX(224.0);
+        topLL.setLayoutY(249.0);
+        topLL.setStrokeWidth(0.0);
+        topLL.setTranslateX(0.5);
+        topLL.setWidth(24.0);
+        
+        Rectangle topLR = new Rectangle();
+        topLR.setArcWidth(5.0);
+        topLR.setFill(Color.valueOf("#301d0e"));
+        topLR.setHeight(12.0);
+        topLR.setLayoutX(248.0);
+        topLR.setLayoutY(252.0);
+        topLR.setStrokeWidth(0.0);
+        topLR.setTranslateY(-3.0);
+        topLR.setWidth(24.0);
+
+        Rectangle middleLL = new Rectangle();
+        middleLL.setArcWidth(5.0);
+        middleLL.setFill(Color.valueOf("#4d2c15"));
+        middleLL.setHeight(12.0);
+        middleLL.setLayoutX(224.0);
+        middleLL.setLayoutY(300.0);
+        middleLL.setStrokeWidth(0.0);
+        middleLL.setWidth(24.0);
+        
+        Rectangle middleLR = new Rectangle();
+        middleLR.setArcWidth(5.0);
+        middleLR.setFill(Color.valueOf("#301d0e"));
+        middleLR.setHeight(12.0);
+        middleLR.setLayoutX(248.0);
+        middleLR.setLayoutY(303.0);
+        middleLR.setStrokeWidth(0.0);
+        middleLR.setTranslateY(-3.0);
+        middleLR.setWidth(24.0);
+       
+        Rectangle bottomLR = new Rectangle();
+        bottomLR.setArcWidth(5.0);
+        bottomLR.setFill(Color.valueOf("#4d2c15"));
+        bottomLR.setHeight(12.0);
+        bottomLR.setLayoutX(224.0);
+        bottomLR.setLayoutY(318.0);
+        bottomLR.setStrokeWidth(0.0);
+        bottomLR.setWidth(24.0);
+         
+        Rectangle buttonLL = new Rectangle();
+        buttonLL.setArcWidth(5.0);
+        buttonLL.setFill(Color.valueOf("#301d0e"));
+        buttonLL.setHeight(12.0);
+        buttonLL.setLayoutX(248.0);
+        buttonLL.setLayoutY(321.0);
+        buttonLL.setStrokeWidth(0.0);
+        buttonLL.setTranslateY(-3.0);
+        buttonLL.setWidth(24.0);
+        
+        /* Rectangles that represent the lines in the right turbine*/
         Rectangle rectangle9 = new Rectangle();
         Rectangle rectangle10 = new Rectangle();
         Rectangle rectangle11 = new Rectangle();
@@ -53,6 +265,93 @@ public class CreativeScene extends Application {
         Rectangle rectangle14 = new Rectangle();
         Rectangle rectangle15 = new Rectangle();
         Rectangle rectangle16 = new Rectangle();
+        rectangle9.setArcWidth(5.0);
+        rectangle9.setFill(javafx.scene.paint.Color.valueOf("#ffe9d6"));
+        rectangle9.setHeight(186.0);
+        rectangle9.setLayoutX(375.0);
+        rectangle9.setLayoutY(240.0);
+        rectangle9.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle9.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle9.setStrokeWidth(0.0);
+        rectangle9.setTranslateX(4.0);
+        rectangle9.setTranslateY(4.0);
+        rectangle9.setWidth(23.5);
+
+        rectangle10.setArcWidth(5.0);
+        rectangle10.setFill(javafx.scene.paint.Color.valueOf("#fcd4b8"));
+        rectangle10.setHeight(186.0);
+        rectangle10.setLayoutX(403.0);
+        rectangle10.setLayoutY(244.0);
+        rectangle10.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle10.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle10.setStrokeWidth(0.0);
+        rectangle10.setTranslateX(-1.0);
+        rectangle10.setWidth(23.5);
+
+        rectangle11.setArcWidth(5.0);
+        rectangle11.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
+        rectangle11.setHeight(12.0);
+        rectangle11.setLayoutX(379.0);
+        rectangle11.setLayoutY(249.0);
+        rectangle11.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle11.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle11.setStrokeWidth(0.0);
+        rectangle11.setWidth(24.0);
+
+        rectangle12.setArcWidth(5.0);
+        rectangle12.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
+        rectangle12.setHeight(12.0);
+        rectangle12.setLayoutX(378.0);
+        rectangle12.setLayoutY(300.0);
+        rectangle12.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle12.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle12.setStrokeWidth(0.0);
+        rectangle12.setWidth(24.0);
+
+        rectangle13.setArcWidth(5.0);
+        rectangle13.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
+        rectangle13.setHeight(12.0);
+        rectangle13.setLayoutX(378.0);
+        rectangle13.setLayoutY(318.0);
+        rectangle13.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle13.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle13.setStrokeWidth(0.0);
+        rectangle13.setWidth(24.0);
+
+        rectangle14.setArcWidth(5.0);
+        rectangle14.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
+        rectangle14.setHeight(12.0);
+        rectangle14.setLayoutX(402.0);
+        rectangle14.setLayoutY(251.0);
+        rectangle14.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle14.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle14.setStrokeWidth(0.0);
+        rectangle14.setTranslateY(-2.0);
+        rectangle14.setWidth(24.0);
+
+        rectangle15.setArcWidth(5.0);
+        rectangle15.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
+        rectangle15.setHeight(12.0);
+        rectangle15.setLayoutX(401.0);
+        rectangle15.setLayoutY(302.0);
+        rectangle15.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle15.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle15.setStrokeWidth(0.0);
+        rectangle15.setTranslateY(-2.0);
+        rectangle15.setWidth(24.0);
+
+        rectangle16.setArcWidth(5.0);
+        rectangle16.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
+        rectangle16.setHeight(12.0);
+        rectangle16.setLayoutX(401.0);
+        rectangle16.setLayoutY(320.0);
+        rectangle16.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle16.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle16.setStrokeWidth(0.0);
+        rectangle16.setTranslateY(-2.0);
+        rectangle16.setWidth(24.0);
+        
+         /******************** UP TO HERE *************************/
         Arc arc2 = new Arc();
         Arc arc3 = new Arc();
         Arc arc4 = new Arc();
@@ -220,283 +519,6 @@ public class CreativeScene extends Application {
         Arc arc10 = new Arc();
         Arc arc11 = new Arc();
         Arc arc12 = new Arc();
-        Arc arc13 = new Arc();
-        Arc arc14 = new Arc();
-
-        pane.setStyle("-fx-background-color: #001229;");
-
-        ellipse.setFill(javafx.scene.paint.Color.valueOf("#003380"));
-        ellipse.setLayoutX(533.0);
-        ellipse.setLayoutY(581.0);
-        ellipse.setRadiusX(566.0);
-        ellipse.setRadiusY(302.0);
-        ellipse.setRotate(-21.0);
-        ellipse.setStroke(javafx.scene.paint.Color.BLACK);
-        ellipse.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse.setStrokeWidth(0.0);
-
-        dropShadow.setColor(javafx.scene.paint.Color.valueOf("#003380"));
-        dropShadow.setHeight(247.71);
-        dropShadow.setRadius(125.17750000000001);
-        dropShadow.setSpread(0.77);
-        dropShadow.setWidth(255.0);
-        ellipse.setEffect(dropShadow);
-
-        ellipse0.setFill(javafx.scene.paint.Color.valueOf("#1e2e42"));
-        ellipse0.setLayoutX(168.0);
-        ellipse0.setLayoutY(26.0);
-        ellipse0.setRadiusX(204.0);
-        ellipse0.setRadiusY(47.0);
-        ellipse0.setRotate(-12.5);
-        ellipse0.setStroke(javafx.scene.paint.Color.BLACK);
-        ellipse0.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse0.setStrokeWidth(0.0);
-
-        dropShadow0.setColor(javafx.scene.paint.Color.valueOf("#1e2e42"));
-        dropShadow0.setHeight(176.55);
-        dropShadow0.setRadius(43.6375);
-        dropShadow0.setSpread(0.74);
-        dropShadow0.setWidth(0.0);
-        ellipse0.setEffect(dropShadow0);
-
-        arc.setFill(javafx.scene.paint.Color.valueOf("#00132b"));
-        arc.setLayoutX(112.0);
-        arc.setLayoutY(76.0);
-        arc.setLength(20.0);
-        arc.setOpacity(0.56);
-        arc.setRadiusX(240.0);
-        arc.setRadiusY(209.0);
-        arc.setRotate(9.7);
-        arc.setStartAngle(26.6);
-        arc.setStroke(javafx.scene.paint.Color.BLACK);
-        arc.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        arc.setStrokeWidth(0.0);
-        arc.setType(javafx.scene.shape.ArcType.ROUND);
-
-        boxBlur.setWidth(32.32);
-        arc.setEffect(boxBlur);
-
-        rectangle.setArcWidth(5.0);
-        rectangle.setFill(javafx.scene.paint.Color.valueOf("#fa812a"));
-        rectangle.setHeight(249.0);
-        rectangle.setLayoutX(271.0);
-        rectangle.setLayoutY(164.0);
-        rectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle.setStrokeWidth(0.0);
-        rectangle.setWidth(54.5);
-
-        rectangle0.setArcWidth(5.0);
-        rectangle0.setFill(javafx.scene.paint.Color.valueOf("#f56c11"));
-        rectangle0.setHeight(249.0);
-        rectangle0.setLayoutX(329.0);
-        rectangle0.setLayoutY(165.0);
-        rectangle0.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle0.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle0.setStrokeWidth(0.0);
-        rectangle0.setTranslateX(-4.0);
-        rectangle0.setTranslateY(-1.0);
-        rectangle0.setWidth(54.5);
-
-        arc0.setFill(javafx.scene.paint.Color.valueOf("#ffe9d6"));
-        arc0.setLayoutX(322.0);
-        arc0.setLayoutY(242.0);
-        arc0.setLength(90.0);
-        arc0.setRadiusX(32.5);
-        arc0.setRadiusY(70.0);
-        arc0.setStartAngle(90.0);
-        arc0.setStroke(javafx.scene.paint.Color.BLACK);
-        arc0.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        arc0.setStrokeWidth(0.0);
-        arc0.setTranslateX(3.0);
-        arc0.setTranslateY(6.0);
-        arc0.setType(javafx.scene.shape.ArcType.ROUND);
-
-        arc1.setFill(javafx.scene.paint.Color.valueOf("#fcd9bd"));
-        arc1.setLayoutX(322.0);
-        arc1.setLayoutY(242.0);
-        arc1.setLength(90.0);
-        arc1.setRadiusX(32.5);
-        arc1.setRadiusY(72.0);
-        arc1.setStroke(javafx.scene.paint.Color.BLACK);
-        arc1.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        arc1.setStrokeWidth(0.0);
-        arc1.setTranslateX(3.0);
-        arc1.setTranslateY(8.0);
-        arc1.setType(javafx.scene.shape.ArcType.ROUND);
-
-        rectangle1.setArcWidth(5.0);
-        rectangle1.setFill(javafx.scene.paint.Color.valueOf("#ffe9d6"));
-        rectangle1.setHeight(186.0);
-        rectangle1.setLayoutX(224.0);
-        rectangle1.setLayoutY(246.0);
-        rectangle1.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle1.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle1.setStrokeWidth(0.0);
-        rectangle1.setTranslateX(1.0);
-        rectangle1.setWidth(23.5);
-
-        rectangle2.setArcWidth(5.0);
-        rectangle2.setFill(javafx.scene.paint.Color.valueOf("#fcd4b8"));
-        rectangle2.setHeight(186.0);
-        rectangle2.setLayoutX(249.0);
-        rectangle2.setLayoutY(241.0);
-        rectangle2.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle2.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle2.setStrokeWidth(0.0);
-        rectangle2.setTranslateX(-1.0);
-        rectangle2.setTranslateY(5.0);
-        rectangle2.setWidth(23.5);
-
-        rectangle3.setArcWidth(5.0);
-        rectangle3.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
-        rectangle3.setHeight(12.0);
-        rectangle3.setLayoutX(224.0);
-        rectangle3.setLayoutY(249.0);
-        rectangle3.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle3.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle3.setStrokeWidth(0.0);
-        rectangle3.setTranslateX(0.5);
-        rectangle3.setWidth(24.0);
-
-        rectangle4.setArcWidth(5.0);
-        rectangle4.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
-        rectangle4.setHeight(12.0);
-        rectangle4.setLayoutX(224.0);
-        rectangle4.setLayoutY(300.0);
-        rectangle4.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle4.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle4.setStrokeWidth(0.0);
-        rectangle4.setWidth(24.0);
-
-        rectangle5.setArcWidth(5.0);
-        rectangle5.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
-        rectangle5.setHeight(12.0);
-        rectangle5.setLayoutX(224.0);
-        rectangle5.setLayoutY(318.0);
-        rectangle5.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle5.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle5.setStrokeWidth(0.0);
-        rectangle5.setWidth(24.0);
-
-        rectangle6.setArcWidth(5.0);
-        rectangle6.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
-        rectangle6.setHeight(12.0);
-        rectangle6.setLayoutX(248.0);
-        rectangle6.setLayoutY(252.0);
-        rectangle6.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle6.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle6.setStrokeWidth(0.0);
-        rectangle6.setTranslateY(-3.0);
-        rectangle6.setWidth(24.0);
-
-        rectangle7.setArcWidth(5.0);
-        rectangle7.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
-        rectangle7.setHeight(12.0);
-        rectangle7.setLayoutX(248.0);
-        rectangle7.setLayoutY(303.0);
-        rectangle7.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle7.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle7.setStrokeWidth(0.0);
-        rectangle7.setTranslateY(-3.0);
-        rectangle7.setWidth(24.0);
-
-        rectangle8.setArcWidth(5.0);
-        rectangle8.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
-        rectangle8.setHeight(12.0);
-        rectangle8.setLayoutX(248.0);
-        rectangle8.setLayoutY(321.0);
-        rectangle8.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle8.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle8.setStrokeWidth(0.0);
-        rectangle8.setTranslateY(-3.0);
-        rectangle8.setWidth(24.0);
-
-        rectangle9.setArcWidth(5.0);
-        rectangle9.setFill(javafx.scene.paint.Color.valueOf("#ffe9d6"));
-        rectangle9.setHeight(186.0);
-        rectangle9.setLayoutX(375.0);
-        rectangle9.setLayoutY(240.0);
-        rectangle9.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle9.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle9.setStrokeWidth(0.0);
-        rectangle9.setTranslateX(4.0);
-        rectangle9.setTranslateY(4.0);
-        rectangle9.setWidth(23.5);
-
-        rectangle10.setArcWidth(5.0);
-        rectangle10.setFill(javafx.scene.paint.Color.valueOf("#fcd4b8"));
-        rectangle10.setHeight(186.0);
-        rectangle10.setLayoutX(403.0);
-        rectangle10.setLayoutY(244.0);
-        rectangle10.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle10.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle10.setStrokeWidth(0.0);
-        rectangle10.setTranslateX(-1.0);
-        rectangle10.setWidth(23.5);
-
-        rectangle11.setArcWidth(5.0);
-        rectangle11.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
-        rectangle11.setHeight(12.0);
-        rectangle11.setLayoutX(379.0);
-        rectangle11.setLayoutY(249.0);
-        rectangle11.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle11.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle11.setStrokeWidth(0.0);
-        rectangle11.setWidth(24.0);
-
-        rectangle12.setArcWidth(5.0);
-        rectangle12.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
-        rectangle12.setHeight(12.0);
-        rectangle12.setLayoutX(378.0);
-        rectangle12.setLayoutY(300.0);
-        rectangle12.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle12.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle12.setStrokeWidth(0.0);
-        rectangle12.setWidth(24.0);
-
-        rectangle13.setArcWidth(5.0);
-        rectangle13.setFill(javafx.scene.paint.Color.valueOf("#4d2c15"));
-        rectangle13.setHeight(12.0);
-        rectangle13.setLayoutX(378.0);
-        rectangle13.setLayoutY(318.0);
-        rectangle13.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle13.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle13.setStrokeWidth(0.0);
-        rectangle13.setWidth(24.0);
-
-        rectangle14.setArcWidth(5.0);
-        rectangle14.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
-        rectangle14.setHeight(12.0);
-        rectangle14.setLayoutX(402.0);
-        rectangle14.setLayoutY(251.0);
-        rectangle14.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle14.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle14.setStrokeWidth(0.0);
-        rectangle14.setTranslateY(-2.0);
-        rectangle14.setWidth(24.0);
-
-        rectangle15.setArcWidth(5.0);
-        rectangle15.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
-        rectangle15.setHeight(12.0);
-        rectangle15.setLayoutX(401.0);
-        rectangle15.setLayoutY(302.0);
-        rectangle15.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle15.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle15.setStrokeWidth(0.0);
-        rectangle15.setTranslateY(-2.0);
-        rectangle15.setWidth(24.0);
-
-        rectangle16.setArcWidth(5.0);
-        rectangle16.setFill(javafx.scene.paint.Color.valueOf("#301d0e"));
-        rectangle16.setHeight(12.0);
-        rectangle16.setLayoutX(401.0);
-        rectangle16.setLayoutY(320.0);
-        rectangle16.setStroke(javafx.scene.paint.Color.BLACK);
-        rectangle16.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        rectangle16.setStrokeWidth(0.0);
-        rectangle16.setTranslateY(-2.0);
-        rectangle16.setWidth(24.0);
 
         arc2.setFill(javafx.scene.paint.Color.valueOf("#f56c11"));
         arc2.setLayoutX(358.0);
@@ -1988,53 +2010,23 @@ public class CreativeScene extends Application {
         arc12.setTranslateY(92.0);
         arc12.setType(javafx.scene.shape.ArcType.ROUND);
 
-        arc13.setFill(javafx.scene.paint.Color.valueOf("#752f00"));
-        arc13.setLayoutX(325.0);
-        arc13.setLayoutY(170.0);
-        arc13.setLength(90.0);
-        arc13.setRadiusX(55.0);
-        arc13.setRadiusY(89.0);
-        arc13.setStroke(javafx.scene.paint.Color.BLACK);
-        arc13.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        arc13.setStrokeWidth(0.0);
-        arc13.setType(javafx.scene.shape.ArcType.ROUND);
-
-        /* Defining color of the reflection in the top of the rocket*/
-        Stop[] stops = new Stop[] { 
-            new Stop(0, Color.valueOf("#ab7216")),
-            new Stop(1, Color.valueOf("#752f00"))
-        };
-        
-        /* Create Linear Gradient with the stops of the aboves colors*/
-        LinearGradient lg = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE, stops);
-        
-        /* Add properties for arc14 (Top of Rocket) */
-        arc14.setFill(lg);
-        arc14.setLayoutX(326.0);
-        arc14.setLayoutY(170.0);
-        arc14.setLength(90.0);
-        arc14.setRadiusX(55.0);
-        arc14.setRadiusY(89.0);
-        arc14.setStartAngle(90.0);
-        arc14.setStrokeWidth(40.0);
-        arc14.setType(javafx.scene.shape.ArcType.ROUND);
         
         /* ADD ALL ELEMEMTS TO THE PANE */
-        pane.getChildren().add(ellipse);
-        pane.getChildren().add(ellipse0);
-        pane.getChildren().add(arc);
-        pane.getChildren().add(rectangle);
-        pane.getChildren().add(rectangle0);
-        pane.getChildren().add(arc0);
-        pane.getChildren().add(arc1);
-        pane.getChildren().add(rectangle1);
-        pane.getChildren().add(rectangle2);
-        pane.getChildren().add(rectangle3);
-        pane.getChildren().add(rectangle4);
-        pane.getChildren().add(rectangle5);
-        pane.getChildren().add(rectangle6);
-        pane.getChildren().add(rectangle7);
-        pane.getChildren().add(rectangle8);
+        pane.getChildren().add(planet);
+        pane.getChildren().add(galaxy);
+        pane.getChildren().add(blackHole);
+        pane.getChildren().add(rocketBodyLeft);
+        pane.getChildren().add(rocketBodyRight);
+        pane.getChildren().add(insideLeftNoseCone);
+        pane.getChildren().add(insideRightNoseCone);
+        pane.getChildren().add(turbineLL);
+        pane.getChildren().add(turbineLR);
+        pane.getChildren().add(topLL);
+        pane.getChildren().add(middleLL);
+        pane.getChildren().add(bottomLR);
+        pane.getChildren().add(topLR);
+        pane.getChildren().add(middleLR);
+        pane.getChildren().add(buttonLL);
         pane.getChildren().add(rectangle9);
         pane.getChildren().add(rectangle10);
         pane.getChildren().add(rectangle11);
@@ -2231,8 +2223,8 @@ public class CreativeScene extends Application {
         pane.getChildren().add(arc10);
         pane.getChildren().add(arc11);
         pane.getChildren().add(arc12);
-        pane.getChildren().add(arc13);
-        pane.getChildren().add(arc14);
+        pane.getChildren().add(rightNoseCone);
+        pane.getChildren().add(leftNoseCone);
         pane.getChildren().add(smoke);
         pane.getChildren().add(smoke1);
 
