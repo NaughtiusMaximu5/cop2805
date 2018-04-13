@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package smoke;
 
 import java.util.Random;
 import javafx.animation.AnimationTimer;
@@ -26,16 +26,13 @@ public class ShowSmoke extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(root, 400, 500);
         scene.setFill(Color.BLACK);
 
-        Smoke smoke = new Smoke(180, 221, Color.WHITESMOKE);
-        Smoke s = new Smoke(300, 221, Color.WHITESMOKE);
+        Smoke smoke = new Smoke(180, 100, Color.WHITESMOKE);
         smoke.setOpacity(1);
-        s.setOpacity(1);
 
         root.getChildren().add(smoke);
-        root.getChildren().add(s);
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -44,11 +41,8 @@ public class ShowSmoke extends Application {
             @Override
             public void handle(long arg0) {
                 smoke.update();
-                s.update();
             }
         };
-        
-        
         gameloop.start();       
     }   
 }
@@ -59,15 +53,15 @@ class Smoke extends Group{
 
     int FRAMES = 50;
     int FALLING_FRAMES = 32;
-    int width = 100;
-    int height = 100;
+    int width = 60;
+    int height = 60;
     double radius;
     Point2D midPoint;
 
-    double xThrow = -7 ; 
-    int xWobble = 7;
-    double yThrow = 7;
-    int yWobble = 7;
+    double xThrow = 0 ; 
+    int xWobble = 1;
+    double yThrow = 5;
+    int yWobble = 10;
 
     Random random;
     int throttle;
