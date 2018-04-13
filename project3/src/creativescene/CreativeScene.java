@@ -1275,8 +1275,8 @@ public class CreativeScene extends Application {
         ellipse117.setFill(javafx.scene.paint.Color.valueOf("#e0dbda"));
         ellipse117.setLayoutX(123.0);
         ellipse117.setLayoutY(632.0);
-        ellipse117.setRadiusX(30.0);
-        ellipse117.setRadiusY(31.0);
+        ellipse117.setRadiusX(35.0);
+        ellipse117.setRadiusY(42.0);
         ellipse117.setStroke(javafx.scene.paint.Color.BLACK);
         ellipse117.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         ellipse117.setStrokeWidth(0.0);
@@ -1409,8 +1409,8 @@ public class CreativeScene extends Application {
         ellipse11111.setFill(javafx.scene.paint.Color.valueOf("#e0dbda"));
         ellipse11111.setLayoutX(425.0);
         ellipse11111.setLayoutY(634.0);
-        ellipse11111.setRadiusX(20.0);
-        ellipse11111.setRadiusY(17.0);
+        ellipse11111.setRadiusX(40.0);
+        ellipse11111.setRadiusY(40.0);
         ellipse11111.setStroke(javafx.scene.paint.Color.BLACK);
         ellipse11111.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         ellipse11111.setStrokeWidth(0.0);
@@ -1437,7 +1437,7 @@ public class CreativeScene extends Application {
         ellipse11114.setLayoutX(609.0);
         ellipse11114.setLayoutY(628.0);
         ellipse11114.setRadiusX(81.0);
-        ellipse11114.setRadiusY(44.0);
+        ellipse11114.setRadiusY(54.0);
         ellipse11114.setRotate(-20.6);
         ellipse11114.setStroke(javafx.scene.paint.Color.BLACK);
         ellipse11114.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
@@ -1663,21 +1663,21 @@ public class CreativeScene extends Application {
         ellipse1111118.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         ellipse1111118.setStrokeWidth(0.0);
 
-        ellipse1111119.setFill(javafx.scene.paint.Color.WHITE);
-        ellipse1111119.setLayoutX(385.0);
-        ellipse1111119.setLayoutY(565.0);
-        ellipse1111119.setRadiusX(14.0);
-        ellipse1111119.setRadiusY(12.0);
-        ellipse1111119.setStroke(javafx.scene.paint.Color.BLACK);
-        ellipse1111119.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111119.setStrokeWidth(0.0);
+//        ellipse1111119.setFill(javafx.scene.paint.Color.WHITE);
+//        ellipse1111119.setLayoutX(385.0);
+//        ellipse1111119.setLayoutY(565.0);
+//        ellipse1111119.setRadiusX(14.0);
+//        ellipse1111119.setRadiusY(12.0);
+//        ellipse1111119.setStroke(javafx.scene.paint.Color.BLACK);
+//        ellipse1111119.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+//        ellipse1111119.setStrokeWidth(0.0);
 
-        dropShadow117.setColor(javafx.scene.paint.Color.WHITE);
-        dropShadow117.setHeight(48.32);
-        dropShadow117.setRadius(19.1075);
-        dropShadow117.setSpread(0.4);
-        dropShadow117.setWidth(30.11);
-        ellipse1111119.setEffect(dropShadow117);
+//        dropShadow117.setColor(javafx.scene.paint.Color.WHITE);
+//        dropShadow117.setHeight(48.32);
+//        dropShadow117.setRadius(19.1075);
+//        dropShadow117.setSpread(0.4);
+//        dropShadow117.setWidth(30.11);
+//        ellipse1111119.setEffect(dropShadow117);
 
         ellipse11111110.setFill(javafx.scene.paint.Color.WHITE);
         ellipse11111110.setLayoutX(230.0);
@@ -2239,6 +2239,7 @@ public class CreativeScene extends Application {
         /* Display the scene */
         Scene scene = new Scene(pane, 650, 650);
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
         
         AnimationTimer gameloop = new AnimationTimer() {
