@@ -262,15 +262,15 @@ public class CreativeScene extends Application {
         bottomLR.setStrokeWidth(0.0);
         bottomLR.setWidth(24.0);
 
-        Rectangle buttonLL = new Rectangle();
-        buttonLL.setArcWidth(5.0);
-        buttonLL.setFill(Color.valueOf("#301d0e"));
-        buttonLL.setHeight(12.0);
-        buttonLL.setLayoutX(248.0);
-        buttonLL.setLayoutY(321.0);
-        buttonLL.setStrokeWidth(0.0);
-        buttonLL.setTranslateY(-3.0);
-        buttonLL.setWidth(24.0);
+        Rectangle bottomLL = new Rectangle();
+        bottomLL.setArcWidth(5.0);
+        bottomLL.setFill(Color.valueOf("#301d0e"));
+        bottomLL.setHeight(12.0);
+        bottomLL.setLayoutX(248.0);
+        bottomLL.setLayoutY(321.0);
+        bottomLL.setStrokeWidth(0.0);
+        bottomLL.setTranslateY(-3.0);
+        bottomLL.setWidth(24.0);
 
         /* Rectangles that represent the lines in the right turbine*/
         Rectangle topRL = new Rectangle();
@@ -659,6 +659,32 @@ public class CreativeScene extends Application {
         rightBorderOfTheWindow.setTranslateY(-13.0);
         rightBorderOfTheWindow.setWidth(10.0);
         
+        /* Arcs that made the window looks like a ring */
+        Arc rightWRing = new Arc();
+        rightWRing.setFill(Color.valueOf("#fcd4b8"));
+        rightWRing.setLayoutX(99.0);
+        rightWRing.setLayoutY(143.0);
+        rightWRing.setLength(90.0);
+        rightWRing.setRadiusX(21.0);
+        rightWRing.setRadiusY(21.0);
+        rightWRing.setStrokeWidth(0.0);
+        rightWRing.setTranslateX(226.0);
+        rightWRing.setTranslateY(92.0);
+        rightWRing.setType(ArcType.ROUND);
+        
+        Arc leftWRing = new Arc();
+        leftWRing.setFill(Color.valueOf("#ffe9d6"));
+        leftWRing.setLayoutX(99.0);
+        leftWRing.setLayoutY(143.0);
+        leftWRing.setLength(90.0);
+        leftWRing.setRadiusX(21.0);
+        leftWRing.setRadiusY(21.0);
+        leftWRing.setStartAngle(90.0);
+        leftWRing.setStrokeWidth(0.0);
+        leftWRing.setTranslateX(226.0);
+        leftWRing.setTranslateY(92.0);
+        leftWRing.setType(ArcType.ROUND);
+        
         /* Black parts of the motor at the bottom of each body part */
         Rectangle blackPartofTheMotorL = new Rectangle();
         blackPartofTheMotorL.setArcWidth(5.0);
@@ -682,7 +708,7 @@ public class CreativeScene extends Application {
         /* Borders between the Body Tube of the rocket and the nose cone */
         Rectangle borderLineL = new Rectangle();
         borderLineL.setArcWidth(5.0);
-        borderLineL.setFill(Color.RED.valueOf("#fff4d1"));
+        borderLineL.setFill(Color.valueOf("#fff4d1"));
         borderLineL.setHeight(5.0);
         borderLineL.setLayoutX(259.0);
         borderLineL.setLayoutY(172.0);
@@ -722,6 +748,7 @@ public class CreativeScene extends Application {
         
         /***************** CLOUDS ****************************/
         Ellipse cloud = new Ellipse();
+        DropShadow cloudShadow = new DropShadow();
         cloud.setFill(Color.valueOf("#385e96"));
         cloud.setLayoutX(633.0);
         cloud.setLayoutY(442.0);
@@ -730,8 +757,6 @@ public class CreativeScene extends Application {
         cloud.setStroke(Color.BLACK);
         cloud.setStrokeType(StrokeType.INSIDE);
         cloud.setStrokeWidth(0.0);
-        
-        DropShadow cloudShadow = new DropShadow();
         cloudShadow.setColor(Color.valueOf("#385e96"));
         cloudShadow.setHeight(72.61);
         cloudShadow.setRadius(41.1175);
@@ -740,6 +765,7 @@ public class CreativeScene extends Application {
         cloud.setEffect(cloudShadow);
         
         Ellipse cloud1 = new Ellipse();
+        DropShadow cloud1Shadow = new DropShadow();
         cloud1.setFill(Color.valueOf("#385e96"));
         cloud1.setLayoutX(587.0);
         cloud1.setLayoutY(529.0);
@@ -747,8 +773,6 @@ public class CreativeScene extends Application {
         cloud1.setRadiusY(80.0);
         cloud1.setStrokeType(StrokeType.INSIDE);
         cloud1.setStrokeWidth(0.0);
-        
-        DropShadow cloud1Shadow = new DropShadow();
         cloud1Shadow.setColor(Color.valueOf("#385e96"));
         cloud1Shadow.setHeight(169.75);
         cloud1Shadow.setRadius(92.7225);
@@ -757,6 +781,7 @@ public class CreativeScene extends Application {
         cloud1.setEffect(cloud1Shadow);
         
         Ellipse cloud2 = new Ellipse();
+         DropShadow cloud2Shadow = new DropShadow();
         cloud2.setFill(Color.valueOf("#385e96"));
         cloud2.setLayoutX(477.0);
         cloud2.setLayoutY(553.0);
@@ -764,8 +789,6 @@ public class CreativeScene extends Application {
         cloud2.setRadiusY(56.0);
         cloud2.setStrokeType(StrokeType.INSIDE);
         cloud2.setStrokeWidth(0.0);
-
-        DropShadow cloud2Shadow = new DropShadow();
         cloud2Shadow.setColor(Color.valueOf("#385e96"));
         cloud2Shadow.setHeight(151.54);
         cloud2Shadow.setRadius(93.48249);
@@ -774,14 +797,13 @@ public class CreativeScene extends Application {
         cloud2.setEffect(cloud2Shadow);
         
         Ellipse cloud3 = new Ellipse();
+        DropShadow cloud3Shadow = new DropShadow();
         cloud3.setFill(Color.valueOf("#385e96"));
         cloud3.setLayoutX(434.0);
         cloud3.setLayoutY(609.0);
         cloud3.setRadiusX(47.0);
         cloud3.setRadiusY(47.0);
         cloud3.setStrokeWidth(0.0);
-        
-        DropShadow cloud3Shadow = new DropShadow();
         cloud3Shadow.setColor(Color.valueOf("#385e96"));
         cloud3Shadow.setHeight(148.5);
         cloud3Shadow.setRadius(79.0625);
@@ -790,1324 +812,946 @@ public class CreativeScene extends Application {
         cloud3.setEffect(cloud3Shadow);
         
         Ellipse cloud4 = new Ellipse();
+        DropShadow cloud4Shadow = new DropShadow();
          cloud4.setFill(Color.valueOf("#385e96"));
         cloud4.setLayoutX(385.0);
         cloud4.setLayoutY(584.0);
         cloud4.setRadiusX(34.0);
         cloud4.setRadiusY(32.0);
-        cloud4.setStroke(Color.BLACK);
-        cloud4.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud4.setStrokeWidth(0.0);
+        cloud4Shadow.setColor(Color.valueOf("#385e96"));
+        cloud4Shadow.setHeight(106.0);
+        cloud4Shadow.setRadius(51.739);
+        cloud4Shadow.setSpread(0.08);
+        cloud4Shadow.setWidth(102.96);
+        cloud4.setEffect(cloud4Shadow);
         
-        DropShadow dropShadow5 = new DropShadow();
-        dropShadow5.setColor(Color.valueOf("#385e96"));
-        dropShadow5.setHeight(106.0);
-        dropShadow5.setRadius(51.739);
-        dropShadow5.setSpread(0.08);
-        dropShadow5.setWidth(102.96);
-        cloud4.setEffect(dropShadow5);
         Ellipse cloud5 = new Ellipse();
-        DropShadow dropShadow6 = new DropShadow();
-        Ellipse cloud6 = new Ellipse();
-        DropShadow dropShadow7 = new DropShadow();
-        Ellipse cloud7 = new Ellipse();
-        DropShadow dropShadow8 = new DropShadow();
-        Ellipse cloud8 = new Ellipse();
-        DropShadow dropShadow9 = new DropShadow();
-        Ellipse cloud9 = new Ellipse();
-        DropShadow dropShadow10 = new DropShadow();
-        Ellipse cloud10 = new Ellipse();
-        DropShadow dropShadow11 = new DropShadow();
-        Ellipse cloud11 = new Ellipse();
-        DropShadow dropShadow12 = new DropShadow();
-        Ellipse cloud12 = new Ellipse();
-        DropShadow dropShadow13 = new DropShadow();
-        Ellipse cloud13 = new Ellipse();
-        DropShadow dropShadow14 = new DropShadow();
-        Ellipse cloud14 = new Ellipse();
-        DropShadow dropShadow15 = new DropShadow();
-        Ellipse cloud15 = new Ellipse();
-        DropShadow dropShadow16 = new DropShadow();
-        Ellipse cloud16 = new Ellipse();
-        DropShadow dropShadow17 = new DropShadow();
-        Ellipse cloud17 = new Ellipse();
-        DropShadow dropShadow18 = new DropShadow();
-        Ellipse cloud18 = new Ellipse();
-        DropShadow dropShadow19 = new DropShadow();
-        Ellipse cloud19 = new Ellipse();
-        DropShadow dropShadow110 = new DropShadow();
-        Ellipse cloud20 = new Ellipse();
-        DropShadow dropShadow111 = new DropShadow();
-        Ellipse cloud21 = new Ellipse();
-        DropShadow dropShadow112 = new DropShadow();
-        Ellipse cloud22 = new Ellipse();
-        DropShadow dropShadow113 = new DropShadow();
-        Ellipse cloud23 = new Ellipse();
-        Ellipse cloud24 = new Ellipse();
-        DropShadow dropShadow114 = new DropShadow();
-        Ellipse cloud25 = new Ellipse();
-        Ellipse cloud26 = new Ellipse();
-        Ellipse cloud27 = new Ellipse();
-        Ellipse cloud28 = new Ellipse();
-        Ellipse cloud29 = new Ellipse();
-        DropShadow dropShadow115 = new DropShadow();
-        Ellipse cloud30 = new Ellipse();
-        Ellipse cloud31 = new Ellipse();
-        Ellipse cloud32 = new Ellipse();
-        Ellipse cloud33 = new Ellipse();
-        Ellipse cloud34 = new Ellipse();
-        Ellipse cloud35 = new Ellipse();
-        Ellipse cloud36 = new Ellipse();
-        Ellipse cloud37 = new Ellipse();
-        Ellipse cloud38 = new Ellipse();
-        Ellipse cloud39 = new Ellipse();
-        Ellipse cloud40 = new Ellipse();
-        Ellipse ellipse11112 = new Ellipse();
-        Ellipse ellipse11113 = new Ellipse();
-        Ellipse ellipse11114 = new Ellipse();
-        Ellipse ellipse11115 = new Ellipse();
-        Ellipse ellipse11116 = new Ellipse();
-        Ellipse ellipse11117 = new Ellipse();
-        Ellipse ellipse11118 = new Ellipse();
-        Ellipse ellipse11119 = new Ellipse();
-        Ellipse ellipse111110 = new Ellipse();
-        Ellipse ellipse111111 = new Ellipse();
-        Ellipse ellipse111112 = new Ellipse();
-        Ellipse ellipse111113 = new Ellipse();
-        Ellipse ellipse111114 = new Ellipse();
-        Ellipse ellipse111115 = new Ellipse();
-        Ellipse ellipse111116 = new Ellipse();
-        Ellipse ellipse111117 = new Ellipse();
-        Ellipse ellipse111118 = new Ellipse();
-        Ellipse ellipse111119 = new Ellipse();
-        DropShadow dropShadow116 = new DropShadow();
-        Ellipse ellipse1111110 = new Ellipse();
-        Ellipse ellipse1111111 = new Ellipse();
-        Ellipse ellipse1111112 = new Ellipse();
-        Ellipse ellipse1111113 = new Ellipse();
-        Ellipse ellipse1111114 = new Ellipse();
-        Ellipse ellipse1111115 = new Ellipse();
-        Ellipse ellipse1111116 = new Ellipse();
-        Ellipse ellipse1111117 = new Ellipse();
-        Ellipse ellipse1111118 = new Ellipse();
-        Ellipse ellipse1111119 = new Ellipse();
-        DropShadow dropShadow117 = new DropShadow();
-        Ellipse ellipse11111110 = new Ellipse();
-        DropShadow dropShadow118 = new DropShadow();
-        Ellipse ellipse11111111 = new Ellipse();
-        DropShadow dropShadow119 = new DropShadow();
-        Ellipse ellipse11111112 = new Ellipse();
-        DropShadow dropShadow1110 = new DropShadow();
-        Ellipse ellipse11111113 = new Ellipse();
-        DropShadow dropShadow1111 = new DropShadow();
-        Circle circle = new Circle();
-        Circle circle0 = new Circle();
-        Circle circle1 = new Circle();
-        Circle circle2 = new Circle();
-        Circle circle3 = new Circle();
-        Circle circle4 = new Circle();
-        Circle circle5 = new Circle();
-        Circle circle6 = new Circle();
-        Circle circle7 = new Circle();
-        Circle circle8 = new Circle();
-        Circle circle9 = new Circle();
-        Circle circle10 = new Circle();
-        Circle circle11 = new Circle();
-        Circle circle12 = new Circle();
-        Circle circle13 = new Circle();
-        Circle circle14 = new Circle();
-        Circle circle15 = new Circle();
-        Circle circle16 = new Circle();
-        Circle circle17 = new Circle();
-        Circle circle18 = new Circle();
-        Circle circle19 = new Circle();
-        Arc arc7 = new Arc();
-        Arc arc8 = new Arc();
-        Arc arc9 = new Arc();
-        Arc arc10 = new Arc();
-        Arc arc11 = new Arc();
-        Arc arc12 = new Arc();
-        
-        /******************* UP TO HERE *************************/
-        /*===============================================================================================================================================*/
-
-
+        DropShadow cloud5Shadow = new DropShadow();
         cloud5.setFill(Color.WHITE);
         cloud5.setLayoutX(639.0);
         cloud5.setLayoutY(528.0);
         cloud5.setRadiusX(41.0);
         cloud5.setRadiusY(40.0);
-        cloud5.setStroke(Color.BLACK);
-        cloud5.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        cloud5.setStrokeType(StrokeType.INSIDE);
         cloud5.setStrokeWidth(0.0);
-
-        dropShadow6.setColor(Color.WHITE);
-        dropShadow6.setHeight(48.32);
-        dropShadow6.setRadius(19.1075);
-        dropShadow6.setSpread(0.4);
-        dropShadow6.setWidth(30.11);
-        cloud5.setEffect(dropShadow6);
-
+        cloud5Shadow.setColor(Color.WHITE);
+        cloud5Shadow.setHeight(48.32);
+        cloud5Shadow.setRadius(19.1075);
+        cloud5Shadow.setSpread(0.4);
+        cloud5Shadow.setWidth(30.11);
+        cloud5.setEffect(cloud5Shadow);
+        
+        Ellipse cloud6 = new Ellipse();
+        DropShadow cloud6Shadow = new DropShadow();
         cloud6.setFill(Color.WHITE);
         cloud6.setLayoutX(604.0);
         cloud6.setLayoutY(565.0);
         cloud6.setRadiusX(28.0);
         cloud6.setRadiusY(32.0);
-        cloud6.setStroke(Color.BLACK);
-        cloud6.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud6.setStrokeWidth(0.0);
-
-        dropShadow7.setColor(Color.WHITE);
-        dropShadow7.setHeight(48.32);
-        dropShadow7.setRadius(19.1075);
-        dropShadow7.setSpread(0.4);
-        dropShadow7.setWidth(30.11);
-        cloud6.setEffect(dropShadow7);
-
+        cloud6Shadow.setColor(Color.WHITE);
+        cloud6Shadow.setHeight(48.32);
+        cloud6Shadow.setRadius(19.1075);
+        cloud6Shadow.setSpread(0.4);
+        cloud6Shadow.setWidth(30.11);
+        cloud6.setEffect(cloud6Shadow);
+        
+        Ellipse cloud7 = new Ellipse();
+        DropShadow cloud7Shadow = new DropShadow();
         cloud7.setFill(Color.WHITE);
         cloud7.setLayoutX(571.0);
         cloud7.setLayoutY(572.0);
         cloud7.setRadiusX(28.0);
         cloud7.setRadiusY(32.0);
-        cloud7.setStroke(Color.BLACK);
-        cloud7.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud7.setStrokeWidth(0.0);
-
-        dropShadow8.setColor(Color.WHITE);
-        dropShadow8.setHeight(48.32);
-        dropShadow8.setRadius(19.1075);
-        dropShadow8.setSpread(0.4);
-        dropShadow8.setWidth(30.11);
-        cloud7.setEffect(dropShadow8);
-
+        cloud7Shadow.setColor(Color.WHITE);
+        cloud7Shadow.setHeight(48.32);
+        cloud7Shadow.setRadius(19.1075);
+        cloud7Shadow.setSpread(0.4);
+        cloud7Shadow.setWidth(30.11);
+        cloud7.setEffect(cloud7Shadow);
+        
+        Ellipse cloud8 = new Ellipse();
+        DropShadow cloud8Shadow = new DropShadow();
         cloud8.setFill(Color.WHITE);
         cloud8.setLayoutX(544.0);
         cloud8.setLayoutY(543.0);
         cloud8.setRadiusX(30.0);
         cloud8.setRadiusY(35.0);
-        cloud8.setStroke(Color.BLACK);
-        cloud8.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud8.setStrokeWidth(0.0);
-
-        dropShadow9.setColor(Color.WHITE);
-        dropShadow9.setHeight(48.32);
-        dropShadow9.setRadius(19.1075);
-        dropShadow9.setSpread(0.4);
-        dropShadow9.setWidth(30.11);
-        cloud8.setEffect(dropShadow9);
-
+        cloud8Shadow.setColor(Color.WHITE);
+        cloud8Shadow.setHeight(48.32);
+        cloud8Shadow.setRadius(19.1075);
+        cloud8Shadow.setSpread(0.4);
+        cloud8Shadow.setWidth(30.11);
+        cloud8.setEffect(cloud8Shadow);
+        
+        Ellipse cloud9 = new Ellipse();
+        DropShadow cloud9Shadow = new DropShadow();
         cloud9.setFill(Color.WHITE);
         cloud9.setLayoutX(496.0);
         cloud9.setLayoutY(581.0);
         cloud9.setRadiusX(34.0);
         cloud9.setRadiusY(33.0);
-        cloud9.setStroke(Color.BLACK);
-        cloud9.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud9.setStrokeWidth(0.0);
-
-        dropShadow10.setColor(Color.WHITE);
-        dropShadow10.setHeight(48.32);
-        dropShadow10.setRadius(19.1075);
-        dropShadow10.setSpread(0.4);
-        dropShadow10.setWidth(30.11);
-        cloud9.setEffect(dropShadow10);
-
+        cloud9Shadow.setColor(Color.WHITE);
+        cloud9Shadow.setHeight(48.32);
+        cloud9Shadow.setRadius(19.1075);
+        cloud9Shadow.setSpread(0.4);
+        cloud9Shadow.setWidth(30.11);
+        cloud9.setEffect(cloud9Shadow);
+        
+        Ellipse cloud10 = new Ellipse();
+        DropShadow cloud10Shadow = new DropShadow();
         cloud10.setFill(Color.WHITE);
         cloud10.setLayoutX(448.0);
         cloud10.setLayoutY(593.0);
         cloud10.setRadiusX(28.0);
         cloud10.setRadiusY(32.0);
-        cloud10.setStroke(Color.BLACK);
-        cloud10.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud10.setStrokeWidth(0.0);
-
-        dropShadow11.setColor(Color.WHITE);
-        dropShadow11.setHeight(48.32);
-        dropShadow11.setRadius(19.1075);
-        dropShadow11.setSpread(0.4);
-        dropShadow11.setWidth(30.11);
-        cloud10.setEffect(dropShadow11);
-
+        cloud10Shadow.setColor(Color.WHITE);
+        cloud10Shadow.setHeight(48.32);
+        cloud10Shadow.setRadius(19.1075);
+        cloud10Shadow.setSpread(0.4);
+        cloud10Shadow.setWidth(30.11);
+        cloud10.setEffect(cloud10Shadow);
+        
+        Ellipse cloud11 = new Ellipse();
+        DropShadow cloud11Shadow = new DropShadow();
         cloud11.setFill(Color.WHITE);
         cloud11.setLayoutX(406.0);
         cloud11.setLayoutY(603.0);
         cloud11.setRadiusX(28.0);
         cloud11.setRadiusY(32.0);
-        cloud11.setStroke(Color.BLACK);
-        cloud11.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud11.setStrokeWidth(0.0);
-
-        dropShadow12.setColor(Color.WHITE);
-        dropShadow12.setHeight(48.32);
-        dropShadow12.setRadius(19.1075);
-        dropShadow12.setSpread(0.4);
-        dropShadow12.setWidth(30.11);
-        cloud11.setEffect(dropShadow12);
-
+        cloud11Shadow.setColor(Color.WHITE);
+        cloud11Shadow.setHeight(48.32);
+        cloud11Shadow.setRadius(19.1075);
+        cloud11Shadow.setSpread(0.4);
+        cloud11Shadow.setWidth(30.11);
+        cloud11.setEffect(cloud11Shadow);
+        
+        Ellipse cloud12 = new Ellipse();
+        DropShadow cloud12Shadow = new DropShadow();
         cloud12.setFill(Color.WHITE);
         cloud12.setLayoutX(368.0);
         cloud12.setLayoutY(576.0);
         cloud12.setRadiusX(19.0);
         cloud12.setRadiusY(26.0);
-        cloud12.setStroke(Color.BLACK);
-        cloud12.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud12.setStrokeWidth(0.0);
-
-        dropShadow13.setColor(Color.WHITE);
-        dropShadow13.setHeight(48.32);
-        dropShadow13.setRadius(19.1075);
-        dropShadow13.setSpread(0.4);
-        dropShadow13.setWidth(30.11);
-        cloud12.setEffect(dropShadow13);
-
+        cloud12Shadow.setColor(Color.WHITE);
+        cloud12Shadow.setHeight(48.32);
+        cloud12Shadow.setRadius(19.1075);
+        cloud12Shadow.setSpread(0.4);
+        cloud12Shadow.setWidth(30.11);
+        cloud12.setEffect(cloud12Shadow);
+        
+        Ellipse cloud13 = new Ellipse();
+        DropShadow cloud13Shadow = new DropShadow();
         cloud13.setFill(Color.WHITE);
         cloud13.setLayoutX(336.0);
         cloud13.setLayoutY(588.0);
         cloud13.setRadiusX(28.0);
         cloud13.setRadiusY(32.0);
-        cloud13.setStroke(Color.BLACK);
-        cloud13.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud13.setStrokeWidth(0.0);
-
-        dropShadow14.setColor(Color.WHITE);
-        dropShadow14.setHeight(48.32);
-        dropShadow14.setRadius(19.1075);
-        dropShadow14.setSpread(0.4);
-        dropShadow14.setWidth(30.11);
-        cloud13.setEffect(dropShadow14);
-
+        cloud13Shadow.setColor(Color.WHITE);
+        cloud13Shadow.setHeight(48.32);
+        cloud13Shadow.setRadius(19.1075);
+        cloud13Shadow.setSpread(0.4);
+        cloud13Shadow.setWidth(30.11);
+        cloud13.setEffect(cloud13Shadow);
+        
+        Ellipse cloud14 = new Ellipse();
+        DropShadow cloud14Shadow = new DropShadow();
         cloud14.setFill(Color.WHITE);
         cloud14.setLayoutX(298.0);
         cloud14.setLayoutY(587.0);
         cloud14.setRadiusX(19.0);
         cloud14.setRadiusY(27.0);
-        cloud14.setStroke(Color.BLACK);
-        cloud14.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud14.setStrokeWidth(0.0);
-
-        dropShadow15.setColor(Color.WHITE);
-        dropShadow15.setHeight(48.32);
-        dropShadow15.setRadius(19.1075);
-        dropShadow15.setSpread(0.4);
-        dropShadow15.setWidth(30.11);
-        cloud14.setEffect(dropShadow15);
-
+        cloud14Shadow.setColor(Color.WHITE);
+        cloud14Shadow.setHeight(48.32);
+        cloud14Shadow.setRadius(19.1075);
+        cloud14Shadow.setSpread(0.4);
+        cloud14Shadow.setWidth(30.11);
+        cloud14.setEffect(cloud14Shadow);
+        
+        Ellipse cloud15 = new Ellipse();
+        DropShadow cloud15Shadow = new DropShadow();
         cloud15.setFill(Color.WHITE);
         cloud15.setLayoutX(15.0);
         cloud15.setLayoutY(489.0);
         cloud15.setRadiusX(28.0);
         cloud15.setRadiusY(32.0);
-        cloud15.setStroke(Color.BLACK);
-        cloud15.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud15.setStrokeWidth(0.0);
-
-        dropShadow16.setColor(Color.WHITE);
-        dropShadow16.setHeight(48.32);
-        dropShadow16.setRadius(19.1075);
-        dropShadow16.setSpread(0.4);
-        dropShadow16.setWidth(30.11);
-        cloud15.setEffect(dropShadow16);
-
+        cloud15Shadow.setColor(Color.WHITE);
+        cloud15Shadow.setHeight(48.32);
+        cloud15Shadow.setRadius(19.1075);
+        cloud15Shadow.setSpread(0.4);
+        cloud15Shadow.setWidth(30.11);
+        cloud15.setEffect(cloud15Shadow);
+        
+        Ellipse cloud16 = new Ellipse();
+        DropShadow cloud16Shadow = new DropShadow();
         cloud16.setFill(Color.WHITE);
         cloud16.setLayoutX(149.0);
         cloud16.setLayoutY(602.0);
         cloud16.setRadiusX(28.0);
         cloud16.setRadiusY(24.0);
-        cloud16.setStroke(Color.BLACK);
-        cloud16.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud16.setStrokeWidth(0.0);
-
-        dropShadow17.setColor(Color.WHITE);
-        dropShadow17.setHeight(48.32);
-        dropShadow17.setRadius(19.1075);
-        dropShadow17.setSpread(0.4);
-        dropShadow17.setWidth(30.11);
-        cloud16.setEffect(dropShadow17);
-
+        cloud16Shadow.setColor(Color.WHITE);
+        cloud16Shadow.setHeight(48.32);
+        cloud16Shadow.setRadius(19.1075);
+        cloud16Shadow.setSpread(0.4);
+        cloud16Shadow.setWidth(30.11);
+        cloud16.setEffect(cloud16Shadow);
+        
+        Ellipse cloud17 = new Ellipse();
+        DropShadow cloud17Shadow = new DropShadow();
         cloud17.setFill(Color.WHITE);
         cloud17.setLayoutX(32.0);
         cloud17.setLayoutY(540.0);
         cloud17.setRadiusX(28.0);
         cloud17.setRadiusY(32.0);
-        cloud17.setStroke(Color.BLACK);
-        cloud17.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud17.setStrokeWidth(0.0);
-
-        dropShadow18.setColor(Color.WHITE);
-        dropShadow18.setHeight(48.32);
-        dropShadow18.setRadius(19.1075);
-        dropShadow18.setSpread(0.4);
-        dropShadow18.setWidth(30.11);
-        cloud17.setEffect(dropShadow18);
-
+        cloud17Shadow.setColor(Color.WHITE);
+        cloud17Shadow.setHeight(48.32);
+        cloud17Shadow.setRadius(19.1075);
+        cloud17Shadow.setSpread(0.4);
+        cloud17Shadow.setWidth(30.11);
+        cloud17.setEffect(cloud17Shadow);
+        
+        Ellipse cloud18 = new Ellipse();
+        DropShadow cloud18Shadow = new DropShadow();
         cloud18.setFill(Color.WHITE);
         cloud18.setLayoutX(62.0);
         cloud18.setLayoutY(534.0);
         cloud18.setRadiusX(20.0);
         cloud18.setRadiusY(23.0);
-        cloud18.setStroke(Color.BLACK);
-        cloud18.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud18.setStrokeWidth(0.0);
-
-        dropShadow19.setColor(Color.WHITE);
-        dropShadow19.setHeight(48.32);
-        dropShadow19.setRadius(19.1075);
-        dropShadow19.setSpread(0.4);
-        dropShadow19.setWidth(30.11);
-        cloud18.setEffect(dropShadow19);
-
+        cloud18Shadow.setColor(Color.WHITE);
+        cloud18Shadow.setHeight(48.32);
+        cloud18Shadow.setRadius(19.1075);
+        cloud18Shadow.setSpread(0.4);
+        cloud18Shadow.setWidth(30.11);
+        cloud18.setEffect(cloud18Shadow);
+        
+        Ellipse cloud19 = new Ellipse();
+        DropShadow cloud19Shadow = new DropShadow();
         cloud19.setFill(Color.WHITE);
         cloud19.setLayoutX(80.0);
         cloud19.setLayoutY(565.0);
         cloud19.setRadiusX(20.0);
         cloud19.setRadiusY(23.0);
-        cloud19.setStroke(Color.BLACK);
-        cloud19.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud19.setStrokeWidth(0.0);
-
-        dropShadow110.setColor(Color.WHITE);
-        dropShadow110.setHeight(48.32);
-        dropShadow110.setRadius(19.1075);
-        dropShadow110.setSpread(0.4);
-        dropShadow110.setWidth(30.11);
-        cloud19.setEffect(dropShadow110);
-
+        cloud19Shadow.setColor(Color.WHITE);
+        cloud19Shadow.setHeight(48.32);
+        cloud19Shadow.setRadius(19.1075);
+        cloud19Shadow.setSpread(0.4);
+        cloud19Shadow.setWidth(30.11);
+        cloud19.setEffect(cloud19Shadow);
+        
+        Ellipse cloud20 = new Ellipse();
+        DropShadow cloud20Shadow = new DropShadow();
         cloud20.setFill(Color.WHITE);
         cloud20.setLayoutX(124.0);
         cloud20.setLayoutY(570.0);
         cloud20.setRadiusX(34.0);
         cloud20.setRadiusY(29.0);
-        cloud20.setStroke(Color.BLACK);
-        cloud20.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud20.setStrokeWidth(0.0);
-
-        dropShadow111.setColor(Color.WHITE);
-        dropShadow111.setHeight(48.32);
-        dropShadow111.setRadius(19.1075);
-        dropShadow111.setSpread(0.4);
-        dropShadow111.setWidth(30.11);
-        cloud20.setEffect(dropShadow111);
-
+        cloud20Shadow.setColor(Color.WHITE);
+        cloud20Shadow.setHeight(48.32);
+        cloud20Shadow.setRadius(19.1075);
+        cloud20Shadow.setSpread(0.4);
+        cloud20Shadow.setWidth(30.11);
+        cloud20.setEffect(cloud20Shadow);
+        
+        Ellipse cloud21 = new Ellipse();
+        DropShadow cloud21Shadow = new DropShadow();
         cloud21.setFill(Color.WHITE);
         cloud21.setLayoutX(171.0);
         cloud21.setLayoutY(565.0);
         cloud21.setRadiusX(28.0);
         cloud21.setRadiusY(24.0);
-        cloud21.setStroke(Color.BLACK);
-        cloud21.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud21.setStrokeWidth(0.0);
-
-        dropShadow112.setColor(Color.WHITE);
-        dropShadow112.setHeight(48.32);
-        dropShadow112.setRadius(19.1075);
-        dropShadow112.setSpread(0.4);
-        dropShadow112.setWidth(30.11);
-        cloud21.setEffect(dropShadow112);
-
+        cloud21Shadow.setColor(Color.WHITE);
+        cloud21Shadow.setHeight(48.32);
+        cloud21Shadow.setRadius(19.1075);
+        cloud21Shadow.setSpread(0.4);
+        cloud21Shadow.setWidth(30.11);
+        cloud21.setEffect(cloud21Shadow);
+        
+        Ellipse cloud22 = new Ellipse();
+        DropShadow cloud22Shadow = new DropShadow();
         cloud22.setFill(Color.WHITE);
         cloud22.setLayoutX(223.0);
         cloud22.setLayoutY(618.0);
         cloud22.setRadiusX(61.0);
         cloud22.setRadiusY(66.0);
         cloud22.setRotate(-153.4);
-        cloud22.setStroke(Color.BLACK);
-        cloud22.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud22.setStrokeWidth(0.0);
-
-        dropShadow113.setColor(Color.WHITE);
-        dropShadow113.setHeight(48.32);
-        dropShadow113.setRadius(19.1075);
-        dropShadow113.setSpread(0.4);
-        dropShadow113.setWidth(30.11);
-        cloud22.setEffect(dropShadow113);
-
+        cloud22Shadow.setColor(Color.WHITE);
+        cloud22Shadow.setHeight(48.32);
+        cloud22Shadow.setRadius(19.1075);
+        cloud22Shadow.setSpread(0.4);
+        cloud22Shadow.setWidth(30.11);
+        cloud22.setEffect(cloud22Shadow);
+        
+        Ellipse cloud23 = new Ellipse();
         cloud23.setFill(Color.valueOf("#e0dbda"));
         cloud23.setLayoutX(-6.0);
         cloud23.setLayoutY(641.0);
         cloud23.setRadiusX(105.0);
         cloud23.setRadiusY(90.0);
-        cloud23.setStroke(Color.BLACK);
-        cloud23.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud23.setStrokeWidth(0.0);
-
+        
+         Ellipse cloud24 = new Ellipse();
         cloud24.setFill(Color.valueOf("#e0dbda"));
         cloud24.setLayoutX(-7.0);
         cloud24.setLayoutY(536.0);
         cloud24.setRadiusX(30.0);
         cloud24.setRadiusY(31.0);
-        cloud24.setStroke(Color.BLACK);
-        cloud24.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud24.setStrokeWidth(0.0);
 
-        dropShadow114.setColor(Color.valueOf("#e0dbda"));
-        dropShadow114.setHeight(151.54);
-        dropShadow114.setRadius(47.9475);
-        dropShadow114.setWidth(42.25);
-        cloud24.setEffect(dropShadow114);
-
+        Ellipse cloud25 = new Ellipse();
         cloud25.setFill(Color.valueOf("#e0dbda"));
         cloud25.setLayoutX(99.0);
         cloud25.setLayoutY(599.0);
         cloud25.setRadiusX(30.0);
         cloud25.setRadiusY(31.0);
-        cloud25.setStroke(Color.BLACK);
-        cloud25.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud25.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud26 = new Ellipse();
         cloud26.setFill(Color.valueOf("#e0dbda"));
         cloud26.setLayoutX(123.0);
         cloud26.setLayoutY(632.0);
         cloud26.setRadiusX(35.0);
         cloud26.setRadiusY(42.0);
-        cloud26.setStroke(Color.BLACK);
-        cloud26.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud26.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud27 = new Ellipse();
         cloud27.setFill(Color.valueOf("#e0dbda"));
         cloud27.setLayoutX(179.0);
         cloud27.setLayoutY(655.0);
         cloud27.setRadiusX(42.0);
         cloud27.setRadiusY(35.0);
         cloud27.setRotate(47.1);
-        cloud27.setStroke(Color.BLACK);
-        cloud27.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud27.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud28 = new Ellipse();
         cloud28.setFill(Color.valueOf("#e0dbda"));
         cloud28.setLayoutX(59.0);
         cloud28.setLayoutY(559.0);
         cloud28.setRadiusX(18.0);
         cloud28.setRadiusY(17.0);
-        cloud28.setStroke(Color.BLACK);
-        cloud28.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud28.setStrokeWidth(0.0);
-
-        cloud29.setFill(Color.WHITE);
+        
+        Ellipse cloud29 = new Ellipse();
+        cloud29.setFill(Color.valueOf("#e0dbda"));
         cloud29.setLayoutX(272.0);
         cloud29.setLayoutY(609.0);
         cloud29.setRadiusX(18.0);
         cloud29.setRadiusY(17.0);
-        cloud29.setStroke(Color.BLACK);
-        cloud29.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud29.setStrokeWidth(0.0);
-
-        dropShadow115.setColor(Color.WHITE);
-        dropShadow115.setHeight(48.32);
-        dropShadow115.setRadius(19.1075);
-        dropShadow115.setSpread(0.4);
-        dropShadow115.setWidth(30.11);
-        cloud29.setEffect(dropShadow115);
-
+        
+        Ellipse cloud30 = new Ellipse();
         cloud30.setFill(Color.valueOf("#e0dbda"));
         cloud30.setLayoutX(249.0);
         cloud30.setLayoutY(651.0);
         cloud30.setRadiusX(30.0);
         cloud30.setRadiusY(31.0);
-        cloud30.setStroke(Color.BLACK);
-        cloud30.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud30.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud31 = new Ellipse();
         cloud31.setFill(Color.valueOf("#e0dbda"));
         cloud31.setLayoutX(273.0);
         cloud31.setLayoutY(626.0);
         cloud31.setRadiusX(20.0);
         cloud31.setRadiusY(17.0);
-        cloud31.setStroke(Color.BLACK);
-        cloud31.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud31.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud32 = new Ellipse();
         cloud32.setFill(Color.valueOf("#e0dbda"));
         cloud32.setLayoutX(292.0);
         cloud32.setLayoutY(615.0);
         cloud32.setRadiusX(18.0);
         cloud32.setRadiusY(17.0);
-        cloud32.setStroke(Color.BLACK);
-        cloud32.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud32.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud33 = new Ellipse();
         cloud33.setFill(Color.valueOf("#e0dbda"));
         cloud33.setLayoutX(331.0);
         cloud33.setLayoutY(646.0);
         cloud33.setRadiusX(20.0);
         cloud33.setRadiusY(17.0);
-        cloud33.setStroke(Color.BLACK);
-        cloud33.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud33.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud34 = new Ellipse();
         cloud34.setFill(Color.valueOf("#e0dbda"));
         cloud34.setLayoutX(361.0);
         cloud34.setLayoutY(621.0);
         cloud34.setRadiusX(20.0);
         cloud34.setRadiusY(17.0);
-        cloud34.setStroke(Color.BLACK);
-        cloud34.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud34.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud35 = new Ellipse();
         cloud35.setFill(Color.valueOf("#e0dbda"));
         cloud35.setLayoutX(382.0);
         cloud35.setLayoutY(630.0);
         cloud35.setRadiusX(20.0);
         cloud35.setRadiusY(17.0);
-        cloud35.setStroke(Color.BLACK);
-        cloud35.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud35.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud36 = new Ellipse();
         cloud36.setFill(Color.valueOf("#e0dbda"));
         cloud36.setLayoutX(324.0);
         cloud36.setLayoutY(615.0);
         cloud36.setRadiusX(20.0);
         cloud36.setRadiusY(17.0);
-        cloud36.setStroke(Color.BLACK);
-        cloud36.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud36.setStrokeWidth(0.0);
 
+        Ellipse cloud37 = new Ellipse();    
         cloud37.setFill(Color.valueOf("#e0dbda"));
         cloud37.setLayoutX(305.0);
         cloud37.setLayoutY(594.0);
         cloud37.setRadiusX(14.0);
         cloud37.setRadiusY(13.0);
-        cloud37.setStroke(Color.BLACK);
-        cloud37.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud37.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud38 = new Ellipse();
         cloud38.setFill(Color.valueOf("#e0dbda"));
         cloud38.setLayoutX(646.0);
         cloud38.setLayoutY(575.0);
         cloud38.setRadiusX(20.0);
         cloud38.setRadiusY(17.0);
-        cloud38.setStroke(Color.BLACK);
-        cloud38.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud38.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud39 = new Ellipse();
         cloud39.setFill(Color.valueOf("#e0dbda"));
         cloud39.setLayoutX(543.0);
         cloud39.setLayoutY(601.0);
         cloud39.setRadiusX(20.0);
         cloud39.setRadiusY(17.0);
-        cloud39.setStroke(Color.BLACK);
-        cloud39.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud39.setStrokeWidth(0.0);
-
+        
+        Ellipse cloud40 = new Ellipse();
         cloud40.setFill(Color.valueOf("#e0dbda"));
         cloud40.setLayoutX(425.0);
         cloud40.setLayoutY(634.0);
         cloud40.setRadiusX(40.0);
         cloud40.setRadiusY(40.0);
-        cloud40.setStroke(Color.BLACK);
-        cloud40.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         cloud40.setStrokeWidth(0.0);
+        
+        Ellipse cloud41 = new Ellipse();
+        cloud41.setFill(Color.valueOf("#e0dbda"));
+        cloud41.setLayoutX(449.0);
+        cloud41.setLayoutY(622.0);
+        cloud41.setRadiusX(18.0);
+        cloud41.setRadiusY(18.0);
+        cloud41.setStrokeWidth(0.0);
+        
+        Ellipse cloud42 = new Ellipse();
+        cloud42.setFill(Color.valueOf("#e0dbda"));
+        cloud42.setLayoutX(392.0);
+        cloud42.setLayoutY(640.0);
+        cloud42.setRadiusX(20.0);
+        cloud42.setRadiusY(17.0);
+        cloud42.setStrokeWidth(0.0);
+        
+        Ellipse cloud43 = new Ellipse();
+        cloud43.setFill(Color.valueOf("#e0dbda"));
+        cloud43.setLayoutX(609.0);
+        cloud43.setLayoutY(628.0);
+        cloud43.setRadiusX(81.0);
+        cloud43.setRadiusY(54.0);
+        cloud43.setRotate(-20.6);
+        cloud43.setStrokeWidth(0.0);
 
-        ellipse11112.setFill(Color.valueOf("#e0dbda"));
-        ellipse11112.setLayoutX(449.0);
-        ellipse11112.setLayoutY(622.0);
-        ellipse11112.setRadiusX(18.0);
-        ellipse11112.setRadiusY(18.0);
-        ellipse11112.setStroke(Color.BLACK);
-        ellipse11112.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11112.setStrokeWidth(0.0);
+        Ellipse cloud44 = new Ellipse();
+        cloud44.setFill(Color.valueOf("#e0dbda"));
+        cloud44.setLayoutX(514.0);
+        cloud44.setLayoutY(650.0);
+        cloud44.setRadiusX(81.0);
+        cloud44.setRadiusY(44.0);
+        cloud44.setRotate(-18.4);
+        cloud44.setStrokeWidth(0.0);
 
-        ellipse11113.setFill(Color.valueOf("#e0dbda"));
-        ellipse11113.setLayoutX(392.0);
-        ellipse11113.setLayoutY(640.0);
-        ellipse11113.setRadiusX(20.0);
-        ellipse11113.setRadiusY(17.0);
-        ellipse11113.setStroke(Color.BLACK);
-        ellipse11113.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11113.setStrokeWidth(0.0);
+        Ellipse cloud45 = new Ellipse();
+        cloud45.setFill(Color.valueOf("#e0dbda"));
+        cloud45.setLayoutX(532.0);
+        cloud45.setLayoutY(580.0);
+        cloud45.setRadiusX(14.0);
+        cloud45.setRadiusY(13.0);
+        cloud45.setStrokeWidth(0.0);
+        
+        Ellipse cloud46 = new Ellipse();
+        cloud46.setFill(Color.valueOf("#e0dbda"));
+        cloud46.setLayoutX(316.0);
+        cloud46.setLayoutY(666.0);
+        cloud46.setRadiusX(81.0);
+        cloud46.setRadiusY(44.0);
+        cloud46.setStrokeWidth(0.0);
 
-        ellipse11114.setFill(Color.valueOf("#e0dbda"));
-        ellipse11114.setLayoutX(609.0);
-        ellipse11114.setLayoutY(628.0);
-        ellipse11114.setRadiusX(81.0);
-        ellipse11114.setRadiusY(54.0);
-        ellipse11114.setRotate(-20.6);
-        ellipse11114.setStroke(Color.BLACK);
-        ellipse11114.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11114.setStrokeWidth(0.0);
-
-        ellipse11115.setFill(Color.valueOf("#e0dbda"));
-        ellipse11115.setLayoutX(514.0);
-        ellipse11115.setLayoutY(650.0);
-        ellipse11115.setRadiusX(81.0);
-        ellipse11115.setRadiusY(44.0);
-        ellipse11115.setRotate(-18.4);
-        ellipse11115.setStroke(Color.BLACK);
-        ellipse11115.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11115.setStrokeWidth(0.0);
-
-        ellipse11116.setFill(Color.valueOf("#e0dbda"));
-        ellipse11116.setLayoutX(532.0);
-        ellipse11116.setLayoutY(580.0);
-        ellipse11116.setRadiusX(14.0);
-        ellipse11116.setRadiusY(13.0);
-        ellipse11116.setStroke(Color.BLACK);
-        ellipse11116.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11116.setStrokeWidth(0.0);
-
-        ellipse11117.setFill(Color.valueOf("#e0dbda"));
-        ellipse11117.setLayoutX(316.0);
-        ellipse11117.setLayoutY(666.0);
-        ellipse11117.setRadiusX(81.0);
-        ellipse11117.setRadiusY(44.0);
-        ellipse11117.setStroke(Color.BLACK);
-        ellipse11117.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11117.setStrokeWidth(0.0);
-
-        ellipse11118.setFill(Color.valueOf("#e0dbda"));
-        ellipse11118.setLayoutX(370.0);
-        ellipse11118.setLayoutY(606.0);
-        ellipse11118.setRadiusX(10.0);
-        ellipse11118.setRadiusY(9.0);
-        ellipse11118.setStroke(Color.BLACK);
-        ellipse11118.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11118.setStrokeWidth(0.0);
-
-        ellipse11119.setFill(Color.valueOf("#e0dbda"));
-        ellipse11119.setLayoutX(462.0);
-        ellipse11119.setLayoutY(609.0);
-        ellipse11119.setRadiusX(10.0);
-        ellipse11119.setRadiusY(9.0);
-        ellipse11119.setStroke(Color.BLACK);
-        ellipse11119.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11119.setStrokeWidth(0.0);
-
-        ellipse111110.setFill(Color.valueOf("#e0dbda"));
-        ellipse111110.setLayoutX(476.0);
-        ellipse111110.setLayoutY(614.0);
-        ellipse111110.setRadiusX(10.0);
-        ellipse111110.setRadiusY(9.0);
-        ellipse111110.setStroke(Color.BLACK);
-        ellipse111110.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111110.setStrokeWidth(0.0);
-
-        ellipse111111.setFill(Color.valueOf("#e0dbda"));
-        ellipse111111.setLayoutX(579.0);
-        ellipse111111.setLayoutY(592.0);
-        ellipse111111.setRadiusX(15.0);
-        ellipse111111.setRadiusY(12.0);
-        ellipse111111.setStroke(Color.BLACK);
-        ellipse111111.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111111.setStrokeWidth(0.0);
-
-        ellipse111112.setFill(Color.valueOf("#e0dbda"));
-        ellipse111112.setLayoutX(626.0);
-        ellipse111112.setLayoutY(569.0);
-        ellipse111112.setRadiusX(10.0);
-        ellipse111112.setRadiusY(13.0);
-        ellipse111112.setStroke(Color.BLACK);
-        ellipse111112.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111112.setStrokeWidth(0.0);
-
-        ellipse111113.setFill(Color.valueOf("#e0dbda"));
-        ellipse111113.setLayoutX(178.0);
-        ellipse111113.setLayoutY(620.0);
-        ellipse111113.setRadiusX(10.0);
-        ellipse111113.setRadiusY(9.0);
-        ellipse111113.setStroke(Color.BLACK);
-        ellipse111113.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111113.setStrokeWidth(0.0);
-
-        ellipse111114.setFill(Color.valueOf("#e0dbda"));
-        ellipse111114.setLayoutX(209.0);
-        ellipse111114.setLayoutY(630.0);
-        ellipse111114.setRadiusX(10.0);
-        ellipse111114.setRadiusY(9.0);
-        ellipse111114.setStroke(Color.BLACK);
-        ellipse111114.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111114.setStrokeWidth(0.0);
-
-        ellipse111115.setFill(Color.valueOf("#e0dbda"));
-        ellipse111115.setLayoutX(129.0);
-        ellipse111115.setLayoutY(596.0);
-        ellipse111115.setRadiusX(10.0);
-        ellipse111115.setRadiusY(9.0);
-        ellipse111115.setStroke(Color.BLACK);
-        ellipse111115.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111115.setStrokeWidth(0.0);
-
-        ellipse111116.setFill(Color.valueOf("#e0dbda"));
-        ellipse111116.setLayoutX(69.0);
-        ellipse111116.setLayoutY(576.0);
-        ellipse111116.setRadiusX(10.0);
-        ellipse111116.setRadiusY(9.0);
-        ellipse111116.setStroke(Color.BLACK);
-        ellipse111116.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111116.setStrokeWidth(0.0);
-
-        ellipse111117.setFill(Color.valueOf("#e0dbda"));
-        ellipse111117.setLayoutX(31.0);
-        ellipse111117.setLayoutY(552.0);
-        ellipse111117.setRadiusX(10.0);
-        ellipse111117.setRadiusY(9.0);
-        ellipse111117.setStroke(Color.BLACK);
-        ellipse111117.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111117.setStrokeWidth(0.0);
-
-        ellipse111118.setFill(Color.valueOf("#e0dbda"));
-        ellipse111118.setLayoutX(21.0);
-        ellipse111118.setLayoutY(550.0);
-        ellipse111118.setRadiusX(10.0);
-        ellipse111118.setRadiusY(9.0);
-        ellipse111118.setStroke(Color.BLACK);
-        ellipse111118.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111118.setStrokeWidth(0.0);
-
-        ellipse111119.setFill(Color.valueOf("#e0dbda"));
-        ellipse111119.setLayoutX(154.0);
-        ellipse111119.setLayoutY(605.0);
-        ellipse111119.setRadiusX(6.0);
-        ellipse111119.setRadiusY(8.0);
-        ellipse111119.setStroke(Color.BLACK);
-        ellipse111119.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse111119.setStrokeWidth(0.0);
-
-        dropShadow116.setColor(Color.valueOf("#e0dbda"));
-        ellipse111119.setEffect(dropShadow116);
-
-        ellipse1111110.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111110.setLayoutX(431.0);
-        ellipse1111110.setLayoutY(647.0);
-        ellipse1111110.setRadiusX(27.0);
-        ellipse1111110.setRadiusY(14.0);
-        ellipse1111110.setStroke(Color.BLACK);
-        ellipse1111110.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111110.setStrokeWidth(0.0);
-
-        ellipse1111111.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111111.setLayoutX(472.0);
-        ellipse1111111.setLayoutY(619.0);
-        ellipse1111111.setRadiusX(10.0);
-        ellipse1111111.setRadiusY(9.0);
-        ellipse1111111.setStroke(Color.BLACK);
-        ellipse1111111.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111111.setStrokeWidth(0.0);
-
-        ellipse1111112.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111112.setLayoutX(504.0);
-        ellipse1111112.setLayoutY(611.0);
-        ellipse1111112.setRadiusX(18.0);
-        ellipse1111112.setRadiusY(10.0);
-        ellipse1111112.setStroke(Color.BLACK);
-        ellipse1111112.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111112.setStrokeWidth(0.0);
-
-        ellipse1111113.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111113.setLayoutX(516.0);
-        ellipse1111113.setLayoutY(600.0);
-        ellipse1111113.setRadiusX(10.0);
-        ellipse1111113.setRadiusY(9.0);
-        ellipse1111113.setStroke(Color.BLACK);
-        ellipse1111113.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111113.setStrokeWidth(0.0);
-
-        ellipse1111114.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111114.setLayoutX(562.0);
-        ellipse1111114.setLayoutY(596.0);
-        ellipse1111114.setRadiusX(10.0);
-        ellipse1111114.setRadiusY(9.0);
-        ellipse1111114.setStroke(Color.BLACK);
-        ellipse1111114.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111114.setStrokeWidth(0.0);
-
-        ellipse1111115.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111115.setLayoutX(41.0);
-        ellipse1111115.setLayoutY(551.0);
-        ellipse1111115.setRadiusX(10.0);
-        ellipse1111115.setRadiusY(9.0);
-        ellipse1111115.setStroke(Color.BLACK);
-        ellipse1111115.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111115.setStrokeWidth(0.0);
-
-        ellipse1111116.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111116.setLayoutX(612.0);
-        ellipse1111116.setLayoutY(581.0);
-        ellipse1111116.setRadiusX(14.0);
-        ellipse1111116.setRadiusY(9.0);
-        ellipse1111116.setStroke(Color.BLACK);
-        ellipse1111116.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111116.setStrokeWidth(0.0);
-
-        ellipse1111117.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111117.setLayoutX(232.0);
-        ellipse1111117.setLayoutY(652.0);
-        ellipse1111117.setRadiusX(10.0);
-        ellipse1111117.setRadiusY(21.0);
-        ellipse1111117.setStroke(Color.BLACK);
-        ellipse1111117.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111117.setStrokeWidth(0.0);
-
-        ellipse1111118.setFill(Color.valueOf("#e0dbda"));
-        ellipse1111118.setLayoutX(219.0);
-        ellipse1111118.setLayoutY(649.0);
-        ellipse1111118.setRadiusX(18.0);
-        ellipse1111118.setRadiusY(17.0);
-        ellipse1111118.setStroke(Color.BLACK);
-        ellipse1111118.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111118.setStrokeWidth(0.0);
-
-        ellipse1111119.setFill(Color.WHITE);
-        ellipse1111119.setLayoutX(385.0);
-        ellipse1111119.setLayoutY(565.0);
-        ellipse1111119.setRadiusX(14.0);
-        ellipse1111119.setRadiusY(12.0);
-        ellipse1111119.setStroke(Color.BLACK);
-        ellipse1111119.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse1111119.setStrokeWidth(0.0);
-        dropShadow117.setColor(Color.WHITE);
-        dropShadow117.setHeight(48.32);
-        dropShadow117.setRadius(19.1075);
-        dropShadow117.setSpread(0.4);
-        dropShadow117.setWidth(30.11);
-        ellipse1111119.setEffect(dropShadow117);
-        ellipse11111110.setFill(Color.WHITE);
-        ellipse11111110.setLayoutX(230.0);
-        ellipse11111110.setLayoutY(573.0);
-        ellipse11111110.setRadiusX(24.0);
-        ellipse11111110.setRadiusY(36.0);
-        ellipse11111110.setStroke(Color.BLACK);
-        ellipse11111110.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11111110.setStrokeWidth(0.0);
-
-        dropShadow118.setColor(Color.WHITE);
-        dropShadow118.setHeight(48.32);
-        dropShadow118.setRadius(19.1075);
-        dropShadow118.setSpread(0.4);
-        dropShadow118.setWidth(30.11);
-        ellipse11111110.setEffect(dropShadow118);
-
-        ellipse11111111.setFill(Color.WHITE);
-        ellipse11111111.setLayoutX(398.0);
-        ellipse11111111.setLayoutY(553.0);
-        ellipse11111111.setRadiusX(30.0);
-        ellipse11111111.setRadiusY(35.0);
-        ellipse11111111.setStroke(Color.BLACK);
-        ellipse11111111.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11111111.setStrokeWidth(0.0);
-
-        dropShadow119.setColor(Color.WHITE);
-        dropShadow119.setHeight(48.32);
-        dropShadow119.setRadius(19.1075);
-        dropShadow119.setSpread(0.4);
-        dropShadow119.setWidth(30.11);
-        ellipse11111111.setEffect(dropShadow119);
-
-        ellipse11111112.setFill(Color.WHITE);
-        ellipse11111112.setLayoutX(273.0);
-        ellipse11111112.setLayoutY(556.0);
-        ellipse11111112.setRadiusX(30.0);
-        ellipse11111112.setRadiusY(36.0);
-        ellipse11111112.setStroke(Color.BLACK);
-        ellipse11111112.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11111112.setStrokeWidth(0.0);
-
-        dropShadow1110.setColor(Color.WHITE);
-        dropShadow1110.setHeight(48.32);
-        dropShadow1110.setRadius(19.1075);
-        dropShadow1110.setSpread(0.4);
-        dropShadow1110.setWidth(30.11);
-        ellipse11111112.setEffect(dropShadow1110);
-
-        ellipse11111113.setFill(Color.WHITE);
-        ellipse11111113.setLayoutX(439.0);
-        ellipse11111113.setLayoutY(563.0);
-        ellipse11111113.setRadiusX(30.0);
-        ellipse11111113.setRadiusY(35.0);
-        ellipse11111113.setStroke(Color.BLACK);
-        ellipse11111113.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        ellipse11111113.setStrokeWidth(0.0);
-
-        dropShadow1111.setColor(Color.WHITE);
-        dropShadow1111.setHeight(48.32);
-        dropShadow1111.setRadius(19.1075);
-        dropShadow1111.setSpread(0.4);
-        dropShadow1111.setWidth(30.11);
-        ellipse11111113.setEffect(dropShadow1111);
+        Ellipse cloud47 = new Ellipse();
+        cloud47.setFill(Color.valueOf("#e0dbda"));
+        cloud47.setLayoutX(370.0);
+        cloud47.setLayoutY(606.0);
+        cloud47.setRadiusX(10.0);
+        cloud47.setRadiusY(9.0);
+        cloud47.setStrokeWidth(0.0);
         
         
+        Ellipse cloud48 = new Ellipse();
+        cloud48.setFill(Color.valueOf("#e0dbda"));
+        cloud48.setLayoutX(476.0);
+        cloud48.setLayoutY(614.0);
+        cloud48.setRadiusX(10.0);
+        cloud48.setRadiusY(9.0);
+        cloud48.setStrokeWidth(0.0);
+        
+        Ellipse cloud49 = new Ellipse();
+        cloud49.setFill(Color.valueOf("#e0dbda"));
+        cloud49.setLayoutX(579.0);
+        cloud49.setLayoutY(592.0);
+        cloud49.setRadiusX(15.0);
+        cloud49.setRadiusY(12.0);
+        cloud49.setStrokeWidth(0.0);
+        
+        Ellipse cloud50 = new Ellipse();
+        cloud50.setFill(Color.valueOf("#e0dbda"));
+        cloud50.setLayoutX(626.0);
+        cloud50.setLayoutY(569.0);
+        cloud50.setRadiusX(10.0);
+        cloud50.setRadiusY(13.0);
+        cloud50.setStrokeWidth(0.0);
+        
+        Ellipse cloud51 = new Ellipse();
+        cloud51.setFill(Color.valueOf("#e0dbda"));
+        cloud51.setLayoutX(178.0);
+        cloud51.setLayoutY(620.0);
+        cloud51.setRadiusX(10.0);
+        cloud51.setRadiusY(9.0);
+        cloud51.setStrokeWidth(0.0);
+        
+        Ellipse cloud52 = new Ellipse();
+        cloud52.setFill(Color.valueOf("#e0dbda"));
+        cloud52.setLayoutX(209.0);
+        cloud52.setLayoutY(630.0);
+        cloud52.setRadiusX(10.0);
+        cloud52.setRadiusY(9.0);
+        cloud52.setStrokeWidth(0.0);
+        
+        Ellipse cloud53 = new Ellipse();
+        cloud53.setFill(Color.valueOf("#e0dbda"));
+        cloud53.setLayoutX(129.0);
+        cloud53.setLayoutY(596.0);
+        cloud53.setRadiusX(10.0);
+        cloud53.setRadiusY(9.0);
+        cloud53.setStrokeWidth(0.0);
+        
+        Ellipse cloud54 = new Ellipse();
+        cloud54.setFill(Color.valueOf("#e0dbda"));
+        cloud54.setLayoutX(69.0);
+        cloud54.setLayoutY(576.0);
+        cloud54.setRadiusX(10.0);
+        cloud54.setRadiusY(9.0);
+        cloud54.setStrokeWidth(0.0);
+        
+        Ellipse cloud55 = new Ellipse();
+        cloud55.setFill(Color.valueOf("#e0dbda"));
+        cloud55.setLayoutX(31.0);
+        cloud55.setLayoutY(552.0);
+        cloud55.setRadiusX(10.0);
+        cloud55.setRadiusY(9.0);
+        cloud55.setStrokeWidth(0.0);
+        
+        Ellipse cloud56  = new Ellipse();
+        cloud56.setFill(Color.valueOf("#e0dbda"));
+        cloud56.setLayoutX(21.0);
+        cloud56.setLayoutY(550.0);
+        cloud56.setRadiusX(10.0);
+        cloud56.setRadiusY(9.0);
+        cloud56.setStrokeWidth(0.0);
+        
+        Ellipse cloud57 = new Ellipse();
+        cloud57.setFill(Color.valueOf("#e0dbda"));
+        cloud57.setLayoutX(154.0);
+        cloud57.setLayoutY(605.0);
+        cloud57.setRadiusX(6.0);
+        cloud57.setRadiusY(8.0);
+        cloud57.setStrokeWidth(0.0);
+        
+        Ellipse cloud58 = new Ellipse();
+        cloud58.setFill(Color.valueOf("#e0dbda"));
+        cloud58.setLayoutX(431.0);
+        cloud58.setLayoutY(647.0);
+        cloud58.setRadiusX(27.0);
+        cloud58.setRadiusY(14.0);
+        cloud58.setStrokeWidth(0.0);
+        
+        Ellipse cloud59 = new Ellipse();
+        cloud59.setFill(Color.valueOf("#e0dbda"));
+        cloud59.setLayoutX(472.0);
+        cloud59.setLayoutY(619.0);
+        cloud59.setRadiusX(10.0);
+        cloud59.setRadiusY(9.0);
+        cloud59.setStrokeWidth(0.0);
 
-        circle.setFill(Color.valueOf("#6b7685"));
-        circle.setLayoutX(124.0);
-        circle.setLayoutY(48.0);
-        circle.setRadius(8.0);
-        circle.setStroke(Color.BLACK);
-        circle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        Ellipse cloud60 = new Ellipse();
+        cloud60.setFill(Color.valueOf("#e0dbda"));
+        cloud60.setLayoutX(504.0);
+        cloud60.setLayoutY(611.0);
+        cloud60.setRadiusX(18.0);
+        cloud60.setRadiusY(10.0);
+        cloud60.setStrokeWidth(0.0);
+        
+        Ellipse cloud61 = new Ellipse();
+        cloud61.setFill(Color.valueOf("#e0dbda"));
+        cloud61.setLayoutX(516.0);
+        cloud61.setLayoutY(600.0);
+        cloud61.setRadiusX(10.0);
+        cloud61.setRadiusY(9.0);
+        cloud61.setStrokeWidth(0.0);
+        
+        Ellipse cloud62 = new Ellipse();
+        cloud62.setFill(Color.valueOf("#e0dbda"));
+        cloud62.setLayoutX(562.0);
+        cloud62.setLayoutY(596.0);
+        cloud62.setRadiusX(10.0);
+        cloud62.setRadiusY(9.0);
+        cloud62.setStrokeWidth(0.0);
+        
+        Ellipse cloud63 = new Ellipse();
+        cloud63.setFill(Color.valueOf("#e0dbda"));
+        cloud63.setLayoutX(41.0);
+        cloud63.setLayoutY(551.0);
+        cloud63.setRadiusX(10.0);
+        cloud63.setRadiusY(9.0);
+        cloud63.setStrokeWidth(0.0);
+        
+        Ellipse cloud64 = new Ellipse();
+        cloud64.setFill(Color.valueOf("#e0dbda"));
+        cloud64.setLayoutX(612.0);
+        cloud64.setLayoutY(581.0);
+        cloud64.setRadiusX(14.0);
+        cloud64.setRadiusY(9.0);
+        cloud64.setStrokeWidth(0.0);
+        
+        Ellipse cloud65 = new Ellipse();
+        cloud65.setFill(Color.valueOf("#e0dbda"));
+        cloud65.setLayoutX(232.0);
+        cloud65.setLayoutY(652.0);
+        cloud65.setRadiusX(10.0);
+        cloud65.setRadiusY(21.0);
+        cloud65.setStrokeWidth(0.0);
 
-        circle0.setFill(Color.valueOf("#6b7685"));
-        circle0.setLayoutX(101.0);
-        circle0.setLayoutY(197.0);
-        circle0.setRadius(8.0);
-        circle0.setStroke(Color.BLACK);
-        circle0.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        Ellipse cloud66 = new Ellipse();
+        cloud66.setFill(Color.valueOf("#e0dbda"));
+        cloud66.setLayoutX(219.0);
+        cloud66.setLayoutY(649.0);
+        cloud66.setRadiusX(18.0);
+        cloud66.setRadiusY(17.0);
+        cloud66.setStrokeWidth(0.0);
+        
+        Ellipse cloud67 = new Ellipse();
+        cloud67.setFill(Color.WHITE);
+        cloud67.setLayoutX(385.0);
+        cloud67.setLayoutY(565.0);
+        cloud67.setRadiusX(14.0);
+        cloud67.setRadiusY(12.0);
+        cloud67.setStrokeWidth(0.0);
+        
+        Ellipse cloud68 = new Ellipse();
+        DropShadow cloud68Shadow = new DropShadow();
+        cloud68.setFill(Color.WHITE);
+        cloud68.setLayoutX(230.0);
+        cloud68.setLayoutY(573.0);
+        cloud68.setRadiusX(24.0);
+        cloud68.setRadiusY(36.0);
+        cloud68.setStrokeWidth(0.0);
+        cloud68Shadow.setColor(Color.WHITE);
+        cloud68Shadow.setHeight(48.32);
+        cloud68Shadow.setRadius(19.1075);
+        cloud68Shadow.setSpread(0.4);
+        cloud68Shadow.setWidth(30.11);
+        cloud68.setEffect(cloud68Shadow);
+        
+        Ellipse cloud69 = new Ellipse();
+        DropShadow cloud69Shadow = new DropShadow();
+        cloud69.setFill(Color.WHITE);
+        cloud69.setLayoutX(398.0);
+        cloud69.setLayoutY(553.0);
+        cloud69.setRadiusX(30.0);
+        cloud69.setRadiusY(35.0);
+        cloud69.setStrokeWidth(0.0);
+        cloud69Shadow.setColor(Color.WHITE);
+        cloud69Shadow.setHeight(48.32);
+        cloud69Shadow.setRadius(19.1075);
+        cloud69Shadow.setSpread(0.4);
+        cloud69Shadow.setWidth(30.11);
+        cloud69.setEffect(cloud69Shadow);
+        
+        Ellipse cloud70 = new Ellipse();
+        DropShadow cloud70Shadow = new DropShadow();
+        cloud70.setFill(Color.WHITE);
+        cloud70.setLayoutX(273.0);
+        cloud70.setLayoutY(556.0);
+        cloud70.setRadiusX(30.0);
+        cloud70.setRadiusY(36.0);
+        cloud70.setStrokeWidth(0.0);
+        cloud70Shadow.setColor(Color.WHITE);
+        cloud70Shadow.setHeight(48.32);
+        cloud70Shadow.setRadius(19.1075);
+        cloud70Shadow.setSpread(0.4);
+        cloud70Shadow.setWidth(30.11);
+        cloud70.setEffect(cloud70Shadow);
+        
+        /***************** STARS ****************************/
+        Circle star = new Circle();
+        star.setFill(Color.valueOf("#6b7685"));
+        star.setLayoutX(124.0);
+        star.setLayoutY(48.0);
+        star.setRadius(8.0);
+        
+        Circle star1 = new Circle();
+        star1.setFill(Color.valueOf("#6b7685"));
+        star1.setLayoutX(23.0);
+        star1.setLayoutY(40.0);
+        star1.setRadius(6.0);
+        
+        Circle star2 = new Circle();
+        star2.setFill(Color.valueOf("#6b7685"));
+        star2.setLayoutX(48.0);
+        star2.setLayoutY(125.0);
+        star2.setRadius(5.0);
+        
+        Circle star3 = new Circle();
+        star3.setFill(Color.valueOf("#6b7685"));
+        star3.setLayoutX(506.0);
+        star3.setLayoutY(64.0);
+        star3.setRadius(8.0);
+        
+        Circle star4 = new Circle();
+        star4.setFill(Color.valueOf("#6b7685"));
+        star4.setLayoutX(632.0);
+        star4.setLayoutY(128.0);
+        star4.setRadius(8.0);
+        
+        Circle star5 = new Circle();
+        star5.setFill(Color.valueOf("#6b7685"));
+        star5.setLayoutX(248.0);
+        star5.setLayoutY(144.0);
+        star5.setRadius(8.0);
+        
+        Circle star6 = new Circle();
+        star6.setFill(Color.valueOf("#6b7685"));
+        star6.setLayoutX(414.0);
+        star6.setLayoutY(56.0);
+        star6.setRadius(5.0);
+        
+        Circle star7 = new Circle();
+        star7.setFill(Color.valueOf("#6b7685"));
+        star7.setLayoutX(42.0);
+        star7.setLayoutY(228.0);
+        star7.setRadius(4.0);
+        
+        Circle star8 = new Circle();
+        star8.setFill(Color.valueOf("#6b7685"));
+        star8.setLayoutX(46.0);
+        star8.setLayoutY(356.0);
+        star8.setRadius(4.0);
+        
+        Circle star9 = new Circle();
+        star9.setFill(Color.valueOf("#6b7685"));
+        star9.setLayoutX(121.0);
+        star9.setLayoutY(308.0);
+        star9.setRadius(4.0);
+        
+        Circle star10 = new Circle();
+        star10.setFill(Color.valueOf("#6b7685"));
+        star10.setLayoutX(139.0);
+        star10.setLayoutY(291.0);
+        star10.setRadius(4.0);
+        
+        Circle star11 = new Circle();
+        star11.setFill(Color.valueOf("#6b7685"));
+        star11.setLayoutX(199.0);
+        star11.setLayoutY(197.0);
+        star11.setRadius(4.0);
+        
+        Circle star12 = new Circle();
+        star12.setFill(Color.valueOf("#6b7685"));
+        star12.setLayoutX(154.0);
+        star12.setLayoutY(152.0);
+        star12.setRadius(4.0);
+        
+        Circle star13 = new Circle();
+        star13.setFill(Color.valueOf("#6b7685"));
+        star13.setLayoutX(428.0);
+        star13.setLayoutY(136.0);
+        star13.setRadius(4.0);
+        
+        Circle star14 = new Circle();
+        star14.setFill(Color.valueOf("#6b7685"));
+        star14.setLayoutX(449.0);
+        star14.setLayoutY(152.0);
+        star14.setRadius(4.0);
+        
+        Circle star15 = new Circle();
+        star15.setFill(Color.valueOf("#6b7685"));
+        star15.setLayoutX(532.0);
+        star15.setLayoutY(93.0);
+        star15.setRadius(4.0);
 
-        circle1.setFill(Color.valueOf("#6b7685"));
-        circle1.setLayoutX(23.0);
-        circle1.setLayoutY(40.0);
-        circle1.setRadius(6.0);
-        circle1.setStroke(Color.BLACK);
-        circle1.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        Circle star16 = new Circle();
+        star16.setFill(Color.valueOf("#6b7685"));
+        star16.setLayoutX(604.0);
+        star16.setLayoutY(34.0);
+        star16.setRadius(4.0);
+        
+        Circle star17 = new Circle();
+        star17.setFill(Color.valueOf("#6b7685"));
+        star17.setLayoutX(543.0);
+        star17.setLayoutY(148.0);
+        star17.setRadius(4.0);
+        
+        Circle star18 = new Circle();
+        star18.setFill(Color.valueOf("#6b7685"));
+        star18.setLayoutX(453.0);
+        star18.setLayoutY(22.0);
+        star18.setRadius(4.0);
+        
+        Circle star19 = new Circle();
+        star19.setFill(Color.valueOf("#6b7685"));
+        star19.setLayoutX(170.0);
+        star19.setLayoutY(22.0);
+        star19.setRadius(4.0);
+        
+        Circle star20 = new Circle();
+        star20.setFill(Color.valueOf("#6b7685"));
+        star20.setLayoutX(101.0);
+        star20.setLayoutY(197.0);
+        star20.setRadius(8.0);
+        
+        /* Nose of the SIDES of the rocket */
+        Arc leftNoseLS = new Arc();
+        leftNoseLS.setFill(Color.valueOf("#ffe9d6"));
+        leftNoseLS.setLayoutX(248.0);
+        leftNoseLS.setLayoutY(247.0);
+        leftNoseLS.setLength(90.0);
+        leftNoseLS.setRadiusX(23.5);
+        leftNoseLS.setRadiusY(58.0);
+        leftNoseLS.setStartAngle(90.0);
+        leftNoseLS.setStrokeWidth(0.0);
+        leftNoseLS.setTranslateX(1.0);
+        leftNoseLS.setTranslateY(-1.0);
+        leftNoseLS.setType(ArcType.ROUND);
 
-        circle2.setFill(Color.valueOf("#6b7685"));
-        circle2.setLayoutX(48.0);
-        circle2.setLayoutY(125.0);
-        circle2.setRadius(5.0);
-        circle2.setStroke(Color.BLACK);
-        circle2.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle3.setFill(Color.valueOf("#6b7685"));
-        circle3.setLayoutX(506.0);
-        circle3.setLayoutY(64.0);
-        circle3.setRadius(8.0);
-        circle3.setStroke(Color.BLACK);
-        circle3.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle4.setFill(Color.valueOf("#6b7685"));
-        circle4.setLayoutX(632.0);
-        circle4.setLayoutY(128.0);
-        circle4.setRadius(8.0);
-        circle4.setStroke(Color.BLACK);
-        circle4.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle5.setFill(Color.valueOf("#6b7685"));
-        circle5.setLayoutX(248.0);
-        circle5.setLayoutY(144.0);
-        circle5.setRadius(8.0);
-        circle5.setStroke(Color.BLACK);
-        circle5.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle6.setFill(Color.valueOf("#6b7685"));
-        circle6.setLayoutX(414.0);
-        circle6.setLayoutY(56.0);
-        circle6.setRadius(5.0);
-        circle6.setStroke(Color.BLACK);
-        circle6.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle7.setFill(Color.valueOf("#6b7685"));
-        circle7.setLayoutX(42.0);
-        circle7.setLayoutY(228.0);
-        circle7.setRadius(4.0);
-        circle7.setStroke(Color.BLACK);
-        circle7.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle8.setFill(Color.valueOf("#6b7685"));
-        circle8.setLayoutX(46.0);
-        circle8.setLayoutY(356.0);
-        circle8.setRadius(4.0);
-        circle8.setStroke(Color.BLACK);
-        circle8.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle9.setFill(Color.valueOf("#6b7685"));
-        circle9.setLayoutX(121.0);
-        circle9.setLayoutY(308.0);
-        circle9.setRadius(4.0);
-        circle9.setStroke(Color.BLACK);
-        circle9.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle10.setFill(Color.valueOf("#6b7685"));
-        circle10.setLayoutX(139.0);
-        circle10.setLayoutY(291.0);
-        circle10.setRadius(4.0);
-        circle10.setStroke(Color.BLACK);
-        circle10.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle11.setFill(Color.valueOf("#6b7685"));
-        circle11.setLayoutX(199.0);
-        circle11.setLayoutY(197.0);
-        circle11.setRadius(4.0);
-        circle11.setStroke(Color.BLACK);
-        circle11.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle12.setFill(Color.valueOf("#6b7685"));
-        circle12.setLayoutX(154.0);
-        circle12.setLayoutY(152.0);
-        circle12.setRadius(4.0);
-        circle12.setStroke(Color.BLACK);
-        circle12.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle13.setFill(Color.valueOf("#6b7685"));
-        circle13.setLayoutX(428.0);
-        circle13.setLayoutY(136.0);
-        circle13.setRadius(4.0);
-        circle13.setStroke(Color.BLACK);
-        circle13.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle14.setFill(Color.valueOf("#6b7685"));
-        circle14.setLayoutX(449.0);
-        circle14.setLayoutY(152.0);
-        circle14.setRadius(4.0);
-        circle14.setStroke(Color.BLACK);
-        circle14.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle15.setFill(Color.valueOf("#6b7685"));
-        circle15.setLayoutX(532.0);
-        circle15.setLayoutY(93.0);
-        circle15.setRadius(4.0);
-        circle15.setStroke(Color.BLACK);
-        circle15.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle16.setFill(Color.valueOf("#6b7685"));
-        circle16.setLayoutX(604.0);
-        circle16.setLayoutY(34.0);
-        circle16.setRadius(4.0);
-        circle16.setStroke(Color.BLACK);
-        circle16.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle17.setFill(Color.valueOf("#6b7685"));
-        circle17.setLayoutX(543.0);
-        circle17.setLayoutY(148.0);
-        circle17.setRadius(4.0);
-        circle17.setStroke(Color.BLACK);
-        circle17.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle18.setFill(Color.valueOf("#6b7685"));
-        circle18.setLayoutX(453.0);
-        circle18.setLayoutY(22.0);
-        circle18.setRadius(4.0);
-        circle18.setStroke(Color.BLACK);
-        circle18.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        circle19.setFill(Color.valueOf("#6b7685"));
-        circle19.setLayoutX(170.0);
-        circle19.setLayoutY(22.0);
-        circle19.setRadius(4.0);
-        circle19.setStroke(Color.BLACK);
-        circle19.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-
-        arc7.setFill(Color.valueOf("#ffe9d6"));
-        arc7.setLayoutX(248.0);
-        arc7.setLayoutY(247.0);
-        arc7.setLength(90.0);
-        arc7.setRadiusX(23.5);
-        arc7.setRadiusY(58.0);
-        arc7.setStartAngle(90.0);
-        arc7.setStroke(Color.BLACK);
-        arc7.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        arc7.setStrokeWidth(0.0);
-        arc7.setTranslateX(1.0);
-        arc7.setTranslateY(-1.0);
-        arc7.setType(javafx.scene.shape.ArcType.ROUND);
-
-        arc8.setFill(Color.valueOf("#fcd4b8"));
-        arc8.setLayoutX(248.0);
-        arc8.setLayoutY(247.0);
-        arc8.setLength(90.0);
-        arc8.setRadiusX(23.5);
-        arc8.setRadiusY(58.0);
-        arc8.setStrokeWidth(0.0);
-        arc8.setTranslateY(-1.0);
-        arc8.setType(ArcType.ROUND);
-
-        arc9.setFill(Color.valueOf("#ffe9d6"));
-        arc9.setLayoutX(258.0);
-        arc9.setLayoutY(257.0);
-        arc9.setLength(90.0);
-        arc9.setRadiusX(23.5);
-        arc9.setRadiusY(58.0);
-        arc9.setStartAngle(90.0);
-        arc9.setStrokeWidth(0.0);
-        arc9.setTranslateX(144.0);
-        arc9.setTranslateY(-11.0);
-        arc9.setType(ArcType.ROUND);
-
-        arc10.setFill(Color.valueOf("#fcd4b8"));
-        arc10.setLayoutX(258.0);
-        arc10.setLayoutY(257.0);
-        arc10.setLength(90.0);
-        arc10.setRadiusX(23.5);
-        arc10.setRadiusY(58.0);
-        arc10.setStrokeWidth(0.0);
-        arc10.setTranslateX(144.0);
-        arc10.setTranslateY(-11.0);
-        arc10.setType(ArcType.ROUND);
-
-        arc11.setFill(Color.valueOf("#fcd4b8"));
-        arc11.setLayoutX(99.0);
-        arc11.setLayoutY(143.0);
-        arc11.setLength(90.0);
-        arc11.setRadiusX(21.0);
-        arc11.setRadiusY(21.0);
-        arc11.setStrokeWidth(0.0);
-        arc11.setTranslateX(226.0);
-        arc11.setTranslateY(92.0);
-        arc11.setType(ArcType.ROUND);
-
-        arc12.setFill(Color.valueOf("#ffe9d6"));
-        arc12.setLayoutX(99.0);
-        arc12.setLayoutY(143.0);
-        arc12.setLength(90.0);
-        arc12.setRadiusX(21.0);
-        arc12.setRadiusY(21.0);
-        arc12.setStartAngle(90.0);
-        arc12.setStroke(Color.BLACK);
-        arc12.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        arc12.setStrokeWidth(0.0);
-        arc12.setTranslateX(226.0);
-        arc12.setTranslateY(92.0);
-        arc12.setType(javafx.scene.shape.ArcType.ROUND);
+        Arc rightNoseLS = new Arc();
+        rightNoseLS.setFill(Color.valueOf("#fcd4b8"));
+        rightNoseLS.setLayoutX(248.0);
+        rightNoseLS.setLayoutY(247.0);
+        rightNoseLS.setLength(90.0);
+        rightNoseLS.setRadiusX(23.5);
+        rightNoseLS.setRadiusY(58.0);
+        rightNoseLS.setStrokeWidth(0.0);
+        rightNoseLS.setTranslateY(-1.0);
+        rightNoseLS.setType(ArcType.ROUND);
+        
+        Arc leftNoseRS = new Arc();
+        leftNoseRS.setFill(Color.valueOf("#ffe9d6"));
+        leftNoseRS.setLayoutX(258.0);
+        leftNoseRS.setLayoutY(257.0);
+        leftNoseRS.setLength(90.0);
+        leftNoseRS.setRadiusX(23.5);
+        leftNoseRS.setRadiusY(58.0);
+        leftNoseRS.setStartAngle(90.0);
+        leftNoseRS.setStrokeWidth(0.0);
+        leftNoseRS.setTranslateX(144.0);
+        leftNoseRS.setTranslateY(-11.0);
+        leftNoseRS.setType(ArcType.ROUND);
+        
+        Arc rightNoseRS = new Arc();
+        rightNoseRS.setFill(Color.valueOf("#fcd4b8"));
+        rightNoseRS.setLayoutX(258.0);
+        rightNoseRS.setLayoutY(257.0);
+        rightNoseRS.setLength(90.0);
+        rightNoseRS.setRadiusX(23.5);
+        rightNoseRS.setRadiusY(58.0);
+        rightNoseRS.setStrokeWidth(0.0);
+        rightNoseRS.setTranslateX(144.0);
+        rightNoseRS.setTranslateY(-11.0);
+        rightNoseRS.setType(ArcType.ROUND);
 
         /* ADD ALL ELEMEMTS TO THE PANE */
         pane.getChildren().add(planet);
         pane.getChildren().add(galaxy);
         pane.getChildren().add(blackHole);
-        pane.getChildren().add(rocketBodyLeft);
-        pane.getChildren().add(rocketBodyRight);
-        pane.getChildren().add(insideLeftNoseCone);
-        pane.getChildren().add(insideRightNoseCone);
-        pane.getChildren().add(turbineLL);
-        pane.getChildren().add(turbineLR);
-        pane.getChildren().add(topLL);
-        pane.getChildren().add(middleLL);
-        pane.getChildren().add(bottomLR);
-        pane.getChildren().add(topLR);
-        pane.getChildren().add(middleLR);
-        pane.getChildren().add(buttonLL);
-        pane.getChildren().add(turbineRL);
-        pane.getChildren().add(turbineRR);
-        pane.getChildren().add(topRL);
-        pane.getChildren().add(middleRL);
-        pane.getChildren().add(bottomRL);
-        pane.getChildren().add(topRR);
-        pane.getChildren().add(middleRR);
-        pane.getChildren().add(bottomRR);
-        pane.getChildren().add(rightFing);
-        pane.getChildren().add(leftFing);
-        pane.getChildren().add(rightFingSmall);
-        pane.getChildren().add(leftFingSmall);
+        pane.getChildren().addAll(rocketBodyLeft, rocketBodyRight);
+        pane.getChildren().addAll(insideLeftNoseCone, insideRightNoseCone);
+        pane.getChildren().addAll(turbineLL, turbineLR);
+        pane.getChildren().addAll(topLL, middleLL, bottomLR, topLR, middleLR, bottomLL,
+                                                            topRL, middleRL, bottomRL, topRR, middleRR, bottomRR) ;
+        pane.getChildren().addAll(turbineRL, turbineRR);
+        pane.getChildren().addAll(rightFing, leftFing);
+        pane.getChildren().addAll(rightFingSmall, leftFingSmall);
         pane.getChildren().add(leftPartInside);
         leftMotorSmall.getPoints().addAll(
                 1.0, 10.0, 18.0, 10.0,
-                21.0, 20.0, -2.0, 20.0
-        );
+                21.0, 20.0, -2.0, 20.0);
         pane.getChildren().add(leftMotorSmall);
         leftMotorBig.getPoints().addAll(
                 0.0, 10.0, 19.0, 10.0,
-                22.0, 20.0, -3.0, 20.0
-        );
+                22.0, 20.0, -3.0, 20.0);
         pane.getChildren().add(leftMotorBig);
         leftMotorShadow.getPoints().addAll(
                 1.0, 15.0, 18.0, 15.0,
-                21.0, 20.0, -2.0, 20.0
-        );
+                21.0, 20.0, -2.0, 20.0 );
         pane.getChildren().add(leftMotorShadow);
         rightMotorSmall.getPoints().addAll(
                 1.0, 10.0, 18.0, 10.0,
-                21.0, 20.0, -2.0, 20.0
-        );
+                21.0, 20.0, -2.0, 20.0);
         pane.getChildren().add(rightMotorSmall);
         rightMotorBig.getPoints().addAll(
                 0.0, 10.0, 19.0, 10.0,
-                22.0, 20.0, -3.0, 20.0
-        );
+                22.0, 20.0, -3.0, 20.0 );
         pane.getChildren().add(rightMotorBig);
         rightMotorShadow.getPoints().addAll(
                 1.0, 15.0, 18.0, 15.0,
-                21.0, 20.0, -2.0, 20.0
-        );
+                21.0, 20.0, -2.0, 20.0);
         pane.getChildren().add(rightMotorShadow);
-        pane.getChildren().add(toInsideMotorL);
-        pane.getChildren().add(toInsideMotorR);
+        pane.getChildren().addAll(toInsideMotorL, toInsideMotorR);
         pane.getChildren().add(rightInsideBody);
         pane.getChildren().add(yellowBottom);
-        pane.getChildren().add(toInsideMotorSmallL);
-        pane.getChildren().add(toInsideMotorSmallR);
+        pane.getChildren().addAll(toInsideMotorSmallL, toInsideMotorSmallR);
         leftSmallMotor.getPoints().addAll(
                 0.0, 10.0, 19.0, 10.0,
-                22.0, 20.0, -3.0, 20.0
-        );
+                22.0, 20.0, -3.0, 20.0);
         pane.getChildren().add(leftSmallMotor);
         rightSmallMotor.getPoints().addAll(
                 0.0, 10.0, 19.0, 10.0,
-                22.0, 20.0, -3.0, 20.0
-        );
+                22.0, 20.0, -3.0, 20.0 );
         pane.getChildren().add(rightSmallMotor);
-        pane.getChildren().add(line);
-        pane.getChildren().add(line0);
-        pane.getChildren().add(line1);
-        pane.getChildren().add(line2);
-        pane.getChildren().add(nasaLogo);
-        pane.getChildren().add(usaFlag);
+        pane.getChildren().addAll(line, line0, line1, line2);
+        pane.getChildren().addAll(nasaLogo, usaFlag);
         pane.getChildren().add(rocketWindow);
-        pane.getChildren().add(leftDivisorOfWindow);
-        pane.getChildren().add(leftBorderOfTheWindow);
-        pane.getChildren().add(rightDivisorOfTheWindow);
-        pane.getChildren().add(rightBorderOfTheWindow);
-        pane.getChildren().add(blackPartofTheMotorL);
-        pane.getChildren().add(blackPartofTheMotorR);
-        pane.getChildren().add(borderLineL);
-        pane.getChildren().add(borderLineR);
-        pane.getChildren().add(cloud);
-        pane.getChildren().add(cloud1);
-        pane.getChildren().add(cloud2);
-        pane.getChildren().add(cloud3);
-        pane.getChildren().add(cloud4);
-        pane.getChildren().add(cloud5);
-        pane.getChildren().add(cloud6);
-        pane.getChildren().add(cloud7);
-        pane.getChildren().add(cloud8);
-        pane.getChildren().add(cloud9);
-        pane.getChildren().add(cloud10);
-        pane.getChildren().add(cloud11);
-        pane.getChildren().add(cloud12);
-        pane.getChildren().add(cloud13);
-        pane.getChildren().add(cloud14);
-        pane.getChildren().add(cloud15);
-        pane.getChildren().add(cloud16);
-        pane.getChildren().add(cloud17);
-        pane.getChildren().add(cloud18);
-        pane.getChildren().add(cloud19);
-        pane.getChildren().add(cloud20);
-        pane.getChildren().add(cloud21);
-        pane.getChildren().add(cloud22);
-        pane.getChildren().add(cloud23);
-        pane.getChildren().add(cloud24);
-        pane.getChildren().add(cloud25);
-        pane.getChildren().add(cloud26);
-        pane.getChildren().add(cloud27);
-        pane.getChildren().add(cloud28);
-        pane.getChildren().add(cloud29);
-        pane.getChildren().add(cloud30);
-        pane.getChildren().add(cloud31);
-        pane.getChildren().add(cloud32);
-        pane.getChildren().add(cloud33);
-        pane.getChildren().add(cloud34);
-        pane.getChildren().add(cloud35);
-        pane.getChildren().add(cloud36);
-        pane.getChildren().add(cloud37);
-        pane.getChildren().add(cloud38);
-        pane.getChildren().add(cloud39);
-        pane.getChildren().add(cloud40);
-        pane.getChildren().add(ellipse11112);
-        pane.getChildren().add(ellipse11113);
-        pane.getChildren().add(ellipse11114);
-        pane.getChildren().add(ellipse11115);
-        pane.getChildren().add(ellipse11116);
-        pane.getChildren().add(ellipse11117);
-        pane.getChildren().add(ellipse11118);
-        pane.getChildren().add(ellipse11119);
-        pane.getChildren().add(ellipse111110);
-        pane.getChildren().add(ellipse111111);
-        pane.getChildren().add(ellipse111112);
-        pane.getChildren().add(ellipse111113);
-        pane.getChildren().add(ellipse111114);
-        pane.getChildren().add(ellipse111115);
-        pane.getChildren().add(ellipse111116);
-        pane.getChildren().add(ellipse111117);
-        pane.getChildren().add(ellipse111118);
-        pane.getChildren().add(ellipse111119);
-        pane.getChildren().add(ellipse1111110);
-        pane.getChildren().add(ellipse1111111);
-        pane.getChildren().add(ellipse1111112);
-        pane.getChildren().add(ellipse1111113);
-        pane.getChildren().add(ellipse1111114);
-        pane.getChildren().add(ellipse1111115);
-        pane.getChildren().add(ellipse1111116);
-        pane.getChildren().add(ellipse1111117);
-        pane.getChildren().add(ellipse1111118);
-        pane.getChildren().add(ellipse1111119);
-        pane.getChildren().add(ellipse11111110);
-        pane.getChildren().add(ellipse11111111);
-        pane.getChildren().add(ellipse11111112);
-        pane.getChildren().add(ellipse11111113);
-
+        pane.getChildren().addAll(leftDivisorOfWindow, rightDivisorOfTheWindow);
+        pane.getChildren().addAll(leftBorderOfTheWindow, rightBorderOfTheWindow);
+        pane.getChildren().addAll(blackPartofTheMotorL, blackPartofTheMotorR);
+        pane.getChildren().addAll(borderLineL, borderLineR);
+        pane.getChildren().addAll(
+                cloud,     cloud1,   cloud2,   cloud4,   cloud5,   cloud6,   cloud7,
+                cloud8,   cloud9,   cloud10, cloud11, cloud12, cloud13, cloud14,
+                cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21,
+                cloud22, cloud23, cloud24, cloud25, cloud26, cloud27, cloud28,
+                cloud29, cloud30, cloud31, cloud32, cloud33, cloud34, cloud35,
+                cloud36, cloud37, cloud38, cloud39, cloud40, cloud41, cloud42,
+                cloud43, cloud44, cloud45, cloud46, cloud47, cloud48, cloud49,
+                cloud50, cloud51, cloud52, cloud53, cloud54, cloud55, cloud56,
+                cloud57, cloud58, cloud59, cloud60, cloud61, cloud62, cloud63,
+                cloud64, cloud65, cloud66, cloud67, cloud68, cloud69, cloud70
+        );
         /* Polylines are the starts (type of cross) */
         starWithCrossForm.getPoints().addAll(
                 7.5, 0.0, 10.0, 0.0,
@@ -2129,37 +1773,14 @@ public class CreativeScene extends Application {
                 7.5, 00.0
         );
         pane.getChildren().add(starWithCrossForm1);
-        pane.getChildren().add(circle);
-        pane.getChildren().add(circle0);
-        pane.getChildren().add(circle1);
-        pane.getChildren().add(circle2);
-        pane.getChildren().add(circle3);
-        pane.getChildren().add(circle4);
-        pane.getChildren().add(circle5);
-        pane.getChildren().add(circle6);
-        pane.getChildren().add(circle7);
-        pane.getChildren().add(circle8);
-        pane.getChildren().add(circle9);
-        pane.getChildren().add(circle10);
-        pane.getChildren().add(circle11);
-        pane.getChildren().add(circle12);
-        pane.getChildren().add(circle13);
-        pane.getChildren().add(circle14);
-        pane.getChildren().add(circle15);
-        pane.getChildren().add(circle16);
-        pane.getChildren().add(circle17);
-        pane.getChildren().add(circle18);
-        pane.getChildren().add(circle19);
-        pane.getChildren().add(arc7);
-        pane.getChildren().add(arc8);
-        pane.getChildren().add(arc9);
-        pane.getChildren().add(arc10);
-        pane.getChildren().add(arc11);
-        pane.getChildren().add(arc12);
-        pane.getChildren().add(rightNoseCone);
-        pane.getChildren().add(leftNoseCone);
-        pane.getChildren().add(smoke);
-        pane.getChildren().add(smoke1);
+        pane.getChildren().addAll(
+                star,     star1,   star2,   star3,   star4,   star5,   star6,   star7,    star8,   star9, star10, 
+                star11, star12, star13, star14, star15, star16, star17, star18, star19, star20
+        );
+        pane.getChildren().addAll(leftNoseLS, rightNoseLS, leftNoseRS, rightNoseRS);
+        pane.getChildren().addAll(rightWRing, leftWRing);
+        pane.getChildren().addAll(rightNoseCone, leftNoseCone);
+        pane.getChildren().addAll(smoke, smoke1);
 
         /* Display the scene */
         Scene scene = new Scene(pane, 650, 650);
