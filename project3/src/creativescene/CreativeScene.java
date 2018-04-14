@@ -1,7 +1,5 @@
 package creativescene;
 
-import java.util.Random;
-import javafx.animation.AnimationTimer;
 import javafx.stage.*;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
@@ -9,8 +7,6 @@ import javafx.scene.shape.*;
 import javafx.scene.effect.*;
 import javafx.scene.layout.Pane;
 import javafx.application.Application;
-import javafx.geometry.Point2D;
-import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
@@ -24,12 +20,6 @@ public class CreativeScene extends Application {
         Pane pane = new Pane();
         /* Set color of the pain */
         pane.setStyle("-fx-background-color: #001229;");
-
-        Smoke smoke = new Smoke(220, 423, Color.WHITESMOKE);
-        Smoke smoke1 = new Smoke(375, 423, Color.WHITESMOKE);
-
-        smoke.setOpacity(3);
-        smoke1.setOpacity(3);
 
         /* Create Ellipse that represents the planet */
         Ellipse planet = new Ellipse();
@@ -1683,6 +1673,25 @@ public class CreativeScene extends Application {
         rightNoseRS.setTranslateX(144.0);
         rightNoseRS.setTranslateY(-11.0);
         rightNoseRS.setType(ArcType.ROUND);
+        
+        /* Add Smoke (.gif) */
+        ImageView smoke = new ImageView();
+        smoke.setFitHeight(186.0);
+        smoke.setFitWidth(250.0);
+        smoke.setLayoutX(124.0);
+        smoke.setLayoutY(444.0);
+        smoke.setPickOnBounds(true);
+        smoke.setPreserveRatio(true);
+        smoke.setImage(new Image(getClass().getResource("smoke.gif").toExternalForm()));
+        
+        ImageView smoke1 = new ImageView();
+        smoke1.setFitHeight(186.0);
+        smoke1.setFitWidth(250.0);
+        smoke1.setLayoutX(278.0);
+        smoke1.setLayoutY(444.0);
+        smoke1.setPickOnBounds(true);
+        smoke1.setPreserveRatio(true);
+        smoke1.setImage(new Image(getClass().getResource("smoke.gif").toExternalForm()));
 
         /* ADD ALL ELEMEMTS TO THE PANE */
         pane.getChildren().add(planet);
@@ -1691,9 +1700,20 @@ public class CreativeScene extends Application {
         pane.getChildren().addAll(rocketBodyLeft, rocketBodyRight);
         pane.getChildren().addAll(insideLeftNoseCone, insideRightNoseCone);
         pane.getChildren().addAll(turbineLL, turbineLR);
-        pane.getChildren().addAll(topLL, middleLL, bottomLR, topLR, middleLR, bottomLL,
-                                                            topRL, middleRL, bottomRL, topRR, middleRR, bottomRR) ;
-        pane.getChildren().addAll(turbineRL, turbineRR);
+        pane.getChildren().add(topLL);
+        pane.getChildren().add(middleLL);
+        pane.getChildren().add(bottomLR);
+        pane.getChildren().add(topLR);
+        pane.getChildren().add(middleLR);
+        pane.getChildren().add(bottomLL);
+        pane.getChildren().add(turbineRL);
+        pane.getChildren().add(turbineRR);
+        pane.getChildren().add(topRL);
+        pane.getChildren().add(middleRL);
+        pane.getChildren().add(bottomRL);
+        pane.getChildren().add(topRR);
+        pane.getChildren().add(middleRR);
+        pane.getChildren().add(bottomRR);
         pane.getChildren().addAll(rightFing, leftFing);
         pane.getChildren().addAll(rightFingSmall, leftFingSmall);
         pane.getChildren().add(leftPartInside);
@@ -1781,125 +1801,15 @@ public class CreativeScene extends Application {
         pane.getChildren().addAll(rightWRing, leftWRing);
         pane.getChildren().addAll(rightNoseCone, leftNoseCone);
         pane.getChildren().addAll(smoke, smoke1);
-
+        
         /* Display the scene */
         Scene scene = new Scene(pane, 650, 650);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
-
-        AnimationTimer gameloop = new AnimationTimer() {
-            @Override
-            public void handle(long arg0) {
-                smoke.update();
-                smoke1.update();
-            }
-        };
-        gameloop.start();
     }
 
     public static void main(String[] args) {
         launch(args);
-    }
-}
-
-class Smoke extends Group {
-
-    WritableImage baseImg;
-    ImageView[] lifeCycle;
-
-    int FRAMES = 50;
-    int FALLING_FRAMES = 32;
-    int width = 60;
-    int height = 60;
-    double radius;
-    Point2D midPoint;
-
-    double xThrow = 0;
-    int xWobble = 1;
-    double yThrow = 5;
-    int yWobble = 10;
-
-    Random random;
-    int throttle;
-    int throttleMax;
-
-    public Smoke(int xLoc, int yLoc, Color color) {
-        throttleMax = 4; // 4 ==> 15 fps animation rate
-        random = new Random();
-
-        midPoint = new Point2D(width / 2, height / 2);
-        radius = width / 2 - 1;
-        lifeCycle = new ImageView[50];
-
-        double topAlpha = 0.5;
-        double fadeAmount = topAlpha / FALLING_FRAMES;
-        double fadeInAmount
-                = topAlpha / ((FRAMES - FALLING_FRAMES) * 3);
-
-        double pixR = color.getRed();
-        double pixG = color.getGreen();
-        double pixB = color.getBlue();
-        double pixA = topAlpha;
-
-        // Create the base image. 
-        // The color is constant, the alpha is a
-        // computed radial gradient.
-        baseImg = new WritableImage(width, height);
-        PixelWriter baseRaster = baseImg.getPixelWriter();
-        double distance;
-        double gradientFactor; // between 0 and 1
-
-        for (int jj = 0; jj < height; jj++) {
-            for (int kk = 0; kk < width; kk++) {
-                distance = midPoint.distance(jj, kk);
-                if (distance > radius) {
-                    gradientFactor = 0.0;
-                } else {
-                    gradientFactor = (radius - distance) / radius;
-                }
-
-                pixA = topAlpha * gradientFactor;
-                baseRaster.setColor(jj, kk, new Color(pixR, pixG, pixB, pixA));
-            }
-        }
-
-        for (int i = 0; i < FRAMES; ++i) {
-            lifeCycle[i] = new ImageView();
-            lifeCycle[i].setImage(baseImg);
-            lifeCycle[i].setX(xLoc);
-            lifeCycle[i].setY(yLoc);
-            this.getChildren().add(lifeCycle[i]);
-        }
-
-        // alpha will rise and fall over course of lifeCycle
-        for (int i = 0; i < FALLING_FRAMES; ++i) {
-            lifeCycle[i].setOpacity((i + 1) * fadeAmount);
-        }
-
-        for (int i = FALLING_FRAMES; i < FRAMES; i++) {
-            lifeCycle[i].setOpacity(
-                    topAlpha - (i - FALLING_FRAMES + 1) * fadeInAmount);
-        }
-    }
-
-    public void update() {
-        // Slow the animation by skipping cycles. 60 fps is overkill.
-        if (throttle-- > 0) {
-            return;
-        } else {
-            throttle = throttleMax;
-        }
-
-        // Propagate location of particles, while adding 
-        //     'throw' and 'wobble'
-        // lifeCycle[n] is stationary (origin of stream, visually)
-        int n = FRAMES - 1;
-        for (int i = 0; i < n; i++) {
-            lifeCycle[i].setX(lifeCycle[i + 1].getX()
-                    + xThrow + random.nextInt(xWobble));
-            lifeCycle[i].setY(lifeCycle[i + 1].getY()
-                    + yThrow + random.nextInt(yWobble));
-        }
     }
 }

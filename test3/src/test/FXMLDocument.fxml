@@ -524,5 +524,15 @@
             </RadialGradient>
          </stroke>
       </Arc>
+      <ImageView fitHeight="186.0" fitWidth="250.0" layoutX="124.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../project3/src/creativescene/smoke.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="186.0" fitWidth="250.0" layoutX="278.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../project3/src/creativescene/smoke.gif" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
