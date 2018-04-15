@@ -7,10 +7,12 @@ import javafx.scene.shape.*;
 import javafx.scene.effect.*;
 import javafx.scene.layout.Pane;
 import javafx.application.Application;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
+import javafx.scene.text.Font;
 
 public class CreativeScene extends Application {
 
@@ -1692,6 +1694,14 @@ public class CreativeScene extends Application {
         smoke1.setPickOnBounds(true);
         smoke1.setPreserveRatio(true);
         smoke1.setImage(new Image(getClass().getResource("smoke.gif").toExternalForm()));
+        
+        /* copyright */
+        Label copyright = new Label();
+        copyright.setLayoutX(504.0);
+        copyright.setLayoutY(622.0);
+        copyright.setText("2018 © AAA Group");
+        copyright.setTextFill(javafx.scene.paint.Color.valueOf("#003380"));
+        copyright.setFont(new Font("Arial Bold", 15.0));
 
         /* ADD ALL ELEMEMTS TO THE PANE */
         pane.getChildren().add(planet);
@@ -1801,6 +1811,7 @@ public class CreativeScene extends Application {
         pane.getChildren().addAll(rightWRing, leftWRing);
         pane.getChildren().addAll(rightNoseCone, leftNoseCone);
         pane.getChildren().addAll(smoke, smoke1);
+        pane.getChildren().add(copyright);
         
         /* Display the scene */
         Scene scene = new Scene(pane, 650, 650);
