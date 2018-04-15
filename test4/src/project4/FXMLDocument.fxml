@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="58.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eneter Name" />
+      <TextField layoutX="58.0" layoutY="117.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="45.0" layoutX="332.0" layoutY="330.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="130.0">
+         <effect>
+            <BoxBlur />
+         </effect>
+      </Rectangle>
+      <Text layoutX="380.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEXT" />
+   </children>
+</Pane>
