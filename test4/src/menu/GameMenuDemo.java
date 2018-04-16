@@ -9,7 +9,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
@@ -32,11 +31,11 @@ import javafx.scene.text.Font;
 
 public class GameMenuDemo extends Application {
 
+    final int NO_OF_PLAYERS = 5;
     private Menu gameMenu;
      private List<String> list = new ArrayList<String>();
     int image = 0;
     double orgCliskSceneX, orgReleaseSceneX;
-    Button lbutton, rButton;
     ImageView imageView;
 
     @Override
@@ -75,6 +74,7 @@ public class GameMenuDemo extends Application {
                 }
             }
         });
+        
         
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -179,55 +179,6 @@ public class GameMenuDemo extends Application {
             });
             
             
-            
-            try {
-        list.add("ferrari.png");
-        list.add("lamborghini.png");
-        list.add("mustang.png");
-        list.add("corvette.png");
-        list.add("chevy.png");
-
-        GridPane root = new GridPane();
-        root.setAlignment(Pos.CENTER);
-
-        Image images[] = new Image[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            images[i] = new Image(getClass().getResource(list.get(i)).toExternalForm());
-        }
-        
-        imageView = new ImageView(images[image]);
-        imageView.setCursor(Cursor.CLOSED_HAND);   
-
-        imageView.setFitHeight(300);
-        imageView.setFitWidth(400);
-
-        HBox hBox = new HBox();
-        hBox.setSpacing(15);
-        hBox.setAlignment(Pos.CENTER);
-        hBox.getChildren().addAll(imageView);
-
-        root.add(hBox, 1, 1);
-        
-        
-        menu2.setOnKeyPressed(e ->{/* Move to the next car RIGHT*/
-            if(e.getCode() == KeyCode.RIGHT){ 
-                 image += 1;
-                 if(image == list.size())
-                        image=0;
-                    imageView.setImage(images[image]);
-             }
-             
-            if(e.getCode() == KeyCode.LEFT){///* Move to the next car LEFT*/
-                    image -=1;
-                if(image == -1) //if image is index -1 set the last image
-                    image = list.size() -1;
-                imageView.setImage(images[image]);
-            }
-        });
-       
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
 
         Text text;
         TextField textField;
@@ -271,7 +222,30 @@ public class GameMenuDemo extends Application {
         text0.setLayoutY(200);
         text0.setStrokeWidth(0);
         text0.setText("NEXT");
+        
+            
+                list.add("ferrari.png");
+                list.add("lamborghini.png");
+                list.add("mustang.png");
+                list.add("corvette.png");
+                list.add("chevy.png");
+                
+//                GridPane root = new GridPane();
+//                root.setAlignment(Pos.CENTER);
+                
+                Image images[] = new Image[list.size()];
+                for (int i = 0; i < list.size(); i++) {
+                    images[i] = new Image(getClass().getResource(list.get(i)).toExternalForm());
+                }
+                
+                imageView = new ImageView(images[image]);
+                imageView.setCursor(Cursor.CLOSED_HAND);   
 
+                imageView.setFitHeight(300);
+                imageView.setFitWidth(400);
+                
+                
+                
             CenterContent information = new CenterContent("INFORMATION");
             information.addContent("This game is a Robot Race animation with betting capabilities.\n"
                     + "Every robot represent a car, that you will choose to bet in the race.");
@@ -283,13 +257,30 @@ public class GameMenuDemo extends Application {
 
             menu0.getChildren().addAll(btnPlay, btnResume, btnOptions, btnExit);
             menu1.getChildren().addAll(btnBack, information, information1, information2);
-            menu2.getChildren().addAll(text, textField, rectangle, text0);
+            //menu2.getChildren().addAll(text, textField, rectangle, text0);
+            menu2.getChildren().addAll(imageView);
 
             Rectangle bg = new Rectangle(800, 600);
             bg.setFill(Color.GREY);
             bg.setOpacity(0.4);
 
             getChildren().addAll(bg, menu0);
+            
+            setOnKeyPressed(e ->{/* Move to the next car RIGHT*/
+            if(e.getCode() == KeyCode.RIGHT){ 
+                 image += 1;
+                 if(image == list.size())
+                        image=0;
+                    imageView.setImage(images[image]);
+             }
+             
+            if(e.getCode() == KeyCode.LEFT){///* Move to the next car LEFT*/
+                    image -=1;
+                if(image == -1) //if image is index -1 set the last image
+                    image = list.size() -1;
+                imageView.setImage(images[image]);
+            }
+        });
         }
     }
     
