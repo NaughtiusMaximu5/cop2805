@@ -6,6 +6,7 @@ import java.util.List;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
+import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -310,25 +311,25 @@ public class GameMenuDemo extends Application {
                         System.out.println("I pressed enter");
                         imageView.setFocusTraversable(false);
                         bettingAmtField.requestFocus();
-                        
+                        bettingAmtField.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
                         bettingAmtField.textProperty().addListener((observable,oldValue,newValue)-> {
                             if(newValue.length() > 4) bettingAmtField.setText(oldValue);
                         });
                         
-//                        bAmountNxtBtn.setOnMouseClicked(e1 -> {
-//                            if (Integer.parseInt(bettingAmtField.getText()) >= 1000) {
-//                                bettingAmtField.setStyle("-fx-background-color: red;");
-//                                bettingAmtField.setText("Maximun $1000");
-//                                
-//                                
-//                                bettingAmtField.setOnMouseEntered(e2 -> {
-//                                    bettingAmtField.requestFocus();
-//                                    bettingAmtField.clear();
+                        bAmountNxtBtn.setOnMouseClicked(e1 -> {
+                            if (Integer.parseInt(bettingAmtField.getText()) >= 1000) {
+                                bettingAmtField.setStyle("-fx-background-color: red;");
+                                bettingAmtField.requestFocus();
+                            }
+                            bettingAmtField.setOnMouseEntered(e2 -> {
+                                    bettingAmtField.setStyle("-fx-background-color: white;");
+                                    bettingAmtField.clear();
+                        });
+                        });
+                        
+//                        bettingAmtField.setOnMouseClicked (e2 -> {
 //                                    bettingAmtField.setStyle("-fx-background-color: white;");
-//                                });
-//
-//                            }
-//
+//                                    bettingAmtField.clear();
 //                        });
                     }
                 });
