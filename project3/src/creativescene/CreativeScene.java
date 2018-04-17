@@ -1804,7 +1804,7 @@ public class CreativeScene extends Application {
         );
         pane.getChildren().add(starWithCrossForm1);
         pane.getChildren().addAll(
-                star,     star1,   star2,   star3,   star4,   star5,   star6,   star7,    star8,   star9, star10, 
+                star,    star1,  star2,  star3,  star4,  star5,  star6,  star7,  star8, star9, star10, 
                 star11, star12, star13, star14, star15, star16, star17, star18, star19, star20
         );
         pane.getChildren().addAll(leftNoseLS, rightNoseLS, leftNoseRS, rightNoseRS);

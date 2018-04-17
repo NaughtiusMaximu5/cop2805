@@ -1,5 +1,6 @@
 package menu;
 
+import javafx.scene.control.TextField;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.animation.FadeTransition;
@@ -9,7 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.GaussianBlur;
@@ -25,13 +25,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 
 public class GameMenuDemo extends Application {
 
     final int NO_OF_PLAYERS = 5;
     private List<String> list = new ArrayList<String>();
-    ArrayList <Player>players = new ArrayList<>();
+    ArrayList<Player> players = new ArrayList<>();
     private Menu gameMenu;
 
     int image = 0;
@@ -84,11 +85,21 @@ public class GameMenuDemo extends Application {
 
     private class Player {
 
+        private String name;
+        private Image[] image;
+        private int bettingAmount;
+
         public Player() {
         }
-        String name;
-        Image[] image;
-        int bettingAmount;
+
+//        //Setters
+//        public void setName(String name) {this.name = name;}
+//        public void setImage(Image[] image) {this.image = image;}
+//        public void setBettingAmount(int bettingAmount) {this.bettingAmount = bettingAmount;}
+//        //Getters
+//        public String getName() {return name;}
+//        public Image[] getImage() {return image;}
+//        public int getBettingAmount() {return bettingAmount;
     }
 
     private class Menu extends Parent {
@@ -108,7 +119,6 @@ public class GameMenuDemo extends Application {
 
 //            menu2.setTranslateX(100);
 //            menu2.setTranslateY(200);
-
             menu3.setTranslateX(100);
             menu3.setTranslateY(200);
 
@@ -184,7 +194,7 @@ public class GameMenuDemo extends Application {
                 });
             });
 
-        list.add("ferrari.png");
+            list.add("ferrari.png");
             list.add("lamborghini.png");
             list.add("mustang.png");
             list.add("corvette.png");
@@ -203,157 +213,141 @@ public class GameMenuDemo extends Application {
             imageView.setLayoutX(36.0);
             imageView.setLayoutY(200.0);
 
-
-        Text text = new Text();
-        TextField textField = new TextField();
-        Text text0 = new Text();
-        TextField textField0 = new TextField();
-        Text text1 = new Text();
-        Text text2 = new Text();
-        Text text3 = new Text();
-        Text text4 = new Text();
-        Rectangle rectangle = new Rectangle();
-        Rectangle rectangle0 = new Rectangle();
-        
-
-        text.setLayoutX(36.0);
-        text.setLayoutY(73.0);
-        text.setFill(Color.WHITE);
-        text.setStrokeWidth(0.0);
-        text.setText("PLAYER ");
-        text.setWrappingWidth(184.41796875);
-        text.setFont(new Font(31.0));
-
-        textField.setLayoutX(36);
-        textField.setLayoutY(88);
-        textField.setOpacity(0.7);
-        textField.setPrefHeight(27);
-        textField.setPrefWidth(209);
-        textField.setPromptText("ENTER YOUR NAME");
-        
-        text0.setLayoutX(36.0);
-        text0.setFill(Color.WHITE);
-        text0.setLayoutY(480.0);
-        text0.setText("ENTER BETTING AMOUNT");
-        text0.setWrappingWidth(279.021484375);
-        text0.setFont(new Font(16.0));
-
-        textField0.setLayoutX(36.0);
-        textField0.setLayoutY(502.0);
-        textField0.setOpacity(0.7);
-        textField0.setPrefHeight(27.0);
-        textField0.setPrefWidth(209.0);
-        textField0.setPromptText("Maximun $1000");
-        
-        text1.setFill(Color.WHITE);
-        text1.setLayoutX(36.0);
-        text1.setLayoutY(152.0);
-        text1.setStrokeWidth(0.0);
-        text1.setText("SELECT YOUR CAR");
-        text1.setWrappingWidth(279.021484375);
-        text1.setFont(new Font(16.0));
-
-        text2.setFill(Color.RED);
-        text2.setLayoutX(36.0);
-        text2.setLayoutY(184.0);
-        text2.setStrokeWidth(0.0);
-        text2.setText("Change car with arrow keys. Press Enter to select your car.");
-        text2.setWrappingWidth(334.021484375);
-        text2.setFont(new Font(11.0));
-
-        text3.setLayoutX(302.0);
-        text3.setLayoutY(106.0);
-        text3.setStrokeWidth(0.0);
-        text3.setText("Next");
-
-        rectangle.setArcHeight(5.0);
-        rectangle.setArcWidth(5.0);
-        rectangle.setFill(Color.GRAY);
-        rectangle.setHeight(37.0);
-        rectangle.setLayoutX(281.0);
-        rectangle.setLayoutY(83.0);
-        rectangle.setOpacity(0.3);
-        rectangle.setStrokeWidth(0.0);
-        rectangle.setWidth(69.0);
-        rectangle.onMouseEnteredProperty();
-
-        text4.setLayoutX(317.0);
-        text4.setLayoutY(515.0);
-        text4.setStrokeWidth(0.0);
-        text4.setText("Next");
-
-        rectangle0.setArcHeight(5.0);
-        rectangle0.setArcWidth(5.0);
-        rectangle0.setFill(Color.GRAY);
-        rectangle0.setHeight(37.0);
-        rectangle0.setLayoutX(296.0);
-        rectangle0.setLayoutY(492.0);
-        rectangle0.setStrokeWidth(0.0);
-        rectangle0.setWidth(69.0);
-        
-        DropShadow drop = new DropShadow(50, Color.WHITE);
-            drop.setInput(new Glow());
-        
-            rectangle.setOnMouseEntered(event -> {
-                rectangle.setFill(Color.WHITE);
-                text3.setFill(Color.BLACK);
-            });
-
-            rectangle.setOnMouseExited(event -> {
-                rectangle.setFill(Color.BLACK);
-                text3.setFill(Color.WHITE);
-            });
+            Text text = new Text();
+            TextField nameField = new TextField();
+            Text text0 = new Text();
+            TextField bettingAmtField = new TextField();
+            Text text1 = new Text();
+            Text text2 = new Text();
             
-            rectangle.setOnMousePressed(event -> setEffect(drop));
-            rectangle.setOnMouseReleased(event -> setEffect(null));
             
-            rectangle.setOnMouseClicked(event -> {
-                
-                if(players.isEmpty()){
-                    players.get(0).name = text1.getText();
-                    
-                }
-                System.out.println(textField.getText());
-                textField.setCursor(Cursor.HAND);
-                
+            text.setLayoutX(36.0);
+            text.setLayoutY(73.0);
+            text.setFill(Color.WHITE);
+            text.setStrokeWidth(0.0);
+            text.setText("PLAYER ");
+            text.setWrappingWidth(184.41796875);
+            text.setFont(new Font(31.0));
+
+            nameField.setLayoutX(36);
+            nameField.setLayoutY(88);
+            nameField.setOpacity(0.7);
+            nameField.setPrefHeight(27);
+            nameField.setPrefWidth(209);
+            nameField.setPromptText("ENTER YOUR NAME");
+
+            text0.setLayoutX(36.0);
+            text0.setFill(Color.WHITE);
+            text0.setLayoutY(480.0);
+            text0.setText("ENTER BETTING AMOUNT");
+            text0.setWrappingWidth(279.021484375);
+            text0.setFont(new Font(16.0));
+
+            bettingAmtField.setLayoutX(36.0);
+            bettingAmtField.setLayoutY(502.0);
+            bettingAmtField.setOpacity(0.7);
+            bettingAmtField.setPrefHeight(27.0);
+            bettingAmtField.setPrefWidth(209.0);
+            bettingAmtField.setPromptText("Maximun $1000");
+
+            text1.setFill(Color.WHITE);
+            text1.setLayoutX(36.0);
+            text1.setLayoutY(152.0);
+            text1.setStrokeWidth(0.0);
+            text1.setText("SELECT YOUR CAR");
+            text1.setWrappingWidth(279.021484375);
+            text1.setFont(new Font(16.0));
+
+            text2.setFill(Color.RED);
+            text2.setLayoutX(36.0);
+            text2.setLayoutY(184.0);
+            text2.setStrokeWidth(0.0);
+            text2.setText("Change car with arrow keys. Press Enter to select your car.");
+            text2.setWrappingWidth(334.021484375);
+            text2.setFont(new Font(11.0));
+
+            Content nameNxtBtn = new Content();
+            nameNxtBtn.addButton("Next", 281, 83);
+
+            Content bAmountNxtBtn = new Content();
+            bAmountNxtBtn.addButton("Next", 281, 492);
+
+            //Create an event when press the NEXT button for name
+            nameNxtBtn.setOnMouseClicked(event -> {
+
+//                if(players.isEmpty()){
+//                    players.get(0).name = text1.getText();
+//                }
+                System.out.println(nameField.getText());
+
+                nameNxtBtn.setFocusTraversable(false);
                 imageView.requestFocus();
-                setOnKeyPressed(e -> {/* Move to the next car RIGHT*/
-                if (e.getCode() == KeyCode.RIGHT) {
-                    image += 1;
-                    if (image == list.size()) {
-                        image = 0;
-                    }
-                    imageView.setImage(images[image]);
-                }
 
-                if (e.getCode() == KeyCode.LEFT) {///* Move to the next car LEFT*/
-                    image -= 1;
-                    if (image == -1) //if image is index -1 set the last image
-                    {
-                        image = list.size() - 1;
+                //Create events to select car with keys 
+                imageView.setOnKeyPressed(e -> {// Move to the next car RIGHT
+                    if (e.getCode() == KeyCode.RIGHT) {
+                        image += 1;
+                        if (image == list.size()) {
+                            image = 0;
+                        }
+                        imageView.setImage(images[image]);
                     }
-                    imageView.setImage(images[image]);
-                }
+
+                    if (e.getCode() == KeyCode.LEFT) {// Move to the next car LEFT
+                        image -= 1;
+                        if (image == -1) //if image is index -1 set the last image
+                        {
+                            image = list.size() - 1;
+                        }
+                        imageView.setImage(images[image]);
+                    }
+
+                    if (e.getCode() == KeyCode.ENTER) {
+                        DropShadow drop = new DropShadow(50, Color.WHITE);
+                        drop.setInput(new Glow());
+
+                        imageView.setEffect(drop);
+                        System.out.println("I pressed enter");
+                        imageView.setFocusTraversable(false);
+                        bettingAmtField.requestFocus();
+                        
+                        bettingAmtField.textProperty().addListener((observable,oldValue,newValue)-> {
+                            if(newValue.length() > 4) bettingAmtField.setText(oldValue);
+                        });
+                        
+//                        bAmountNxtBtn.setOnMouseClicked(e1 -> {
+//                            if (Integer.parseInt(bettingAmtField.getText()) >= 1000) {
+//                                bettingAmtField.setStyle("-fx-background-color: red;");
+//                                bettingAmtField.setText("Maximun $1000");
+//                                
+//                                
+//                                bettingAmtField.setOnMouseEntered(e2 -> {
+//                                    bettingAmtField.requestFocus();
+//                                    bettingAmtField.clear();
+//                                    bettingAmtField.setStyle("-fx-background-color: white;");
+//                                });
+//
+//                            }
+//
+//                        });
+                    }
+                });
+
             });
-                
-            });
-            
-           
-            CenterContent information = new CenterContent("INFORMATION");
+
+            Content information = new Content("INFORMATION");
             information.addContent("This game is a Robot Race animation with betting capabilities.\n"
                     + "Every robot represent a car, that you will choose to bet in the race.");
-            CenterContent information1 = new CenterContent("HOW TO PLAY");
+            Content information1 = new Content("HOW TO PLAY");
             information1.addContent("Select the car you want to use for the race.\n"
                     + "Then enter your name and the betting amout.");
-            CenterContent information2 = new CenterContent("COPYRIGHT");
+            Content information2 = new Content("COPYRIGHT");
             information2.addContent("2018 © AAA Group. COP 2805c.");
 
             menu0.getChildren().addAll(btnPlay, btnResume, btnOptions, btnExit);
             menu1.getChildren().addAll(btnBack, information, information1, information2);
-            menu2.getChildren().addAll(imageView,
-                    text, textField, text0, text1,
-                    text2, textField0, rectangle,
-                    text3, text4, rectangle0
+            menu2.getChildren().addAll(imageView, text, nameField, text0, text1,
+                    text2, bettingAmtField, bAmountNxtBtn, nameNxtBtn
             );
 
             Rectangle bg = new Rectangle(800, 600);
@@ -365,11 +359,16 @@ public class GameMenuDemo extends Application {
         }
     }
 
-    private static class CenterContent extends Pane {
+    private static class Content extends Pane {
 
         private Text text, text1;
+        private Text text2;
+        private Rectangle rectangle;
 
-        public CenterContent(String title) {
+        public Content() {
+        }
+
+        public Content(String title) {
 
             /* Effect to the title */
             text = new Text(title);
@@ -392,6 +391,43 @@ public class GameMenuDemo extends Application {
             getChildren().addAll(bg, text1);
             text1.setTranslateX(0);
             text1.setTranslateY(50);
+        }
+
+        void addButton(String title, double x, double y) {
+
+            text2 = new Text(title);
+            text2.setLayoutX(x + 21);
+            text2.setLayoutY(y + 23);
+            text2.setFill(Color.WHITE);
+
+            rectangle = new Rectangle();
+            rectangle.setArcHeight(5.0);
+            rectangle.setArcWidth(5.0);
+            rectangle.setFill(Color.GRAY);
+            rectangle.setHeight(37.0);
+            rectangle.setLayoutX(x);
+            rectangle.setLayoutY(y);
+            rectangle.setOpacity(0.5);
+            rectangle.setStrokeWidth(0.0);
+            rectangle.setWidth(69.0);
+
+            rectangle.setOnMouseEntered(event -> {
+                rectangle.setFill(Color.WHITE);
+                text2.setFill(Color.BLACK);
+            });
+
+            rectangle.setOnMouseExited(event -> {
+                rectangle.setFill(Color.BLACK);
+                text2.setFill(Color.WHITE);
+            });
+
+            DropShadow drop = new DropShadow(50, Color.WHITE);
+            drop.setInput(new Glow());
+
+            rectangle.setOnMousePressed(event -> setEffect(drop));
+            rectangle.setOnMouseReleased(event -> setEffect(null));
+
+            getChildren().addAll(text2, rectangle);
         }
     }
 
