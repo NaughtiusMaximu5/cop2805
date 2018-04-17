@@ -1,3 +1,19 @@
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+Group Members:  Carlos Abraham Hernandez
+                Adriel Camargo
+                Jose Aparicio
+Student IDs:    4000026424
+                1002245851
+                1000363048
+
+COP 2805C –Java Programming 2
+Spring 2018 - T Th 6:15PM - 9:30PM
+Project # 3
+Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
+whole or otherwise plagiarized the work of other students and/or persons.
+
+@author AAA Group
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 package creativescene;
 
 import javafx.stage.*;
@@ -5,14 +21,15 @@ import javafx.scene.Scene;
 import javafx.scene.image.*;
 import javafx.scene.shape.*;
 import javafx.scene.effect.*;
+import javafx.scene.text.Font;
+import javafx.scene.paint.Stop;
 import javafx.scene.layout.Pane;
-import javafx.application.Application;
-import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.scene.control.Label;
+import javafx.application.Application;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.Stop;
-import javafx.scene.text.Font;
+
 
 public class CreativeScene extends Application {
 
@@ -20,7 +37,7 @@ public class CreativeScene extends Application {
     public void start(Stage primaryStage) {
 
         Pane pane = new Pane();
-        /* Set color of the pain */
+        /* Set color of the pane */
         pane.setStyle("-fx-background-color: #001229;");
 
         /* Create Ellipse that represents the planet */
@@ -33,7 +50,7 @@ public class CreativeScene extends Application {
         planet.setRotate(-21.0);
         planet.setStrokeWidth(0.0);
 
-        /* Add shadow effect to the ellipse created*/
+        /* Add shadow effect to the ellipse created */
         DropShadow planetShadow = new DropShadow();
         planetShadow.setColor(Color.valueOf("#003380"));
         planetShadow.setHeight(247.71);
@@ -1771,8 +1788,8 @@ public class CreativeScene extends Application {
         pane.getChildren().addAll(blackPartofTheMotorL, blackPartofTheMotorR);
         pane.getChildren().addAll(borderLineL, borderLineR);
         pane.getChildren().addAll(
-                cloud,     cloud1,   cloud2,   cloud4,   cloud5,   cloud6,   cloud7,
-                cloud8,   cloud9,   cloud10, cloud11, cloud12, cloud13, cloud14,
+                cloud,    cloud1,  cloud2,  cloud4,  cloud5,  cloud6,  cloud7,
+                cloud8,   cloud9, cloud10, cloud11, cloud12, cloud13, cloud14,
                 cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21,
                 cloud22, cloud23, cloud24, cloud25, cloud26, cloud27, cloud28,
                 cloud29, cloud30, cloud31, cloud32, cloud33, cloud34, cloud35,
@@ -1790,7 +1807,7 @@ public class CreativeScene extends Application {
                 10.0, 15.0, 7.5, 15.0,
                 7.5, 7.5, 0.0, 7.5,
                 0.0, 5.0, 7.5, 5.0,
-                7.5, 00.0
+                7.5, 0.0
         );
         pane.getChildren().add(starWithCrossForm);
         starWithCrossForm1.getPoints().addAll(
@@ -1800,11 +1817,11 @@ public class CreativeScene extends Application {
                 10.0, 15.0, 7.5, 15.0,
                 7.5, 7.5, 0.0, 7.5,
                 0.0, 5.0, 7.5, 5.0,
-                7.5, 00.0
+                7.5, 0.0
         );
         pane.getChildren().add(starWithCrossForm1);
         pane.getChildren().addAll(
-                star,     star1,   star2,   star3,   star4,   star5,   star6,   star7,    star8,   star9, star10, 
+                star,    star1,  star2,  star3,  star4,  star5,  star6,  star7,  star8, star9, star10, 
                 star11, star12, star13, star14, star15, star16, star17, star18, star19, star20
         );
         pane.getChildren().addAll(leftNoseLS, rightNoseLS, leftNoseRS, rightNoseRS);
