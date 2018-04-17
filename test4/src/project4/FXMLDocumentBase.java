@@ -1,26 +1,36 @@
 package project4;
 
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public abstract class FXMLDocumentBase extends Pane {
 
     protected final Text text;
     protected final TextField textField;
-    protected final Rectangle rectangle;
-    protected final BoxBlur boxBlur;
     protected final Text text0;
+    protected final TextField textField0;
+    protected final Text text1;
+    protected final Text text2;
+    protected final Text text3;
+    protected final Rectangle rectangle;
+    protected final Text text4;
+    protected final Rectangle rectangle0;
 
     public FXMLDocumentBase() {
 
         text = new Text();
         textField = new TextField();
-        rectangle = new Rectangle();
-        boxBlur = new BoxBlur();
         text0 = new Text();
+        textField0 = new TextField();
+        text1 = new Text();
+        text2 = new Text();
+        text3 = new Text();
+        rectangle = new Rectangle();
+        text4 = new Text();
+        rectangle0 = new Rectangle();
 
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
@@ -29,39 +39,98 @@ public abstract class FXMLDocumentBase extends Pane {
         setPrefHeight(600.0);
         setPrefWidth(600.0);
 
-        text.setLayoutX(58.0);
-        text.setLayoutY(83.0);
+        text.setLayoutX(36.0);
+        text.setLayoutY(73.0);
         text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text.setStrokeWidth(0.0);
-        text.setText("Eneter Name");
+        text.setText("PLAYER ");
+        text.setWrappingWidth(184.41796875);
+        text.setFont(new Font(31.0));
 
-        textField.setLayoutX(58.0);
-        textField.setLayoutY(117.0);
+        textField.setLayoutX(36.0);
+        textField.setLayoutY(88.0);
+        textField.setOpacity(0.22);
+        textField.setPrefHeight(27.0);
+        textField.setPrefWidth(209.0);
+        textField.setPromptText("ENTER YOUR NAME");
+
+        text0.setLayoutX(36.0);
+        text0.setLayoutY(480.0);
+        text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text0.setStrokeWidth(0.0);
+        text0.setText("ENTER BETTING AMOUNT");
+        text0.setWrappingWidth(279.021484375);
+        text0.setFont(new Font(16.0));
+
+        textField0.setLayoutX(36.0);
+        textField0.setLayoutY(502.0);
+        textField0.setOpacity(0.22);
+        textField0.setPrefHeight(27.0);
+        textField0.setPrefWidth(209.0);
+        textField0.setPromptText("Maximun $1000");
+
+        text1.setLayoutX(36.0);
+        text1.setLayoutY(152.0);
+        text1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text1.setStrokeWidth(0.0);
+        text1.setText("SELECT YOUR CAR");
+        text1.setWrappingWidth(279.021484375);
+        text1.setFont(new Font(16.0));
+
+        text2.setLayoutX(36.0);
+        text2.setLayoutY(184.0);
+        text2.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text2.setStrokeWidth(0.0);
+        text2.setText("Change car with arrow keys. Press Enter to select your car.");
+        text2.setWrappingWidth(334.021484375);
+        text2.setFont(new Font(11.0));
+
+        text3.setLayoutX(302.0);
+        text3.setLayoutY(106.0);
+        text3.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text3.setStrokeWidth(0.0);
+        text3.setText("Next");
 
         rectangle.setArcHeight(5.0);
         rectangle.setArcWidth(5.0);
-        rectangle.setFill(javafx.scene.paint.Color.DODGERBLUE);
-        rectangle.setHeight(45.0);
-        rectangle.setLayoutX(332.0);
-        rectangle.setLayoutY(330.0);
-        rectangle.setOpacity(0.15);
+        rectangle.setFill(javafx.scene.paint.Color.valueOf("#a2b1bf"));
+        rectangle.setHeight(37.0);
+        rectangle.setLayoutX(281.0);
+        rectangle.setLayoutY(83.0);
+        rectangle.setOpacity(0.3);
         rectangle.setStroke(javafx.scene.paint.Color.BLACK);
         rectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         rectangle.setStrokeWidth(0.0);
-        rectangle.setWidth(130.0);
+        rectangle.setWidth(69.0);
 
-        rectangle.setEffect(boxBlur);
+        text4.setLayoutX(317.0);
+        text4.setLayoutY(515.0);
+        text4.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text4.setStrokeWidth(0.0);
+        text4.setText("Next");
 
-        text0.setLayoutX(380.0);
-        text0.setLayoutY(358.0);
-        text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text0.setStrokeWidth(0.0);
-        text0.setText("NEXT");
+        rectangle0.setArcHeight(5.0);
+        rectangle0.setArcWidth(5.0);
+        rectangle0.setFill(javafx.scene.paint.Color.valueOf("#a2b1bf"));
+        rectangle0.setHeight(37.0);
+        rectangle0.setLayoutX(296.0);
+        rectangle0.setLayoutY(492.0);
+        rectangle0.setOpacity(0.3);
+        rectangle0.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle0.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle0.setStrokeWidth(0.0);
+        rectangle0.setWidth(69.0);
 
         getChildren().add(text);
         getChildren().add(textField);
-        getChildren().add(rectangle);
         getChildren().add(text0);
+        getChildren().add(textField0);
+        getChildren().add(text1);
+        getChildren().add(text2);
+        getChildren().add(text3);
+        getChildren().add(rectangle);
+        getChildren().add(text4);
+        getChildren().add(rectangle0);
 
     }
 }

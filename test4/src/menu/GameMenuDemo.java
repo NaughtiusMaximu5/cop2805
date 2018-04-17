@@ -9,8 +9,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.effect.Glow;
@@ -25,17 +25,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 public class GameMenuDemo extends Application {
 
     final int NO_OF_PLAYERS = 5;
+    private List<String> list = new ArrayList<String>();
+    ArrayList <Player>players = new ArrayList<>();
     private Menu gameMenu;
-     private List<String> list = new ArrayList<String>();
+
     int image = 0;
-    double orgCliskSceneX, orgReleaseSceneX;
     ImageView imageView;
 
     @Override
@@ -50,13 +49,16 @@ public class GameMenuDemo extends Application {
         imgView.setImage(new Image(getClass().getResource("background.png").toExternalForm()));
 
         gameMenu = new Menu();
-        gameMenu.setVisible(false);
+        gameMenu.setVisible(true);
 
         root.getChildren().addAll(imgView, gameMenu);
 
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
+                // This will bind all the key press events taking place on the Scene to the Menu.
+                scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
+
                 if (!gameMenu.isVisible()) {
                     FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
                     ft.setFromValue(0);
@@ -64,8 +66,7 @@ public class GameMenuDemo extends Application {
 
                     gameMenu.setVisible(true);
                     ft.play();
-                }
-                else {
+                } else {
                     FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
                     ft.setFromValue(1);
                     ft.setToValue(0);
@@ -74,38 +75,47 @@ public class GameMenuDemo extends Application {
                 }
             }
         });
-        
-        
+
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
+    }
+
+    private class Player {
+
+        public Player() {
+        }
+        String name;
+        Image[] image;
+        int bettingAmount;
     }
 
     private class Menu extends Parent {
+
         public Menu() {
             VBox menu0 = new VBox(10);
             VBox menu1 = new VBox(10);
-            Pane  menu2 = new Pane();
+            Pane menu2 = new Pane();
+            menu2.setPrefSize(600, 600);
             VBox menu3 = new VBox(10);
 
             menu0.setTranslateX(100);
             menu0.setTranslateY(200);
-           
+
             menu1.setTranslateX(100);
             menu1.setTranslateY(200);
-            
-            menu2.setTranslateX(100);
-            menu2.setTranslateY(200);
-            
+
+//            menu2.setTranslateX(100);
+//            menu2.setTranslateY(200);
+
             menu3.setTranslateX(100);
             menu3.setTranslateY(200);
-            
-            
 
             final int offset = 600;
 
             menu1.setTranslateX(offset);
-            
-            
+
             MenuButton btnPlay = new MenuButton("PLAY NOW");
             btnPlay.setOnMouseClicked(event -> {
                 getChildren().add(menu2);
@@ -123,8 +133,7 @@ public class GameMenuDemo extends Application {
                     getChildren().remove(menu0);
                 });
             });
-            
-            
+
             MenuButton btnResume = new MenuButton("RESUME");
             btnResume.setOnMouseClicked(event -> {
                 FadeTransition ft = new FadeTransition(Duration.seconds(0.5), this);
@@ -133,7 +142,6 @@ public class GameMenuDemo extends Application {
                 ft.setOnFinished(evt -> setVisible(false));
                 ft.play();
             });
-
 
             MenuButton btnOptions = new MenuButton("OPTIONS");
             btnOptions.setOnMouseClicked(event -> {
@@ -152,9 +160,7 @@ public class GameMenuDemo extends Application {
                     getChildren().remove(menu0);
                 });
             });
-            
-           
-            
+
             MenuButton btnExit = new MenuButton("EXIT");
             btnExit.setOnMouseClicked(event -> {
                 System.exit(0);
@@ -177,75 +183,162 @@ public class GameMenuDemo extends Application {
                     getChildren().remove(menu1);
                 });
             });
-            
-            
 
-        Text text;
-        TextField textField;
+        list.add("ferrari.png");
+            list.add("lamborghini.png");
+            list.add("mustang.png");
+            list.add("corvette.png");
+            list.add("chevy.png");
 
-        text = new Text();
-        textField = new TextField();
+            Image images[] = new Image[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                images[i] = new Image(getClass().getResource(list.get(i)).toExternalForm());
+            }
 
-        text.setLayoutX(40);
-        text.setLayoutY(83);
-        
-        text.setText("ENTER YOUR NAME");
-        text.setFont(text.getFont().font(20));
-        text.setFill(Color.WHITE);
-        textField.setLayoutX(40);
-        textField.setLayoutY(100);
-        textField.setStyle(
-                "-fx-background-color: #f56151;" +
-                " -fx-border: none;"
-        );
-            DropShadow drop = new DropShadow(50, Color.valueOf("#f56151"));
-            drop.setInput(new Glow());
-            textField.setEffect(drop);
-        
-        Rectangle rectangle = new Rectangle();    
-        BoxBlur boxBlur = new BoxBlur();
+            imageView = new ImageView(images[image]);
+            imageView.setCursor(Cursor.CLOSED_HAND);
+
+            imageView.setFitHeight(230);
+            imageView.setFitWidth(305);
+            imageView.setLayoutX(36.0);
+            imageView.setLayoutY(200.0);
+
+
+        Text text = new Text();
+        TextField textField = new TextField();
         Text text0 = new Text();
+        TextField textField0 = new TextField();
+        Text text1 = new Text();
+        Text text2 = new Text();
+        Text text3 = new Text();
+        Text text4 = new Text();
+        Rectangle rectangle = new Rectangle();
+        Rectangle rectangle0 = new Rectangle();
+        
+
+        text.setLayoutX(36.0);
+        text.setLayoutY(73.0);
+        text.setFill(Color.WHITE);
+        text.setStrokeWidth(0.0);
+        text.setText("PLAYER ");
+        text.setWrappingWidth(184.41796875);
+        text.setFont(new Font(31.0));
+
+        textField.setLayoutX(36);
+        textField.setLayoutY(88);
+        textField.setOpacity(0.7);
+        textField.setPrefHeight(27);
+        textField.setPrefWidth(209);
+        textField.setPromptText("ENTER YOUR NAME");
+        
+        text0.setLayoutX(36.0);
+        text0.setFill(Color.WHITE);
+        text0.setLayoutY(480.0);
+        text0.setText("ENTER BETTING AMOUNT");
+        text0.setWrappingWidth(279.021484375);
+        text0.setFont(new Font(16.0));
+
+        textField0.setLayoutX(36.0);
+        textField0.setLayoutY(502.0);
+        textField0.setOpacity(0.7);
+        textField0.setPrefHeight(27.0);
+        textField0.setPrefWidth(209.0);
+        textField0.setPromptText("Maximun $1000");
+        
+        text1.setFill(Color.WHITE);
+        text1.setLayoutX(36.0);
+        text1.setLayoutY(152.0);
+        text1.setStrokeWidth(0.0);
+        text1.setText("SELECT YOUR CAR");
+        text1.setWrappingWidth(279.021484375);
+        text1.setFont(new Font(16.0));
+
+        text2.setFill(Color.RED);
+        text2.setLayoutX(36.0);
+        text2.setLayoutY(184.0);
+        text2.setStrokeWidth(0.0);
+        text2.setText("Change car with arrow keys. Press Enter to select your car.");
+        text2.setWrappingWidth(334.021484375);
+        text2.setFont(new Font(11.0));
+
+        text3.setLayoutX(302.0);
+        text3.setLayoutY(106.0);
+        text3.setStrokeWidth(0.0);
+        text3.setText("Next");
+
         rectangle.setArcHeight(5.0);
         rectangle.setArcWidth(5.0);
-        rectangle.setFill(Color.valueOf("#f56151"));
-        rectangle.setHeight(45.0);
-        rectangle.setLayoutX(167);
-        rectangle.setLayoutY(170);
-        rectangle.setOpacity(0.15);
+        rectangle.setFill(Color.GRAY);
+        rectangle.setHeight(37.0);
+        rectangle.setLayoutX(281.0);
+        rectangle.setLayoutY(83.0);
+        rectangle.setOpacity(0.3);
         rectangle.setStrokeWidth(0.0);
-        rectangle.setWidth(130.0);
+        rectangle.setWidth(69.0);
+        rectangle.onMouseEnteredProperty();
 
-        rectangle.setEffect(boxBlur);
+        text4.setLayoutX(317.0);
+        text4.setLayoutY(515.0);
+        text4.setStrokeWidth(0.0);
+        text4.setText("Next");
+
+        rectangle0.setArcHeight(5.0);
+        rectangle0.setArcWidth(5.0);
+        rectangle0.setFill(Color.GRAY);
+        rectangle0.setHeight(37.0);
+        rectangle0.setLayoutX(296.0);
+        rectangle0.setLayoutY(492.0);
+        rectangle0.setStrokeWidth(0.0);
+        rectangle0.setWidth(69.0);
         
-        text0.setFill(Color.WHITE);
-        text0.setLayoutX(200);
-        text0.setLayoutY(200);
-        text0.setStrokeWidth(0);
-        text0.setText("NEXT");
+        DropShadow drop = new DropShadow(50, Color.WHITE);
+            drop.setInput(new Glow());
         
+            rectangle.setOnMouseEntered(event -> {
+                rectangle.setFill(Color.WHITE);
+                text3.setFill(Color.BLACK);
+            });
+
+            rectangle.setOnMouseExited(event -> {
+                rectangle.setFill(Color.BLACK);
+                text3.setFill(Color.WHITE);
+            });
             
-                list.add("ferrari.png");
-                list.add("lamborghini.png");
-                list.add("mustang.png");
-                list.add("corvette.png");
-                list.add("chevy.png");
+            rectangle.setOnMousePressed(event -> setEffect(drop));
+            rectangle.setOnMouseReleased(event -> setEffect(null));
+            
+            rectangle.setOnMouseClicked(event -> {
                 
-//                GridPane root = new GridPane();
-//                root.setAlignment(Pos.CENTER);
-                
-                Image images[] = new Image[list.size()];
-                for (int i = 0; i < list.size(); i++) {
-                    images[i] = new Image(getClass().getResource(list.get(i)).toExternalForm());
+                if(players.isEmpty()){
+                    players.get(0).name = text1.getText();
+                    
                 }
+                System.out.println(textField.getText());
+                textField.setCursor(Cursor.HAND);
                 
-                imageView = new ImageView(images[image]);
-                imageView.setCursor(Cursor.CLOSED_HAND);   
+                imageView.requestFocus();
+                setOnKeyPressed(e -> {/* Move to the next car RIGHT*/
+                if (e.getCode() == KeyCode.RIGHT) {
+                    image += 1;
+                    if (image == list.size()) {
+                        image = 0;
+                    }
+                    imageView.setImage(images[image]);
+                }
 
-                imageView.setFitHeight(300);
-                imageView.setFitWidth(400);
+                if (e.getCode() == KeyCode.LEFT) {///* Move to the next car LEFT*/
+                    image -= 1;
+                    if (image == -1) //if image is index -1 set the last image
+                    {
+                        image = list.size() - 1;
+                    }
+                    imageView.setImage(images[image]);
+                }
+            });
                 
-                
-                
+            });
+            
+           
             CenterContent information = new CenterContent("INFORMATION");
             information.addContent("This game is a Robot Race animation with betting capabilities.\n"
                     + "Every robot represent a car, that you will choose to bet in the race.");
@@ -257,38 +350,27 @@ public class GameMenuDemo extends Application {
 
             menu0.getChildren().addAll(btnPlay, btnResume, btnOptions, btnExit);
             menu1.getChildren().addAll(btnBack, information, information1, information2);
-            //menu2.getChildren().addAll(text, textField, rectangle, text0);
-            menu2.getChildren().addAll(imageView);
+            menu2.getChildren().addAll(imageView,
+                    text, textField, text0, text1,
+                    text2, textField0, rectangle,
+                    text3, text4, rectangle0
+            );
 
             Rectangle bg = new Rectangle(800, 600);
             bg.setFill(Color.GREY);
             bg.setOpacity(0.4);
 
             getChildren().addAll(bg, menu0);
-            
-            setOnKeyPressed(e ->{/* Move to the next car RIGHT*/
-            if(e.getCode() == KeyCode.RIGHT){ 
-                 image += 1;
-                 if(image == list.size())
-                        image=0;
-                    imageView.setImage(images[image]);
-             }
-             
-            if(e.getCode() == KeyCode.LEFT){///* Move to the next car LEFT*/
-                    image -=1;
-                if(image == -1) //if image is index -1 set the last image
-                    image = list.size() -1;
-                imageView.setImage(images[image]);
-            }
-        });
+
         }
     }
-    
-    private static class CenterContent extends Pane{
-        
+
+    private static class CenterContent extends Pane {
+
         private Text text, text1;
+
         public CenterContent(String title) {
-            
+
             /* Effect to the title */
             text = new Text(title);
             text.setFont(text.getFont().font(20));
@@ -299,8 +381,8 @@ public class GameMenuDemo extends Application {
             text.setTranslateX(0);
             text.setTranslateY(20);
         }
-        
-        void addContent(String content){
+
+        void addContent(String content) {
             /* Effect to the content */
             text1 = new Text(content);
             text1.setFont(Font.font(15));
@@ -312,7 +394,9 @@ public class GameMenuDemo extends Application {
             text1.setTranslateY(50);
         }
     }
+
     private static class MenuButton extends StackPane {
+
         private Text text;
 
         public MenuButton(String name) {
