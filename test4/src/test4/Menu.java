@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -235,23 +237,40 @@ public class Menu extends Parent {
                         selectCarText.setEffect(drop);
                         imageView.setEffect(drop);
                         bettingAmtField.setEffect(drop);
-                        System.out.println("I pressed enter");
                         imageView.setFocusTraversable(false);
                         bettingAmtField.requestFocus();
                         bettingAmtField.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-                        bettingAmtField.textProperty().addListener((observable,oldValue,newValue)-> {
-                            if(newValue.length() > 4) bettingAmtField.setText(oldValue);
+                        //Set maximun value to $1000 when the user 
+                        bettingAmtField.textProperty().addListener((observable, oldValue, newValue)-> {
+                            if(newValue.length() > 4) bettingAmtField.setText("1000");
+                            
                         });
+                        bettingAmtField.focusedProperty().addListener(new ChangeListener<Boolean>()
+                         {
+                                @Override
+                            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue)
+                {
+                    if (newPropertyValue)
+                    {
+                        bettingAmtField.setText(bettingAmtField.getText().replace(" miles", ""));
+                    }
+                    else
+                    {
+                        bettingAmtField.setText(bettingAmtField.getText().concat(" miles"));
+                    }
+                }
+            });
                         
                         bAmountNxtBtn.setOnMouseClicked(e1 -> {
                             if (Integer.parseInt(bettingAmtField.getText()) >= 1000) {
-                                bettingAmtField.setStyle("-fx-background-color: red;");
                                 bettingAmtField.requestFocus();
                             }
+                            
                             bettingAmtField.setOnMouseEntered(e2 -> {
                                     bettingAmtField.setStyle("-fx-background-color: white;");
+                                    bettingAmtField.setText("Maximun $1000");  
                                     bettingAmtField.clear();
-                        });
+                             });
                         });
                         
 //                        bettingAmtField.setOnMouseClicked (e2 -> {
