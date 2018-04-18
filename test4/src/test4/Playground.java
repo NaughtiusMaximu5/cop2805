@@ -78,17 +78,4 @@ public class Playground extends Pane {
 
             getChildren().addAll(text2, rectangle);
         }
-        
-        void selectPlayer(){
-            
-            Text text = new Text();
-            text.setLayoutX(36.0);
-            text.setLayoutY(73.0);
-            text.setFill(Color.WHITE);
-            text.setStrokeWidth(0.0);
-            text.setText("PLAYER ");
-//            text.setWrappingWidth(184.415);
-            text.setFont(new Font(31.0));
-            getChildren().addAll(text);
-        }
     }
