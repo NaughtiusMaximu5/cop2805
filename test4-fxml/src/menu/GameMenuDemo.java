@@ -225,8 +225,16 @@ public class GameMenuDemo extends Application {
             Text selectCarText = new Text();
             Text text2 = new Text();
             
+//            Text text = new Text();
+//            text.setLayoutX(36.0);
+//            text.setLayoutY(73.0);
+//            text.setFill(Color.WHITE);
+//            text.setStrokeWidth(0.0);
+//            text.setText("PLAYER ");
+////            text.setWrappingWidth(184.415);
+//            text.setFont(new Font(31.0));
             Playground p = new Playground();
-            p.selectPlayer(1);
+            p.selectPlayer();
 
             nameField.setLayoutX(36);
             nameField.setLayoutY(88);
@@ -349,7 +357,7 @@ public class GameMenuDemo extends Application {
             menu0.getChildren().addAll(btnPlay, btnResume, btnOptions, btnExit);
             menu1.getChildren().addAll(btnBack, information, information1, information2);
             menu2.getChildren().addAll(imageView/*, text*/, nameField, text0, selectCarText,
-                    text2, bettingAmtField, bAmountNxtBtn, nameNxtBtn, p
+                    text2, bettingAmtField, bAmountNxtBtn, nameNxtBtn
             );
 
             Rectangle bg = new Rectangle(800, 600);
@@ -358,131 +366,6 @@ public class GameMenuDemo extends Application {
 
             getChildren().addAll(bg, menu0);
 
-        }
-    }
-
-    private static class Playground extends Pane {
-
-        private Text text, text1;
-        private Text text2;
-        private Rectangle rectangle;
-        private Text playerNoLabel;
-
-        public Playground() {
-        }
-
-        public Playground(String title) {
-
-            /* Effect to the title */
-            text = new Text(title);
-            text.setFont(text.getFont().font(20));
-            text.setFill(Color.WHITE);
-            Rectangle bg = new Rectangle(280, 30);
-            bg.opacityProperty().set(0);
-            getChildren().addAll(bg, text);
-            text.setTranslateX(0);
-            text.setTranslateY(20);
-        }
-
-        void createText(String content) {
-            /* Effect to the content */
-            text1 = new Text(content);
-            text1.setFont(Font.font(15));
-            text1.setFill(Color.WHITE);
-            Rectangle bg = new Rectangle(280, 80);
-            bg.opacityProperty().set(0);
-            getChildren().addAll(bg, text1);
-            text1.setTranslateX(0);
-            text1.setTranslateY(50);
-        }
-
-        void addButton(String title, double x, double y) {
-
-            text2 = new Text(title);
-            text2.setLayoutX(x + 21);
-            text2.setLayoutY(y + 23);
-            text2.setFill(Color.WHITE);
-
-            rectangle = new Rectangle();
-            rectangle.setArcHeight(5.0);
-            rectangle.setArcWidth(5.0);
-            rectangle.setFill(Color.GRAY);
-            rectangle.setHeight(37.0);
-            rectangle.setLayoutX(x);
-            rectangle.setLayoutY(y);
-            rectangle.setOpacity(0.5);
-            rectangle.setStrokeWidth(0.0);
-            rectangle.setWidth(69.0);
-
-            rectangle.setOnMouseEntered(event -> {
-                rectangle.setFill(Color.WHITE);
-                text2.setFill(Color.BLACK);
-            });
-
-            rectangle.setOnMouseExited(event -> {
-                rectangle.setFill(Color.BLACK);
-                text2.setFill(Color.WHITE);
-            });
-
-            DropShadow drop = new DropShadow(50, Color.WHITE);
-            drop.setInput(new Glow());
-
-            rectangle.setOnMousePressed(event -> setEffect(drop));
-            rectangle.setOnMouseReleased(event -> setEffect(null));
-
-            getChildren().addAll(text2, rectangle);
-        }
-        
-        void selectPlayer(int PlayerNo){
-            playerNoLabel = new Text();
-            playerNoLabel.setLayoutX(36.0);
-            playerNoLabel.setLayoutY(73.0);
-            playerNoLabel.setFill(Color.WHITE);
-            playerNoLabel.setStrokeWidth(0.0);
-            playerNoLabel.setText("PLAYER " + PlayerNo);
-//            text.setWrappingWidth(184.415);
-            playerNoLabel.setFont(new Font(31.0));
-            getChildren().addAll(playerNoLabel);
-        }
-    }
-
-    private static class MenuButton extends StackPane {
-
-        private Text text;
-
-        public MenuButton(String name) {
-            text = new Text(name);
-            text.setFont(text.getFont().font(20));
-            text.setFill(Color.WHITE);
-
-            Rectangle bg = new Rectangle(250, 30);
-            bg.setOpacity(0.6);
-            bg.setFill(Color.BLACK);
-            bg.setEffect(new GaussianBlur(3.5));
-
-            setAlignment(Pos.CENTER_LEFT);
-            setRotate(-0.5);
-            getChildren().addAll(bg, text);
-
-            setOnMouseEntered(event -> {
-                bg.setTranslateX(10);
-                text.setTranslateX(10);
-                bg.setFill(Color.WHITE);
-                text.setFill(Color.BLACK);
-            });
-
-            setOnMouseExited(event -> {
-                bg.setTranslateX(0);
-                text.setTranslateX(0);
-                bg.setFill(Color.BLACK);
-                text.setFill(Color.WHITE);
-            });
-
-            DropShadow drop = new DropShadow(50, Color.WHITE);
-            drop.setInput(new Glow());
-
-            setOnMousePressed(event -> setEffect(drop));
-            setOnMouseReleased(event -> setEffect(null));
         }
     }
 
