@@ -56,6 +56,7 @@ public class GameMenuDemo extends Application {
         root.getChildren().addAll(imgView, gameMenu);
 
         Scene scene = new Scene(root);
+        scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
 //        scene.setOnKeyPressed(event -> {
 //            if (event.getCode() == KeyCode.ESCAPE) {
 //                // This will bind all the key press events taking place on the Scene to the Menu.
@@ -80,8 +81,6 @@ public class GameMenuDemo extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        //scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
     }
     
     public static void main(String[] args) {
@@ -91,36 +90,7 @@ public class GameMenuDemo extends Application {
 
 class Player {
 
-    private String []name;
-    private int [] car;
-    private int []bettingAmount;
-        
-    public Player() {}
-
-    //Setters
-    public void setName(String[] name) {
-        this.name = name;
-    }
-
-    public void setCar(int[] car) {
-        this.car = car;
-    }
-
-    public void setBettingAmount(int[] bettingAmount) {
-        this.bettingAmount = bettingAmount;
-    }
-
-    //Getters
-
-    public String[] getName() {
-        return name;
-    }
-
-    public int[] getCar() {
-        return car;
-    }
-
-    public int[] getBettingAmount() {
-        return bettingAmount;
-    }   
+    String name;
+    String imagesURLs;
+    String carNames;
 }

@@ -19,6 +19,7 @@ public abstract class FXMLDocumentBase extends Pane {
     protected final Text text4;
     protected final Rectangle rectangle0;
     protected final Text text5;
+    protected final Text text6;
 
     public FXMLDocumentBase() {
 
@@ -33,6 +34,7 @@ public abstract class FXMLDocumentBase extends Pane {
         text4 = new Text();
         rectangle0 = new Rectangle();
         text5 = new Text();
+        text6 = new Text();
 
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
@@ -130,6 +132,12 @@ public abstract class FXMLDocumentBase extends Pane {
         text5.setText("TOYOTA");
         text5.setFont(new Font(16.0));
 
+        text6.setLayoutX(43.0);
+        text6.setLayoutY(520.0);
+        text6.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text6.setStrokeWidth(0.0);
+        text6.setText("$");
+
         getChildren().add(text);
         getChildren().add(textField);
         getChildren().add(text0);
@@ -141,6 +149,7 @@ public abstract class FXMLDocumentBase extends Pane {
         getChildren().add(text4);
         getChildren().add(rectangle0);
         getChildren().add(text5);
+        getChildren().add(text6);
 
     }
 }
