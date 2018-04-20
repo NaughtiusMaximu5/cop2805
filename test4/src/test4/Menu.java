@@ -147,8 +147,8 @@ public class Menu extends Parent {
         carNames.add("MUSTANG");
         list.add("corvette.png");
         carNames.add("CORVETTE");
-        list.add("chevy.png");
-        carNames.add("CHEVY 1958");
+        list.add("citroen.png");
+        carNames.add("CITROëN");
 
         Image images[] = new Image[list.size()];
         for (int i = 0; i < list.size(); i++) {

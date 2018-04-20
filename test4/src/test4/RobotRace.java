@@ -7,7 +7,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;    //
+import javafx.event.EventHandler; 
 import javafx.event.EventType;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -31,7 +31,13 @@ public class RobotRace extends Application {
     public void start(final Stage primaryStage) throws Exception {
         Group root = new Group();
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
-        scene.setFill(Color.GREEN);
+        //scene.setFill(Color.GREEN);
+        
+        ImageView imgView = new ImageView();
+        imgView.setFitWidth(605);
+        imgView.setFitHeight(605);
+        imgView.setImage(new Image(getClass().getResource("raceBackground.png").toExternalForm()));
+        root.getChildren().add(imgView);
 
         Button btnStart = new Button();
         btnStart.setLayoutX(5);
@@ -132,6 +138,9 @@ public class RobotRace extends Application {
 
         }
     
+    public static void main(String [] a){
+        launch(a);
+    }
     
 
 }
