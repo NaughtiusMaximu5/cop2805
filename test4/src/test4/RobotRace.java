@@ -41,6 +41,8 @@ public class RobotRace extends Application {
         ////Group root = new Group();
         Pane root = new Pane();
         root.setPrefSize(WIDTH, HEIGHT);
+        
+        Pane welcome = welcome();
         background(1);
         
         gameMenu = new Menu();
@@ -50,22 +52,23 @@ public class RobotRace extends Application {
         
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
-            @Override
             public void run() {
-                Platform.runLater(() -> {
-                    //root.getChildren().addAll(text, text0);
-                    root.getChildren().add(welcome());
-                    FadeTransition ft = new FadeTransition(Duration.seconds(2), welcome());
-                    ft.setFromValue(1);
-                    ft.setToValue(0.1);
-                    ft.setOnFinished(evt -> welcome().setVisible(true));//{text.setVisible(true); text0.setVisible(true);});
-                    ft.play();
-                    
-                });
+                Platform.runLater(() -> root.getChildren().add(welcome));
             }
         }, 2000);
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Platform.runLater(() -> root.getChildren().remove(welcome));
+            }
+        }, 5000);
+        timer.schedule(new TimerTask(){
+            public void run(){
+                Platform.runLater(() -> gameMenu.setVisible(true));
+            }
+        }, 7000);
+
                     
-        root.getChildren().addAll(background(2), gameMenu);
+        root.getChildren().addAll(background(1), gameMenu);
         
         
         scene.setOnKeyPressed(event -> {

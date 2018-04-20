@@ -26,8 +26,8 @@ public class Playground extends Pane {
             Rectangle bg = new Rectangle(280, 30);
             bg.opacityProperty().set(0);
             getChildren().addAll(bg, text);
-            text.setTranslateX(0);
-            text.setTranslateY(20);
+            text.setTranslateX(-100);
+            text.setTranslateY(40);
         }
 
         void createText(String content) {
@@ -38,8 +38,8 @@ public class Playground extends Pane {
             Rectangle bg = new Rectangle(280, 80);
             bg.opacityProperty().set(0);
             getChildren().addAll(bg, text1);
-            text1.setTranslateX(0);
-            text1.setTranslateY(50);
+            text1.setTranslateX(-100);
+            text1.setTranslateY(70);
         }
 
         void addButton(String title, double x, double y) {

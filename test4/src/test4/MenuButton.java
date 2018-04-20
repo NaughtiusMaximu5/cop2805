@@ -30,7 +30,7 @@ public class MenuButton extends StackPane {
             bg.setFill(Color.BLACK);
             bg.setEffect(new GaussianBlur(3.5));
 
-            setAlignment(Pos.CENTER_LEFT);
+            //setAlignment(Pos.CENTER_LEFT);
             setRotate(-0.5);
             getChildren().addAll(bg, text);
             

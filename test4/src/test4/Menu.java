@@ -44,20 +44,16 @@ public class Menu extends Parent {
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
         //mediaPlayer.play();
         VBox menu0 = new VBox(10);
-        
-        VBox menu1 = new VBox(10);
+        VBox menu1 = new VBox(1);
         Pane menu2 = new Pane();
+        
         menu2.setPrefSize(600, 600);
 
-        menu0.setTranslateX(100);
+        menu0.setTranslateX(170);
         menu0.setTranslateY(200);
 
-        menu1.setTranslateX(100);
-        menu1.setTranslateY(200);
-
-//            menu2.setTranslateX(100);
-//            menu2.setTranslateY(200);
-        
+        menu1.setTranslateX(-200);
+        menu1.setTranslateY(100);
         
 
         DropShadow drop = new DropShadow(50, Color.WHITE);
@@ -159,7 +155,7 @@ public class Menu extends Parent {
 //            imageView.setCursor(Cursor.CLOSED_HAND);
         imageView.setFitHeight(230);
         imageView.setFitWidth(305);
-        imageView.setLayoutX(36);
+        imageView.setLayoutX(-50);
         imageView.setLayoutY(200);
 
         //////////////////////////////MENU 2////////////////////////////////////////////////////////////////////////////???????????????
@@ -169,39 +165,39 @@ public class Menu extends Parent {
         Text redInstruction = new Text();
 
         Text playerLabel = new Text();
-        playerLabel.setLayoutX(36.0);
+        playerLabel.setLayoutX(-50);
         playerLabel.setLayoutY(73.0);
         playerLabel.setFill(Color.WHITE);
         playerLabel.setStrokeWidth(0.0);
         playerLabel.setFont(new Font(16.0));
         playerLabel.setText("ENTER PLAYER NAME");
 
-        nameField.setLayoutX(36);
+        nameField.setLayoutX(-50);
         nameField.setLayoutY(88);
         nameField.setOpacity(0.7);
         nameField.setPrefHeight(27);
         nameField.setPrefWidth(209);
 
         Playground nameNxtBtn = new Playground();
-        nameNxtBtn.addButton("Next", 281, 83);
+        nameNxtBtn.addButton("Next", 195, 83);
 
         Text selectCarText = new Text();
         selectCarText.setFill(Color.WHITE);
-        selectCarText.setLayoutX(36.0);
+        selectCarText.setLayoutX(-50);
         selectCarText.setLayoutY(152.0);
         selectCarText.setStrokeWidth(0.0);
         selectCarText.setText("SELECT YOUR CAR");
         selectCarText.setFont(new Font(16.0));
 
-        redInstruction.setFill(Color.RED);
-        redInstruction.setLayoutX(36.0);
+        redInstruction.setFill(Color.YELLOW);
+        redInstruction.setLayoutX(-50);
         redInstruction.setLayoutY(184.0);
         redInstruction.setStrokeWidth(0.0);
         redInstruction.setText("Change car with arrow keys. Press Enter to select your car.");
         redInstruction.setFont(new Font(11.0));
 
         Text bettingAmtLabel = new Text();
-        bettingAmtLabel.setLayoutX(36);
+        bettingAmtLabel.setLayoutX(-50);
         bettingAmtLabel.setFill(Color.WHITE);
         bettingAmtLabel.setLayoutY(480);
         bettingAmtLabel.setText("ENTER BETTING AMOUNT");
@@ -242,7 +238,7 @@ public class Menu extends Parent {
             }
             
         });
-        bettingAmtField.setLayoutX(36.0);
+        bettingAmtField.setLayoutX(-50);
         bettingAmtField.setLayoutY(502.0);
         bettingAmtField.setOpacity(0.7);
         bettingAmtField.setPrefHeight(27.0);
@@ -250,21 +246,21 @@ public class Menu extends Parent {
         bettingAmtField.setPromptText("Maximun $1000");
 
         Text carMark = new Text();
-        carMark.setLayoutX(263.0);
+        carMark.setLayoutX(127);//263);
         carMark.setLayoutY(420.0);
         carMark.setText("FERRARI");
         carMark.setFill(Color.WHITE);
         carMark.setFont(new Font(18));
 
         Text dollarSign = new Text();
-        dollarSign.setLayoutX(43.0);
+        dollarSign.setLayoutX(-43);
         dollarSign.setLayoutY(520.0);
         dollarSign.setStrokeWidth(0.0);
         dollarSign.setText("$");
         dollarSign.setVisible(false);
 
         Playground bAmountNxtBtn = new Playground();
-        bAmountNxtBtn.addButton("Next", 281, 492);
+        bAmountNxtBtn.addButton("Next", 195, 492);
 
         //Create an event when press the NEXT button for name
         nameNxtBtn.setOnMouseClicked(event -> {
@@ -331,12 +327,15 @@ public class Menu extends Parent {
                 + "Then enter your name and the betting amout.");
         Playground information2 = new Playground("COPYRIGHT");
         information2.createText("2018 © AAA Group. COP 2805c.");
-
-        menu0.getChildren().addAll(btnPlay, btnResume, btnOptions, btnExit);
+        
+        
+        menu0.getChildren().addAll(btnPlay, btnOptions, btnExit);
         menu1.getChildren().addAll(btnBack, information, information1, information2);
         menu2.getChildren().addAll(imageView, playerLabel, nameField, bettingAmtLabel, selectCarText,
                 redInstruction, bettingAmtField, bAmountNxtBtn, nameNxtBtn, carMark, dollarSign
         );
+        
+        // add btnResume when the race is on the way ******************************************************************************************
 
         Rectangle bg = new Rectangle(800, 600);
         bg.setFill(Color.GREY);
