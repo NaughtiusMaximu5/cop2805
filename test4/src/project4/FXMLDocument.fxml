@@ -7,9 +7,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="WHITE" layoutX="77.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Java's RACE">
+      <Text fill="#030000" layoutX="77.0" layoutY="282.0" opacity="0.61" strokeType="OUTSIDE" strokeWidth="0.0" text="Java's RACE">
          <font>
-            <Font name="System Bold" size="76.0" />
+            <Font name="Comic Sans MS Bold" size="76.0" />
          </font>
          <effect>
             <Reflection fraction="0.68" topOpacity="0.24" />

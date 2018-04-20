@@ -208,14 +208,14 @@ public class Menu extends Parent {
             public void replaceText(int start, int end, String text) {
                 // If the replaced text would end up being invalid, then simply
                 // ignore this call!
-                if (!text.matches("[a-z]")) {
+                if (!text.matches("[a-z]")  && !text.matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+")) {
                     super.replaceText(start, end, text);
                 }
             }
 
             @Override
             public void replaceSelection(String text) {
-                if (!text.matches("[a-z]")) {
+                if (!text.matches("[a-z]")  && !text.matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+")) {
                     super.replaceSelection(text);
                 }
             }
@@ -232,12 +232,22 @@ public class Menu extends Parent {
                         // one
                         bettingAmtField.setText(bettingAmtField.getText().substring(0, LIMIT));
                     }
+                    try{
                     if(Integer.parseInt(bettingAmtField.getText()) >= 1000)
                         bettingAmtField.setText("1000");
+                    }catch(Exception e){
+                        bettingAmtField.clear();
+                    }
                 }
             }
             
         });
+        
+        
+        Rectangle bg = new Rectangle(800, 600);
+        bg.setFill(Color.GREY);
+        bg.setOpacity(0.4);
+
         bettingAmtField.setLayoutX(-50);
         bettingAmtField.setLayoutY(502.0);
         bettingAmtField.setOpacity(0.7);
@@ -314,6 +324,17 @@ public class Menu extends Parent {
                     mediaPlayer.seek(Duration.ZERO);
                     bettingAmtField.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
                     
+                    bAmountNxtBtn.setOnMouseClicked(e3 -> {
+                        mediaPlayer.play();
+                        menu0.setVisible(false);
+                        menu1.setVisible(false);
+                        menu2.setVisible(false);
+                        bg.setVisible(false);
+                        mediaPlayer.seek(Duration.ZERO);
+                        
+                        RobotRace r = new RobotRace();
+                        r.background(2);
+                    });
                 }
             });
 
@@ -326,7 +347,8 @@ public class Menu extends Parent {
         information1.createText("Select the car you want to use for the race.\n"
                 + "Then enter your name and the betting amout.");
         Playground information2 = new Playground("COPYRIGHT");
-        information2.createText("2018 © AAA Group. COP 2805c.");
+        information2.createText("2018 © AAA Group. COP 2805c.\n"
+                + "Thanks for teaching us how to make this Rodolfo Cruz.");
         
         
         menu0.getChildren().addAll(btnPlay, btnOptions, btnExit);
@@ -337,10 +359,7 @@ public class Menu extends Parent {
         
         // add btnResume when the race is on the way ******************************************************************************************
 
-        Rectangle bg = new Rectangle(800, 600);
-        bg.setFill(Color.GREY);
-        bg.setOpacity(0.4);
-
+        
         getChildren().addAll(bg, menu0);
 
     }

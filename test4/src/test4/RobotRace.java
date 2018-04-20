@@ -221,8 +221,11 @@ public class RobotRace extends Application {
         text.setFill(javafx.scene.paint.Color.WHITE);
         text.setLayoutX(77.0);
         text.setLayoutY(282.0);
+        text.setOpacity(0.70);
+        text.setStroke(Color.BLACK);
+        text.setStrokeWidth(2);
         text.setText("Java's RACE");
-        text.setFont(new Font("System Bold", 76.0));
+        text.setFont(new Font("Comic Sans MS Bold", 76.0));
 
         Reflection reflection = new Reflection();
         reflection.setFraction(0.68);
