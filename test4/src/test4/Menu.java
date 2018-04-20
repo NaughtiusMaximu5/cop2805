@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
+import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -42,12 +43,11 @@ public class Menu extends Parent {
         final Media media = new Media(resource.toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
         //mediaPlayer.play();
-
         VBox menu0 = new VBox(10);
+        
         VBox menu1 = new VBox(10);
         Pane menu2 = new Pane();
         menu2.setPrefSize(600, 600);
-        VBox menu3 = new VBox(10);
 
         menu0.setTranslateX(100);
         menu0.setTranslateY(200);
@@ -57,8 +57,8 @@ public class Menu extends Parent {
 
 //            menu2.setTranslateX(100);
 //            menu2.setTranslateY(200);
-        menu3.setTranslateX(100);
-        menu3.setTranslateY(200);
+        
+        
 
         DropShadow drop = new DropShadow(50, Color.WHITE);
         drop.setInput(new Glow());
@@ -344,5 +344,9 @@ public class Menu extends Parent {
 
         getChildren().addAll(bg, menu0);
 
+    }
+    
+    void as(){
+        String carito;
     }
 }

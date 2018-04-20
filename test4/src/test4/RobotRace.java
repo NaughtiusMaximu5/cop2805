@@ -1,19 +1,23 @@
 package test4;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler; 
+import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Reflection;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -21,81 +25,140 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.paint.*;
 import javafx.scene.image.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class RobotRace extends Application {
 
-    private final double SCENE_WIDTH = 600;
-    private final double SCENE_HEIGHT = 600;
+    private final double WIDTH = 600;
+    private final double HEIGHT = 600;
+    private Menu gameMenu;
 
     @Override
-    public void start(final Stage primaryStage) throws Exception {
-        Group root = new Group();
-        Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
-        //scene.setFill(Color.GREEN);
+    public void start(final Stage primaryStage) {
+        ////Group root = new Group();
+        Pane root = new Pane();
+        root.setPrefSize(WIDTH, HEIGHT);
+        background(1);
         
-        ImageView imgView = new ImageView();
-        imgView.setFitWidth(605);
-        imgView.setFitHeight(605);
-        imgView.setImage(new Image(getClass().getResource("raceBackground.png").toExternalForm()));
-        root.getChildren().add(imgView);
+        gameMenu = new Menu();
+        gameMenu.setVisible(false);
+        
+        Scene scene = new Scene(root);
+        
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    //root.getChildren().addAll(text, text0);
+                    root.getChildren().add(welcome());
+                    FadeTransition ft = new FadeTransition(Duration.seconds(2), welcome());
+                    ft.setFromValue(1);
+                    ft.setToValue(0.1);
+                    ft.setOnFinished(evt -> welcome().setVisible(true));//{text.setVisible(true); text0.setVisible(true);});
+                    ft.play();
+                    
+                });
+            }
+        }, 2000);
+                    
+        root.getChildren().addAll(background(2), gameMenu);
+        
+        
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                // This will bind all the key press events taking place on the Scene to the Menu.
+                scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
+
+                if (!gameMenu.isVisible()) {
+                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
+                    ft.setFromValue(0);
+                    ft.setToValue(1);
+
+                    gameMenu.setVisible(true);
+                    ft.play();
+                } else {
+                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
+                    ft.setFromValue(1);
+                    ft.setToValue(0);
+                    ft.setOnFinished(evt -> gameMenu.setVisible(false));
+                    ft.play();
+                }
+            }
+        });
+
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(605);
+        imageView.setFitHeight(605);
+        imageView.setImage(new Image(getClass().getResource("backgroundRace.png").toExternalForm()));
+        imageView.setVisible(false);
+        root.getChildren().add(imageView);
+        
 
         Button btnStart = new Button();
         btnStart.setLayoutX(5);
         btnStart.setLayoutY(5);
         btnStart.setText("Start");
+        btnStart.setVisible(false);
         root.getChildren().add(btnStart);
 
         Button btnRestart = new Button();
         btnRestart.setLayoutX(60);
         btnRestart.setLayoutY(5);
         btnRestart.setText("Restart");
+        btnRestart.setVisible(false);
         root.getChildren().add(btnRestart);
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-        ImageView cirtoenSide = new ImageView();
-        cirtoenSide.setFitHeight(42);
-        cirtoenSide.setFitWidth(111);
-        cirtoenSide.setLayoutX(0);
-        cirtoenSide.setLayoutY(500);
-        cirtoenSide.setImage(new Image(getClass().getResource("citroenSideView.png").toExternalForm()));
-        root.getChildren().add(cirtoenSide);
+        ImageView citroenSide = new ImageView();
+        citroenSide.setFitHeight(42);
+        citroenSide.setFitWidth(111);
+        citroenSide.setLayoutX(-50);
+        citroenSide.setLayoutY(500);
+        citroenSide.setImage(new Image(getClass().getResource("citroenSideView.png").toExternalForm()));
+        citroenSide.setVisible(false);
+        root.getChildren().add(citroenSide);
 
         ImageView corvetteSide = new ImageView();
         corvetteSide.setFitHeight(33);
         corvetteSide.setFitWidth(111);
-        corvetteSide.setLayoutX(0);
+        corvetteSide.setLayoutX(-50);
         corvetteSide.setLayoutY(460);
         corvetteSide.setImage(new Image(getClass().getResource("corvetteSideView.png").toExternalForm()));
+        corvetteSide.setVisible(false);
         root.getChildren().add(corvetteSide);
 
         ImageView mustangSide = new ImageView();
         mustangSide.setFitHeight(35);
         mustangSide.setFitWidth(111);
-        mustangSide.setLayoutX(0);
+        mustangSide.setLayoutX(-50);
         mustangSide.setLayoutY(420);
         mustangSide.setImage(new Image(getClass().getResource("mustangSideView.png").toExternalForm()));
+        mustangSide.setVisible(false);
         root.getChildren().add(mustangSide);
 
         ImageView lamborghiniSide = new ImageView();
         lamborghiniSide.setFitHeight(32);
         lamborghiniSide.setFitWidth(111);
-        lamborghiniSide.setLayoutX(0);
+        lamborghiniSide.setLayoutX(-50);
         lamborghiniSide.setLayoutY(380);
         lamborghiniSide.setImage(new Image(getClass().getResource("lamborghiniSideView.png").toExternalForm()));
+        lamborghiniSide.setVisible(false);
         root.getChildren().add(lamborghiniSide);
 
         ImageView ferrariSide = new ImageView();
         ferrariSide.setFitHeight(38);
         ferrariSide.setFitWidth(111);
-        ferrariSide.setLayoutX(0);
+        ferrariSide.setLayoutX(-50);
         ferrariSide.setLayoutY(340);
         ferrariSide.setImage(new Image(getClass().getResource("ferrariSideView.png").toExternalForm()));
+        ferrariSide.setVisible(false);
         root.getChildren().add(ferrariSide);
 
         // Create tasks
-        Runnable car1 = new CarsMovement(cirtoenSide, 5);
+        Runnable car1 = new CarsMovement(citroenSide, 5);
         Runnable car2 = new CarsMovement(corvetteSide, 4);
         Runnable car3 = new CarsMovement(ferrariSide, 3);
         Runnable car4 = new CarsMovement(lamborghiniSide, 2);
@@ -106,7 +169,8 @@ public class RobotRace extends Application {
         final Thread thread3 = new Thread(car3);
         final Thread thread4 = new Thread(car4);
         final Thread thread5 = new Thread(car5);
-
+        
+        
         btnStart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -120,12 +184,11 @@ public class RobotRace extends Application {
 
             }
         });
-        
-        
+
         btnRestart.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                RobotRace rr=new RobotRace();
+                RobotRace rr = new RobotRace();
                 try {
                     rr.start(primaryStage);
                 } catch (Exception ex) {
@@ -135,13 +198,67 @@ public class RobotRace extends Application {
 
         });
         
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
-        }
-    
-    public static void main(String [] a){
-        launch(a);
     }
     
+    
+    /**
+     * Creates a pane with Welcome text, that will be the 
+     * introduction of the game.
+     * 
+     * @return welcome pane texts
+     */
+    Pane welcome(){
+        
+        Pane pane = new Pane();
+
+        Text text = new Text();
+        text.setFill(javafx.scene.paint.Color.WHITE);
+        text.setLayoutX(77.0);
+        text.setLayoutY(282.0);
+        text.setText("Java's RACE");
+        text.setFont(new Font("System Bold", 76.0));
+
+        Reflection reflection = new Reflection();
+        reflection.setFraction(0.68);
+        reflection.setTopOpacity(0.24);
+        text.setEffect(reflection);
+
+        Text text0 = new Text();
+        text0.setFill(javafx.scene.paint.Color.WHITE);
+        text0.setLayoutX(227.0);
+        text0.setLayoutY(555.0);
+        text0.setText("A COP 2805c Prodution.");
+
+        pane.getChildren().addAll(text, text0);
+        
+        return pane;
+    }
+    
+    /**
+     * Returns the background images of the game.
+     * 
+     * @param Background 
+     *       <b>1</b> Menu Background
+     *       <b>2</b> Race Background
+     * @return image that will be the background
+     */
+    ImageView background(int Background){
+        ImageView imgView = new ImageView();
+        imgView.setFitWidth(605);
+        imgView.setFitHeight(605);
+        if(Background == 1)
+            imgView.setImage(new Image(getClass().getResource("background.png").toExternalForm()));
+        else if(Background == 2)
+            imgView.setImage(new Image(getClass().getResource("backgroundRace.png").toExternalForm()));
+            
+        return imgView;
+    }
+    public static void main(String[] a) {
+        launch(a);
+    }
 
 }
 
@@ -174,7 +291,7 @@ class CarsMovement implements Runnable {
                 public void run() {
 
                     //Increase x-coordinate by a random number, this determines the speed of the cars
-                    car.setX(car.getX() + Math.random()*1.2);
+                    car.setX(car.getX() + Math.random() * 1.2);
 
                 }
             });
@@ -205,4 +322,3 @@ class CarsMovement implements Runnable {
         positions.clear();
     }
 }
-
