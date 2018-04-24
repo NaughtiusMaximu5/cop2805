@@ -27,7 +27,7 @@ public class CarsMovement implements Runnable {
     public void run() {
 
         // If car is not at the finish line
-        while (car.getX() < 480) {
+        while (car.getX() < 650) {
 
             Platform.runLater(new Runnable() {
 

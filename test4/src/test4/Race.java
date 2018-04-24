@@ -15,13 +15,9 @@ import javafx.scene.layout.Pane;
 public class Race extends Pane{
     
     Race(){
-    
-        ImageView imageView = new ImageView();
-        imageView.setFitWidth(600);
-        imageView.setFitHeight(600);
-        imageView.setImage(new Image(getClass().getResource("backgroundRace.png").toExternalForm()));
-//        imageView.setVisible(false);
-        getChildren().add(imageView);
+        
+        Features f = new Features();
+        getChildren().add(f.background(2));
         
 
         Button btnStart = new Button();
@@ -41,7 +37,7 @@ public class Race extends Pane{
         ImageView citroenSide = new ImageView();
         citroenSide.setFitHeight(42);
         citroenSide.setFitWidth(111);
-        citroenSide.setLayoutX(-100);
+        citroenSide.setLayoutX(-50);
         citroenSide.setLayoutY(500);
         citroenSide.setImage(new Image(getClass().getResource("citroenSideView.png").toExternalForm()));
 //        citroenSide.setVisible(false);

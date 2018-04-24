@@ -30,17 +30,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class Menu extends Parent {
+public class Menu extends Parent{
 
     private List<String> list = new ArrayList<String>();
-    private List<String> carNames = new ArrayList<String>();
+    //private List<String> carNames = new ArrayList<String>();
+    private List<Cars> lists = new ArrayList<Cars>();
+    
     private Race race;
     
     int i = 0;
     ImageView imageView;
 
     public Menu() {
-
+        
+        TextField nameField = new TextField();
         final URL resource = getClass().getResource("a.mp3");
         final Media media = new Media(resource.toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -49,7 +52,7 @@ public class Menu extends Parent {
         VBox menu1 = new VBox(1);
         Pane menu2 = new Pane();
         
-//        menu2.setPrefSize(600, 600);
+        menu2.setPrefSize(600, 600);
 
         menu0.setTranslateX(170);
         menu0.setTranslateY(200);
@@ -79,7 +82,8 @@ public class Menu extends Parent {
 
             TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), menu2);
             tt1.setToX(menu0.getTranslateX());
-
+            
+            nameField.requestFocus();
             tt.play();
             tt1.play();
 
@@ -139,17 +143,19 @@ public class Menu extends Parent {
             });
         });
 
+        Cars c = new Cars();
         //Images
         list.add("ferrari.png");
-        carNames.add("FERRARRI");
+        c.imagesMenu = "FERRARI";
+        //carNames.add("FERRARRI");
         list.add("lamborghini.png");
-        carNames.add("LAMBORGHINI");
+//        carNames.add("LAMBORGHINI");
         list.add("mustang.png");
-        carNames.add("MUSTANG");
+//        carNames.add("MUSTANG");
         list.add("corvette.png");
-        carNames.add("CORVETTE");
+//        carNames.add("CORVETTE");
         list.add("citroen.png");
-        carNames.add("CITROëN");
+//        carNames.add("CITROëN");
 
         Image images[] = new Image[list.size()];
         for (int i = 0; i < list.size(); i++) {
@@ -164,7 +170,7 @@ public class Menu extends Parent {
         imageView.setLayoutY(200);
 
         //////////////////////////////MENU 2////////////////////////////////////////////////////////////////////////////???????????????
-        TextField nameField = new TextField();
+//        TextField nameField = new TextField();
         nameField.setEffect(drop);
 
         Text redInstruction = new Text();
@@ -303,6 +309,7 @@ public class Menu extends Parent {
                     }
                     imageView.setImage(images[i]);
                     carMark.setText(carNames.get(i));
+//                    carMark.setText(lists.get(i).imagesMenu);
                     mediaPlayer.seek(Duration.ZERO);
                 }
 
@@ -331,9 +338,31 @@ public class Menu extends Parent {
                     
                     bAmountNxtBtn.setOnMouseClicked(e3 -> {
                         mediaPlayer.play();
-                        getChildren().removeAll(bg, menu0, menu1);
+//                        getChildren().removeAll(bg, menu0, menu1);
+//                        /race.setLayoutX(-100);
+//                        menu2.getChildren().addAll(race);
                         
-                        menu2.getChildren().addAll(race);
+                        
+                        /////////////////////////////////////////////////////////////////////////////////////////////////
+                        {
+            menu2.getChildren().add(race);
+
+            
+            TranslateTransition tt = new TranslateTransition(Duration.seconds(0.25), menu2);
+            tt.setToX(menu2.getTranslateX() - 170);
+
+            TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), race);
+            tt1.setToX(race.getTranslateX());
+
+            tt.play();
+            tt1.play();
+
+            tt.setOnFinished(evt -> {
+                getChildren().removeAll(bg, menu0, menu1);
+                mediaPlayer.stop();
+            });
+        }
+                        //////////////
                         mediaPlayer.seek(Duration.ZERO);
                         
                             
@@ -367,4 +396,27 @@ public class Menu extends Parent {
         getChildren().addAll(bg, menu0);
 
     }
+}
+
+class Cars{
+    String imagesMenu;
+    String imagesRace;
+
+    public void setImagesMenu(String imagesMenu) {
+        this.imagesMenu = imagesMenu;
+    }
+
+    public void setImagesRace(String imagesRace) {
+        this.imagesRace = imagesRace;
+    }
+    
+    
+    public String getImagesMenu() {
+        return imagesMenu;
+    }
+
+    public String getImagesRace() {
+        return imagesRace;
+    }
+    
 }
