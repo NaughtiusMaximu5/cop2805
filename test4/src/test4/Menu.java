@@ -1,5 +1,6 @@
 package test4;
 
+import static com.sun.deploy.security.URLClassPathControl.disable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,8 @@ public class Menu extends Parent {
 
     private List<String> list = new ArrayList<String>();
     private List<String> carNames = new ArrayList<String>();
-
+    private Race race;
+    
     int i = 0;
     ImageView imageView;
 
@@ -47,13 +49,16 @@ public class Menu extends Parent {
         VBox menu1 = new VBox(1);
         Pane menu2 = new Pane();
         
-        menu2.setPrefSize(600, 600);
+//        menu2.setPrefSize(600, 600);
 
         menu0.setTranslateX(170);
         menu0.setTranslateY(200);
 
         menu1.setTranslateX(-200);
         menu1.setTranslateY(100);
+        
+        
+        race = new Race();
         
 
         DropShadow drop = new DropShadow(50, Color.WHITE);
@@ -244,7 +249,7 @@ public class Menu extends Parent {
         });
         
         
-        Rectangle bg = new Rectangle(800, 600);
+        Rectangle bg = new Rectangle(600, 600);
         bg.setFill(Color.GREY);
         bg.setOpacity(0.4);
 
@@ -326,20 +331,19 @@ public class Menu extends Parent {
                     
                     bAmountNxtBtn.setOnMouseClicked(e3 -> {
                         mediaPlayer.play();
-                        menu0.setVisible(false);
-                        menu1.setVisible(false);
-                        menu2.setVisible(false);
-                        bg.setVisible(false);
+                        getChildren().removeAll(bg, menu0, menu1);
+                        
+                        menu2.getChildren().addAll(race);
                         mediaPlayer.seek(Duration.ZERO);
                         
-                        RobotRace r = new RobotRace();
-                        r.background(2);
+                            
                     });
                 }
             });
 
         });
-
+        
+        
         Playground information = new Playground("INFORMATION");
         information.createText("This game is a Robot Race animation with betting capabilities.\n"
                 + "Every robot represent a car, that you will choose to bet in the race.");
@@ -362,9 +366,5 @@ public class Menu extends Parent {
         
         getChildren().addAll(bg, menu0);
 
-    }
-    
-    void as(){
-        String carito;
     }
 }

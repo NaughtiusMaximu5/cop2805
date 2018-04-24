@@ -61,4 +61,4 @@ public class MenuButton extends StackPane {
             setOnMousePressed(event -> setEffect(drop));
             setOnMouseReleased(event -> setEffect(null));
         }
-    }
+}
