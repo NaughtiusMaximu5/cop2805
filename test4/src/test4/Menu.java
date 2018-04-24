@@ -33,8 +33,8 @@ import javafx.util.Duration;
 public class Menu extends Parent{
 
     private List<String> list = new ArrayList<String>();
-    //private List<String> carNames = new ArrayList<String>();
-    private List<Cars> lists = new ArrayList<Cars>();
+    private List<String> carNames = new ArrayList<String>();
+    List<Cars> lists = new ArrayList<Cars>();
     
     private Race race;
     
@@ -144,22 +144,32 @@ public class Menu extends Parent{
         });
 
         Cars c = new Cars();
+        String []cars = {"ferrari", "lamborghini", "mustang", "corvette", "citroen"};
+        
+        for(int i = 0; i < 5; i++){
+            c.setImagesMenu(cars[i] + ".png");
+            c.setCarNames(cars[i].toUpperCase());
+            
+            lists.add(i, c);
+            
+        }
+        
         //Images
         list.add("ferrari.png");
-        c.imagesMenu = "FERRARI";
-        //carNames.add("FERRARRI");
+        carNames.add("FERRARRI");
         list.add("lamborghini.png");
-//        carNames.add("LAMBORGHINI");
+        carNames.add("LAMBORGHINI");
         list.add("mustang.png");
-//        carNames.add("MUSTANG");
+        carNames.add("MUSTANG");
         list.add("corvette.png");
-//        carNames.add("CORVETTE");
+        carNames.add("CORVETTE");
         list.add("citroen.png");
-//        carNames.add("CITROëN");
+        carNames.add("CITROëN");
 
-        Image images[] = new Image[list.size()];
-        for (int i = 0; i < list.size(); i++) {
+        Image images[] = new Image[lists.size()];
+        for (int i = 0; i < lists.size(); i++) {
             images[i] = new Image(getClass().getResource(list.get(i)).toExternalForm());
+            images[i] = new Image(getClass().getResource(lists.get(i).getImagesMenu()).toExternalForm());
         }
 
         imageView = new ImageView(images[i]);
@@ -304,7 +314,7 @@ public class Menu extends Parent{
                 if (e.getCode() == KeyCode.RIGHT) {
                     mediaPlayer.play();
                     i += 1;
-                    if (i == list.size()) {
+                    if (i == lists.size()) {
                         i = 0;
                     }
                     imageView.setImage(images[i]);
@@ -319,7 +329,7 @@ public class Menu extends Parent{
                     //mediaPlayer.stop();
                     if (i == -1) //if image is index -1 set the last image
                     {
-                        i = list.size() - 1;
+                        i = lists.size() - 1;
                     }
                     imageView.setImage(images[i]);
                     carMark.setText(carNames.get(i));
@@ -399,8 +409,9 @@ public class Menu extends Parent{
 }
 
 class Cars{
-    String imagesMenu;
-    String imagesRace;
+    private String imagesMenu;
+    private String carNames;
+    private String imagesRace;
 
     public void setImagesMenu(String imagesMenu) {
         this.imagesMenu = imagesMenu;
@@ -409,7 +420,10 @@ class Cars{
     public void setImagesRace(String imagesRace) {
         this.imagesRace = imagesRace;
     }
-    
+
+    public void setCarNames(String carNames) {
+        this.carNames = carNames;
+    }
     
     public String getImagesMenu() {
         return imagesMenu;
@@ -417,6 +431,10 @@ class Cars{
 
     public String getImagesRace() {
         return imagesRace;
+    }
+
+    public String getCarNames() {
+        return carNames;
     }
     
 }
