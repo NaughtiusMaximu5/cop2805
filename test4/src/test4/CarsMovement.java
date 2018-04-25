@@ -8,14 +8,14 @@ import javafx.scene.image.ImageView;
 public class CarsMovement implements Runnable {
 
     // Store positions
-    private static ArrayList<Integer> positions = new ArrayList<>();
+     ArrayList<Integer> positions = new ArrayList<>();
 
     // Car to be moved
     ImageView car;
 
     // Car number
     int carNumber;
-
+    double carP;
     // A car ImageView and a car number are passed to the constructor 
     CarsMovement(ImageView image, int carNumber) {
 
@@ -25,7 +25,6 @@ public class CarsMovement implements Runnable {
 
     // Override run method
     public void run() {
-        System.out.println("");
         // If car is not at the finish line
         while (car.getX() < 600) {
 
@@ -47,24 +46,27 @@ public class CarsMovement implements Runnable {
             }
         }
         //Add position of the car
-        addPos(carNumber);        
-        System.out.print(getPositions());
-        clearPositions();
+        addPos(carNumber);
+        carP = car.getX();
+        
     }
     
     
     //Return positions
-    public static ArrayList<Integer> getPositions() {
+    public  ArrayList<Integer> getPositions() {
         return positions;
     }
     
+    public double getPosition(){
+        return carP;
+    }
     //Adding position
-    synchronized private static void addPos(int number) {
+    synchronized private void addPos(int number) {
         positions.add(number);
     }
 
     //Reset Positions
-    public static void clearPositions() {
+    public void clearPositions() {
         positions.clear();
     }
 }

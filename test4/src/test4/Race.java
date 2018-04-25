@@ -1,6 +1,7 @@
 package test4;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -87,24 +88,21 @@ public class Race extends Pane{
             ferrariSide.setImage(null);
         
         getChildren().add(new Race()); 
-        });
-        
-//        citroenSide = null;
-//        corvetteSide = null;
-//        mustangSide= null;
-//        lamborghiniSide= null;
-//        ferrariSide= null;
-//        
-//        getChildren().add(new Race()); 
+        });        
         
         // Create tasks
-        Runnable car1 = new CarsMovement(citroenSide, 5);
-        Runnable car2 = new CarsMovement(corvetteSide, 4);
-        Runnable car3 = new CarsMovement(ferrariSide, 1);
-        Runnable car4 = new CarsMovement(lamborghiniSide, 2);
-        Runnable car5 = new CarsMovement(mustangSide, 3);
+        CarsMovement car1 = new CarsMovement(citroenSide, 5);
+        CarsMovement car2 = new CarsMovement(corvetteSide, 4);
+        CarsMovement car3 = new CarsMovement(ferrariSide, 1);
+        CarsMovement car4 = new CarsMovement(lamborghiniSide, 2);
+        CarsMovement car5 = new CarsMovement(mustangSide, 3);
         
-        
+//        car1.clearPositions();
+//        car2.clearPositions();
+//        car3.clearPositions();
+//        car4.clearPositions();
+//        car5.clearPositions();
+        ArrayList<Double> positions = new ArrayList<>();
         // Create threads
         Thread thread1 = new Thread(car1);
         Thread thread2 = new Thread(car2);
@@ -120,7 +118,15 @@ public class Race extends Pane{
                 thread3.start();
                 thread4.start();
                 thread5.start();
+                
+        
         });
+        
+        positions.add(car1.getPosition());
+        positions.add(car2.getPosition());
+        positions.add(car3.getPosition());
+        positions.add(car4.getPosition());
+        positions.add(car5.getPosition());
         
         
         ///We got serius problems here 
