@@ -12,6 +12,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.effect.DropShadow;
@@ -32,20 +33,14 @@ import javafx.util.Duration;
 
 public class Menu extends Parent {
 
-    List<Cars> lists = new ArrayList<Cars>();
-
-    private Race race;
-
-    int imageOrder = 0;
-    ImageView imageView;
-
+    private int imageOrder = 0;
+    private ImageView imageView;
+    private List<Cars> lists = new ArrayList<Cars>();
+    
     public Menu() {
 
         TextField nameField = new TextField();
-        final URL resource = getClass().getResource("a.mp3");
-//        final Media media = new Media(resource.toString());
-//        final MediaPlayer mediaPlayer = new MediaPlayer(media);
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(resource.toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("a.mp3").toString()));
         
         VBox menu0 = new VBox(10);
         VBox menu1 = new VBox(1);
@@ -58,8 +53,6 @@ public class Menu extends Parent {
 
         menu1.setTranslateX(-200);
         menu1.setTranslateY(100);
-
-        race = new Race();
 
         DropShadow drop = new DropShadow(50, Color.WHITE);
         drop.setInput(new Glow());
@@ -277,9 +270,16 @@ public class Menu extends Parent {
 
         Playground bAmountNxtBtn = new Playground();
         bAmountNxtBtn.addButton("Next", 195, 492);
-
+       
+        Button btnRestart = new Button();
+        btnRestart.setLayoutX(60);
+        btnRestart.setLayoutY(5);
+        btnRestart.setText("Restart");
+//        btnRestart.setVisible(false);
+        
+        
         //Create an event when press the NEXT button for name
-        nameNxtBtn.setOnMouseClicked(event -> {
+        nameNxtBtn.setOnMouseClicked(e0 -> {
             mediaPlayer.play();
             nameField.setEffect(null);
             mediaPlayer.stop();
@@ -332,15 +332,11 @@ public class Menu extends Parent {
                     mediaPlayer.seek(Duration.ZERO);
                     bettingAmtField.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
 
-                    bAmountNxtBtn.setOnMouseClicked(e3 -> {
+                    bAmountNxtBtn.setOnMouseClicked(e2 -> {
                         mediaPlayer.play();
                         System.out.println("Amount: "+  bettingAmtField.getText());
-//                        getChildren().removeAll(bg, menu0, menu1);
-//                        /race.setLayoutX(-100);
-//                        menu2.getChildren().addAll(race);
-
-                        /////////////////////////////////////////////////////////////////////////////////////////////////
-                        {
+                        
+                           Race race = new Race();
                             menu2.getChildren().add(race);
 
                             TranslateTransition tt = new TranslateTransition(Duration.seconds(0.25), menu2);
@@ -356,7 +352,10 @@ public class Menu extends Parent {
                                 getChildren().removeAll(bg, menu0, menu1);
                                 mediaPlayer.stop();
                             });
-                        }
+                        
+                        
+                        
+                        
                         //////////////
                         mediaPlayer.seek(Duration.ZERO);
 
@@ -365,7 +364,8 @@ public class Menu extends Parent {
             });
 
         });
-
+        
+        
         Playground information = new Playground("INFORMATION");
         information.createText("This game is a Robot Race animation with betting capabilities.\n"
                 + "Every robot represent a car, that you will choose to bet in the race.");
@@ -387,11 +387,11 @@ public class Menu extends Parent {
 
     }
 }
-
 class Cars {
 
     private String imagesMenu;
     private String carNames;
+    private int carArrived;
     
     
     public Cars() {}
@@ -400,6 +400,10 @@ class Cars {
         this.imagesMenu = imagesMenu;
     }
 
+    public void setCarArrived(int carArrived) {
+        this.carArrived = carArrived;
+    }
+    
 
     public void setCarNames(String carNames) {
         this.carNames = carNames;
@@ -412,5 +416,11 @@ class Cars {
     public String getCarNames() {
         return carNames;
     }
+
+    public int getCarArrived() {
+        return carArrived;
+    }
+    
+    
 
 }

@@ -62,7 +62,7 @@ public class RobotRace extends Application {
         
         Features f = new Features();
         ImageView i = f.background(1);
-        Pane welcome = f.welcome();
+        Pane welcome = f.introduction();
         
         gameMenu = new Menu();
 //        race = new Race();
@@ -70,24 +70,25 @@ public class RobotRace extends Application {
         
         Scene scene = new Scene(root);
         
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            public void run() {
-                Platform.runLater(() -> root.getChildren().add(welcome));
-            }
-        }, 2000);
-        timer.schedule(new TimerTask() {
-            public void run() {
-                Platform.runLater(() -> root.getChildren().remove(welcome));
-            }
-        }, 5000);
-        timer.schedule(new TimerTask(){
-            public void run(){
-                Platform.runLater(() -> gameMenu.setVisible(true));
-            }
-        }, 7000);
-
-                    
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            public void run() {
+//                Platform.runLater(() -> root.getChildren().add(welcome));
+//            }
+//        }, 2000);
+//        timer.schedule(new TimerTask() {
+//            public void run() {
+//                Platform.runLater(() -> root.getChildren().remove(welcome));
+//            }
+//        }, 5000);
+//        timer.schedule(new TimerTask(){
+//            public void run(){
+//                Platform.runLater(() -> gameMenu.setVisible(true));
+//            }
+//        }, 7000);
+//
+//        
+        gameMenu.setVisible(true);
         root.getChildren().addAll(i, gameMenu);
         
         //scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
@@ -114,25 +115,25 @@ public class RobotRace extends Application {
 //            }
 //        });
         
-        Button btnRestart = new Button();
-        btnRestart.setLayoutX(60);
-        btnRestart.setLayoutY(5);
-        btnRestart.setText("Restart");
-//        btnRestart.setVisible(false);
-        root.getChildren().add(btnRestart);
-        
-        btnRestart.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                RobotRace rr = new RobotRace();
-                try {
-                    rr.start(primaryStage);
-                } catch (Exception ex) {
-                    Logger.getLogger(RobotRace.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-        });
+//        Button btnRestart = new Button();
+//        btnRestart.setLayoutX(60);
+//        btnRestart.setLayoutY(5);
+//        btnRestart.setText("Restart");
+////        btnRestart.setVisible(false);
+//        root.getChildren().add(btnRestart);
+//        
+//        btnRestart.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                Race r = new Race();
+//                try {
+//                    r.start(primaryStage);
+//                } catch (Exception ex) {
+//                    Logger.getLogger(RobotRace.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//
+//        });
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -146,7 +147,8 @@ public class RobotRace extends Application {
 }
 
 /**
- * Class that add some features to the projects
+ * Class that add some features to the project 
+ * like Introduction and set background of the game
  * 
  */
 class Features{
@@ -155,9 +157,9 @@ class Features{
      * Creates a pane with Welcome text, that will be the 
      * introduction of the game.
      * 
-     * @return welcome pane texts
+     * @return introduction pane
      */
-    Pane welcome(){
+    Pane introduction(){
         
         Pane pane = new Pane();
         Text text = new Text();

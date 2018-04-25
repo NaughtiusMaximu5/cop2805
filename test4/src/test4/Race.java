@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test4;
 
+import java.awt.BorderLayout;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -26,13 +22,6 @@ public class Race extends Pane{
         btnStart.setText("Start");
 //        btnStart.setVisible(false);
         getChildren().add(btnStart);
-
-//        Button btnRestart = new Button();
-//        btnRestart.setLayoutX(60);
-//        btnRestart.setLayoutY(5);
-//        btnRestart.setText("Restart");
-//        btnRestart.setVisible(false);
-//        getChildren().add(btnRestart);
 
         ImageView citroenSide = new ImageView();
         citroenSide.setFitHeight(42);
@@ -78,46 +67,69 @@ public class Race extends Pane{
         ferrariSide.setImage(new Image(getClass().getResource("ferrariSideView.png").toExternalForm()));
 //        ferrariSide.setVisible(false);
         getChildren().add(ferrariSide);
-
+        
+        
+        Button btnRestart = new Button();
+        btnRestart.setLayoutX(60);
+        btnRestart.setLayoutY(5);
+        btnRestart.setText("Restart");
+        btnRestart.setVisible(true);
+        getChildren().add(btnRestart);
+        
+        btnRestart.setOnAction(e ->{
+            
+            // Set the imagesreference to null  to be 
+            // collected and deleted by the Garbage Collector
+            citroenSide.setImage(null);
+            corvetteSide.setImage(null);
+            mustangSide.setImage(null); 
+            lamborghiniSide.setImage(null);
+            ferrariSide.setImage(null);
+        
+        getChildren().add(new Race()); 
+        });
+        
+//        citroenSide = null;
+//        corvetteSide = null;
+//        mustangSide= null;
+//        lamborghiniSide= null;
+//        ferrariSide= null;
+//        
+//        getChildren().add(new Race()); 
+        
         // Create tasks
         Runnable car1 = new CarsMovement(citroenSide, 5);
         Runnable car2 = new CarsMovement(corvetteSide, 4);
-        Runnable car3 = new CarsMovement(ferrariSide, 3);
+        Runnable car3 = new CarsMovement(ferrariSide, 1);
         Runnable car4 = new CarsMovement(lamborghiniSide, 2);
-        Runnable car5 = new CarsMovement(mustangSide, 1);
+        Runnable car5 = new CarsMovement(mustangSide, 3);
+        
+        
         // Create threads
-        final Thread thread1 = new Thread(car1);
-        final Thread thread2 = new Thread(car2);
-        final Thread thread3 = new Thread(car3);
-        final Thread thread4 = new Thread(car4);
-        final Thread thread5 = new Thread(car5);
+        Thread thread1 = new Thread(car1);
+        Thread thread2 = new Thread(car2);
+        Thread thread3 = new Thread(car3);
+        Thread thread4 = new Thread(car4);
+        Thread thread5 = new Thread(car5);
         
-//        if(gameMenu.isDisable()){
-//            
-//        imageView.setVisible(false);
-//        btnStart.setText("Start");
-//        btnStart.setVisible(false);
-//        btnRestart.setVisible(false);
-//        citroenSide.setVisible(false);
-//        corvetteSide.setVisible(false);
-//        mustangSide.setVisible(false);
-//        lamborghiniSide.setVisible(false);
-//        ferrariSide.setVisible(false);
-//
-//        }
-        
-        btnStart.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
+        btnStart.setOnAction(e -> {
+                
                 // Start threads
                 thread1.start();
                 thread2.start();
                 thread3.start();
                 thread4.start();
                 thread5.start();
-
-            }
         });
+        
+        
+        ///We got serius problems here 
+//        try{
+//            btnRestart.setOnAction(e ->{
+//            btnStart.fire();
+//        });
+//        }catch(Exception e){
+//            System.out.println("We couldn't start the race again");
+//        }
     }
 }

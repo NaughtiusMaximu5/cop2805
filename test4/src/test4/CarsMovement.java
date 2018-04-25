@@ -25,9 +25,9 @@ public class CarsMovement implements Runnable {
 
     // Override run method
     public void run() {
-
+        System.out.println("");
         // If car is not at the finish line
-        while (car.getX() < 650) {
+        while (car.getX() < 600) {
 
             Platform.runLater(new Runnable() {
 
@@ -47,14 +47,17 @@ public class CarsMovement implements Runnable {
             }
         }
         //Add position of the car
-        addPos(carNumber);
+        addPos(carNumber);        
+        System.out.print(getPositions());
+        clearPositions();
     }
-
+    
+    
     //Return positions
     public static ArrayList<Integer> getPositions() {
         return positions;
     }
-
+    
     //Adding position
     synchronized private static void addPos(int number) {
         positions.add(number);
