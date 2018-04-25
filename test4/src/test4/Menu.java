@@ -33,6 +33,7 @@ import javafx.util.Duration;
 
 public class Menu extends Parent {
 
+    //:|
     private int imageOrder = 0;
     private ImageView imageView;
     private List<Cars> lists = new ArrayList<Cars>();
@@ -157,8 +158,7 @@ public class Menu extends Parent {
         imageView.setLayoutX(-50);
         imageView.setLayoutY(200);
 
-        //////////////////////////////MENU 2////////////////////////////////////////////////////////////////////////////???????????????
-//        TextField nameField = new TextField();
+        ////////////////////////
         nameField.setEffect(drop);
 
         Text redInstruction = new Text();
