@@ -30,28 +30,27 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class Menu extends Parent{
+public class Menu extends Parent {
 
-    private List<String> list = new ArrayList<String>();
-    private List<String> carNames = new ArrayList<String>();
     List<Cars> lists = new ArrayList<Cars>();
-    
+
     private Race race;
-    
-    int i = 0;
+
+    int imageOrder = 0;
     ImageView imageView;
 
     public Menu() {
-        
+
         TextField nameField = new TextField();
         final URL resource = getClass().getResource("a.mp3");
-        final Media media = new Media(resource.toString());
-        final MediaPlayer mediaPlayer = new MediaPlayer(media);
-        //mediaPlayer.play();
+//        final Media media = new Media(resource.toString());
+//        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(resource.toString()));
+        
         VBox menu0 = new VBox(10);
         VBox menu1 = new VBox(1);
         Pane menu2 = new Pane();
-        
+
         menu2.setPrefSize(600, 600);
 
         menu0.setTranslateX(170);
@@ -59,10 +58,8 @@ public class Menu extends Parent{
 
         menu1.setTranslateX(-200);
         menu1.setTranslateY(100);
-        
-        
+
         race = new Race();
-        
 
         DropShadow drop = new DropShadow(50, Color.WHITE);
         drop.setInput(new Glow());
@@ -72,7 +69,7 @@ public class Menu extends Parent{
         menu1.setTranslateX(offset);
 
         MenuButton btnPlay = new MenuButton("PLAY NOW");
-        
+
         btnPlay.setOnMouseClicked(event -> {
             getChildren().add(menu2);
 
@@ -82,7 +79,7 @@ public class Menu extends Parent{
 
             TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), menu2);
             tt1.setToX(menu0.getTranslateX());
-            
+
             nameField.requestFocus();
             tt.play();
             tt1.play();
@@ -143,36 +140,24 @@ public class Menu extends Parent{
             });
         });
 
-        Cars c = new Cars();
-        String []cars = {"ferrari", "lamborghini", "mustang", "corvette", "citroen"};
         
-        for(int i = 0; i < 5; i++){
+        String[] cars = {"ferrari", "lamborghini", "mustang", "corvette", "citroen"};
+
+        for (int i = 0; i < cars.length; i++) {
+            Cars c = new Cars();
             c.setImagesMenu(cars[i] + ".png");
             c.setCarNames(cars[i].toUpperCase());
-            
+
             lists.add(i, c);
-            
         }
-        
-        //Images
-        list.add("ferrari.png");
-        carNames.add("FERRARRI");
-        list.add("lamborghini.png");
-        carNames.add("LAMBORGHINI");
-        list.add("mustang.png");
-        carNames.add("MUSTANG");
-        list.add("corvette.png");
-        carNames.add("CORVETTE");
-        list.add("citroen.png");
-        carNames.add("CITROëN");
+
 
         Image images[] = new Image[lists.size()];
         for (int i = 0; i < lists.size(); i++) {
-            images[i] = new Image(getClass().getResource(list.get(i)).toExternalForm());
             images[i] = new Image(getClass().getResource(lists.get(i).getImagesMenu()).toExternalForm());
         }
 
-        imageView = new ImageView(images[i]);
+        imageView = new ImageView(images[0]);
 //            imageView.setCursor(Cursor.CLOSED_HAND);
         imageView.setFitHeight(230);
         imageView.setFitWidth(305);
@@ -229,20 +214,20 @@ public class Menu extends Parent{
             public void replaceText(int start, int end, String text) {
                 // If the replaced text would end up being invalid, then simply
                 // ignore this call!
-                if (!text.matches("[a-z]")  && !text.matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+")) {
+                if (!text.matches("[a-z]") && !text.matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+")) {
                     super.replaceText(start, end, text);
                 }
             }
 
             @Override
             public void replaceSelection(String text) {
-                if (!text.matches("[a-z]")  && !text.matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+")) {
+                if (!text.matches("[a-z]") && !text.matches("[\\\\!\"#$%&()*+,./:;<=>?@\\[\\]^_{|}~]+")) {
                     super.replaceSelection(text);
                 }
             }
         };
         final int LIMIT = 4;
-        bettingAmtField.lengthProperty().addListener(new ChangeListener<Number>(){
+        bettingAmtField.lengthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
@@ -253,18 +238,18 @@ public class Menu extends Parent{
                         // one
                         bettingAmtField.setText(bettingAmtField.getText().substring(0, LIMIT));
                     }
-                    try{
-                    if(Integer.parseInt(bettingAmtField.getText()) >= 1000)
-                        bettingAmtField.setText("1000");
-                    }catch(Exception e){
+                    try {
+                        if (Integer.parseInt(bettingAmtField.getText()) >= 1000) {
+                            bettingAmtField.setText("1000");
+                        }
+                    } catch (Exception e) {
                         bettingAmtField.clear();
                     }
                 }
             }
-            
+
         });
-        
-        
+
         Rectangle bg = new Rectangle(600, 600);
         bg.setFill(Color.GREY);
         bg.setOpacity(0.4);
@@ -303,7 +288,7 @@ public class Menu extends Parent{
 //                if(players.isEmpty()){
 //                    players.get(0).name = text1.getText();
 //                }
-            System.out.println(nameField.getText());
+            System.out.println("Name: " + nameField.getText());
 
             nameNxtBtn.setFocusTraversable(false);
             imageView.requestFocus();
@@ -313,29 +298,30 @@ public class Menu extends Parent{
 
                 if (e.getCode() == KeyCode.RIGHT) {
                     mediaPlayer.play();
-                    i += 1;
-                    if (i == lists.size()) {
-                        i = 0;
+                    imageOrder += 1;
+                    if (imageOrder == lists.size()) {
+                        imageOrder = 0;
                     }
-                    imageView.setImage(images[i]);
-                    carMark.setText(carNames.get(i));
+                    imageView.setImage(images[imageOrder]);
+                    carMark.setText(lists.get(imageOrder).getCarNames());
 //                    carMark.setText(lists.get(i).imagesMenu);
                     mediaPlayer.seek(Duration.ZERO);
                 }
 
                 if (e.getCode() == KeyCode.LEFT) {// Move to the next car LEFT
                     mediaPlayer.play();
-                    i -= 1;
+                    imageOrder -= 1;
                     //mediaPlayer.stop();
-                    if (i == -1) //if image is index -1 set the last image
+                    if (imageOrder == -1) //if image is index -1 set the last image
                     {
-                        i = lists.size() - 1;
+                        imageOrder = lists.size() - 1;
                     }
-                    imageView.setImage(images[i]);
-                    carMark.setText(carNames.get(i));
+                    imageView.setImage(images[imageOrder]);
+                    carMark.setText(lists.get(imageOrder).getCarNames());
                     mediaPlayer.seek(Duration.ZERO);
                 }
                 if (e.getCode() == KeyCode.ENTER) {
+                    System.out.println("Car selected: " + lists.get(imageOrder).getCarNames());
                     mediaPlayer.play();
                     selectCarText.setEffect(drop);
                     imageView.setEffect(drop);
@@ -345,44 +331,41 @@ public class Menu extends Parent{
                     dollarSign.setVisible(true);
                     mediaPlayer.seek(Duration.ZERO);
                     bettingAmtField.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-                    
+
                     bAmountNxtBtn.setOnMouseClicked(e3 -> {
                         mediaPlayer.play();
+                        System.out.println("Amount: "+  bettingAmtField.getText());
 //                        getChildren().removeAll(bg, menu0, menu1);
 //                        /race.setLayoutX(-100);
 //                        menu2.getChildren().addAll(race);
-                        
-                        
+
                         /////////////////////////////////////////////////////////////////////////////////////////////////
                         {
-            menu2.getChildren().add(race);
+                            menu2.getChildren().add(race);
 
-            
-            TranslateTransition tt = new TranslateTransition(Duration.seconds(0.25), menu2);
-            tt.setToX(menu2.getTranslateX() - 170);
+                            TranslateTransition tt = new TranslateTransition(Duration.seconds(0.25), menu2);
+                            tt.setToX(menu2.getTranslateX() - 170);
 
-            TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), race);
-            tt1.setToX(race.getTranslateX());
+                            TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), race);
+                            tt1.setToX(race.getTranslateX());
 
-            tt.play();
-            tt1.play();
+                            tt.play();
+                            tt1.play();
 
-            tt.setOnFinished(evt -> {
-                getChildren().removeAll(bg, menu0, menu1);
-                mediaPlayer.stop();
-            });
-        }
+                            tt.setOnFinished(evt -> {
+                                getChildren().removeAll(bg, menu0, menu1);
+                                mediaPlayer.stop();
+                            });
+                        }
                         //////////////
                         mediaPlayer.seek(Duration.ZERO);
-                        
-                            
+
                     });
                 }
             });
 
         });
-        
-        
+
         Playground information = new Playground("INFORMATION");
         information.createText("This game is a Robot Race animation with betting capabilities.\n"
                 + "Every robot represent a car, that you will choose to bet in the race.");
@@ -392,49 +375,42 @@ public class Menu extends Parent{
         Playground information2 = new Playground("COPYRIGHT");
         information2.createText("2018 © AAA Group. COP 2805c.\n"
                 + "Thanks for teaching us how to make this Rodolfo Cruz.");
-        
-        
+
         menu0.getChildren().addAll(btnPlay, btnOptions, btnExit);
         menu1.getChildren().addAll(btnBack, information, information1, information2);
         menu2.getChildren().addAll(imageView, playerLabel, nameField, bettingAmtLabel, selectCarText,
                 redInstruction, bettingAmtField, bAmountNxtBtn, nameNxtBtn, carMark, dollarSign
         );
-        
-        // add btnResume when the race is on the way ******************************************************************************************
 
-        
+        // add btnResume when the race is on the way ******************************************************************************************
         getChildren().addAll(bg, menu0);
 
     }
 }
 
-class Cars{
+class Cars {
+
     private String imagesMenu;
     private String carNames;
-    private String imagesRace;
+    
+    
+    public Cars() {}
 
     public void setImagesMenu(String imagesMenu) {
         this.imagesMenu = imagesMenu;
     }
 
-    public void setImagesRace(String imagesRace) {
-        this.imagesRace = imagesRace;
-    }
 
     public void setCarNames(String carNames) {
         this.carNames = carNames;
     }
-    
+
     public String getImagesMenu() {
         return imagesMenu;
-    }
-
-    public String getImagesRace() {
-        return imagesRace;
     }
 
     public String getCarNames() {
         return carNames;
     }
-    
+
 }

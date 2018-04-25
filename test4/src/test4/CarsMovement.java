@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 public class CarsMovement implements Runnable {
 
     // Store positions
-    private static ArrayList<Integer> positions = new ArrayList<Integer>();
+    private static ArrayList<Integer> positions = new ArrayList<>();
 
     // Car to be moved
     ImageView car;
