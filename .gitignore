@@ -33,3 +33,15 @@ hs_err_pid*
 /test3/dist/
 /test4/build/
 /test4/dist/
+/project3/project3/build/
+/project3/project3/dist/
+/project3/project3/nbproject/private/
+/project3/test3/build/
+/project3/test3/dist/
+/project3/test3/nbproject/private/
+/test-project4/test4-fxml/build/
+/test-project4/test4-fxml/dist/
+/test-project4/test4-fxml/nbproject/private/
+/test-project4/test4/nbproject/private/
+/test-project4/test4/build/
+/test-project4/test4/dist/
