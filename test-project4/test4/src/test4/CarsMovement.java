@@ -16,8 +16,6 @@ public class CarsMovement implements Runnable {
     // Car number
     int carNumber;
     
-    static boolean finished = false;
-    
     // A car ImageView and a car number are passed to the constructor 
     CarsMovement(ImageView image, int carNumber) {
 
@@ -52,10 +50,10 @@ public class CarsMovement implements Runnable {
         
         addPos(carNumber);
         
-        if(positions.size() == 5){
-            finished  = true;
-            clearPositions();
-        }
+//        if(positions.size() == 5){
+//            System.out.println(getPositions());
+//            clearPositions();
+//        }
     }
     
     //Return positions
@@ -69,7 +67,7 @@ public class CarsMovement implements Runnable {
     }
 
     //Reset Positions
-    public void clearPositions() {
+    public static void clearPositions() {
         positions.clear();
     }
 }

@@ -1,9 +1,11 @@
+
 package test4;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,66 +18,163 @@ public class Race extends Pane{
         Features f = new Features();
         getChildren().add(f.background(2));
         
-
-        Button btnStart = new Button();
-        btnStart.setLayoutX(5);
-        btnStart.setLayoutY(5);
-        btnStart.setText("Start");
-//        btnStart.setVisible(false);
-        getChildren().add(btnStart);
-
         ImageView citroenSide = new ImageView();
         citroenSide.setFitHeight(42);
         citroenSide.setFitWidth(111);
-        citroenSide.setLayoutX(-50);
-        citroenSide.setLayoutY(500);
+        citroenSide.setLayoutX(-60);
+        citroenSide.setLayoutY(520);
+
         citroenSide.setImage(new Image(getClass().getResource("citroenSideView.png").toExternalForm()));
-//        citroenSide.setVisible(false);
         getChildren().add(citroenSide);
 
         ImageView corvetteSide = new ImageView();
         corvetteSide.setFitHeight(33);
         corvetteSide.setFitWidth(111);
-        corvetteSide.setLayoutX(-50);
+        corvetteSide.setLayoutX(-60);
         corvetteSide.setLayoutY(460);
         corvetteSide.setImage(new Image(getClass().getResource("corvetteSideView.png").toExternalForm()));
-//        corvetteSide.setVisible(false);
         getChildren().add(corvetteSide);
 
         ImageView mustangSide = new ImageView();
         mustangSide.setFitHeight(35);
         mustangSide.setFitWidth(111);
-        mustangSide.setLayoutX(-50);
-        mustangSide.setLayoutY(420);
+        mustangSide.setLayoutX(-60);
+        mustangSide.setLayoutY(420);;
         mustangSide.setImage(new Image(getClass().getResource("mustangSideView.png").toExternalForm()));
-//        mustangSide.setVisible(false);
         getChildren().add(mustangSide);
 
         ImageView lamborghiniSide = new ImageView();
         lamborghiniSide.setFitHeight(32);
         lamborghiniSide.setFitWidth(111);
-        lamborghiniSide.setLayoutX(-50);
+        lamborghiniSide.setLayoutX(-60);
         lamborghiniSide.setLayoutY(380);
         lamborghiniSide.setImage(new Image(getClass().getResource("lamborghiniSideView.png").toExternalForm()));
-//        lamborghiniSide.setVisible(false);
         getChildren().add(lamborghiniSide);
 
         ImageView ferrariSide = new ImageView();
         ferrariSide.setFitHeight(38);
         ferrariSide.setFitWidth(111);
-        ferrariSide.setLayoutX(-50);
+        ferrariSide.setLayoutX(-60);
         ferrariSide.setLayoutY(340);
         ferrariSide.setImage(new Image(getClass().getResource("ferrariSideView.png").toExternalForm()));
-//        ferrariSide.setVisible(false);
         getChildren().add(ferrariSide);
-        
-        
-        Button btnRestart = new Button();
-        btnRestart.setLayoutX(60);
+
+        final Button btnStart = new Button();
+        btnStart.setLayoutX(5);
+        btnStart.setLayoutY(5);
+        btnStart.setPrefHeight(10);
+        btnStart.setPrefWidth(80);
+        btnStart.setText("Start");
+        getChildren().add(btnStart);
+        // btnStart.setVisible(false);
+
+        final Button btnRestart = new Button();
+        btnRestart.setLayoutX(5);
         btnRestart.setLayoutY(5);
+        btnRestart.setPrefHeight(10);
+        btnRestart.setPrefWidth(80);
         btnRestart.setText("Restart");
-        btnRestart.setVisible(true);
+        btnRestart.setVisible(false);
         getChildren().add(btnRestart);
+
+        final Button results = new Button();
+        results.setLayoutX(5);
+        results.setLayoutY(5);
+        results.setPrefHeight(10);
+        results.setPrefWidth(80);
+        results.setText("Results");
+        results.setVisible(false);
+        getChildren().add(results);
+        
+        // Create tasks
+        Runnable car0 = new CarsMovement(ferrariSide, 0);
+        Runnable car1 = new CarsMovement(lamborghiniSide, 1);
+        Runnable car2 = new CarsMovement(mustangSide, 2);
+        Runnable car3 = new CarsMovement(corvetteSide, 3);
+        Runnable car4 = new CarsMovement(citroenSide, 4);
+
+        // Create threads
+        final Thread thread1 = new Thread(car0);
+        final Thread thread2 = new Thread(car1);
+        final Thread thread3 = new Thread(car2);
+        final Thread thread4 = new Thread(car3);
+        final Thread thread5 = new Thread(car4);
+        // Start threads
+
+        btnStart.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                // Start threads
+                thread1.start();
+                thread2.start();
+                thread3.start();
+                thread4.start();
+                thread5.start();
+                
+                
+                
+                // results.setDisable(false);
+                btnStart.setVisible(false);
+                results.setVisible(true);
+                //results.setDisable(true);
+            }
+        });
+        
+       // TimeUnit.SECONDS.sleep(15);
+        
+         
+        results.setOnAction(new EventHandler<ActionEvent>() {
+            
+            int racePosition;
+
+            @Override
+            public void handle(ActionEvent event) {
+                
+                for (int i = 0; i < CarsMovement.positions.size(); i++) {
+
+                    if (Menu.carSelected == CarsMovement.positions.get(i)) {
+                        racePosition = i;
+                    }
+
+                    System.out.println(CarsMovement.positions.get(i));
+
+                }
+                CarsMovement.clearPositions();
+                
+                System.out.println("Name: "+ Menu.name);
+                
+                System.out.println("Car selected:" +Menu.carSelected);
+                switch (racePosition) {
+                    case 0:
+//                        firstplace.setVisible(true);
+                        Menu.amountSelected *= 1000;
+                        System.out.println("You wont fist place  " + Menu.amountSelected);
+                        break;
+                    case 1:
+//                        secondplace.setVisible(true);
+                        Menu.amountSelected *= 500;
+                        System.out.println("You wont second place  " + Menu.amountSelected);
+                        break;
+                    case 2:
+//                        thirdplace.setVisible(true);
+                        Menu.amountSelected *= 250;
+                        System.out.println("You wont third place  " + Menu.amountSelected);
+                        break;
+                    case 3:
+                        System.out.println("4 place ");
+                        break;
+                    case 4:
+                        System.out.println("5 place");
+                        break;
+                }
+
+                results.setVisible(false);
+                btnRestart.setVisible(true);
+
+            }
+
+        });
         
         btnRestart.setOnAction(e ->{
             
@@ -88,47 +187,13 @@ public class Race extends Pane{
             ferrariSide.setImage(null);
         
         getChildren().add(new Race()); 
-        });        
-        
-        // Create tasks
-        CarsMovement car1 = new CarsMovement(citroenSide, 5);
-        CarsMovement car2 = new CarsMovement(corvetteSide, 4);
-        CarsMovement car3 = new CarsMovement(ferrariSide, 1);
-        CarsMovement car4 = new CarsMovement(lamborghiniSide, 2);
-        CarsMovement car5 = new CarsMovement(mustangSide, 3);
-       
-        
-        // Create threads
-        Thread thread1 = new Thread(car1);
-        Thread thread2 = new Thread(car2);
-        Thread thread3 = new Thread(car3);
-        Thread thread4 = new Thread(car4);
-        Thread thread5 = new Thread(car5);
-        
-        btnStart.setOnAction(e -> {
-                
-                // Start threads
-                thread1.start();
-                thread2.start();
-                thread3.start();
-                thread4.start();
-                thread5.start();
-                
-        });
-        
-        ArrayList<Integer> positions = new ArrayList<>();
+        });  
         
 
+         while(thread1.isAlive()){
+             btnRestart.setDisable(true);
+             results.setDisable(true);
+         }
 
-//        if(
-//                    !thread1.isAlive()||
-//                    !thread2.isAlive()||
-//                    !thread3.isAlive()||
-//                    !thread4.isAlive()||
-//                    !thread5.isAlive()
-//                ){
-//                    System.out.println("Positions: "+ CarsMovement.getPositions());
-//                }
-       
     }
 }

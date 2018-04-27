@@ -33,7 +33,9 @@ import javafx.util.Duration;
 
 public class Menu extends Parent {
 
-    //:|
+    public static int carSelected;
+    public static int amountSelected;
+    public static String name;
     private int imageOrder = 0;
     private ImageView imageView;
     private List<Cars> lists = new ArrayList<Cars>();
@@ -243,7 +245,7 @@ public class Menu extends Parent {
 
         });
 
-        Rectangle bg = new Rectangle(600, 600);
+        Rectangle bg = new Rectangle(610, 610);
         bg.setFill(Color.GREY);
         bg.setOpacity(0.4);
 
@@ -288,7 +290,7 @@ public class Menu extends Parent {
 //                if(players.isEmpty()){
 //                    players.get(0).name = text1.getText();
 //                }
-            System.out.println("Name: " + nameField.getText());
+            name = nameField.getText();
 
             nameNxtBtn.setFocusTraversable(false);
             imageView.requestFocus();
@@ -321,7 +323,7 @@ public class Menu extends Parent {
                     mediaPlayer.seek(Duration.ZERO);
                 }
                 if (e.getCode() == KeyCode.ENTER) {
-                    System.out.println("Car selected: " + lists.get(imageOrder).getCarNames());
+                    carSelected = imageOrder;
                     mediaPlayer.play();
                     selectCarText.setEffect(drop);
                     imageView.setEffect(drop);
@@ -334,13 +336,11 @@ public class Menu extends Parent {
 
                     bAmountNxtBtn.setOnMouseClicked(e2 -> {
                         mediaPlayer.play();
-                        System.out.println("Amount: "+  bettingAmtField.getText());
+                        amountSelected = Integer.parseInt(bettingAmtField.getText());
                         
-                           Race race = new Race();
+                            Race race = new Race();
                             menu2.getChildren().add(race);
-                            
-                            
-
+                           
                             TranslateTransition tt = new TranslateTransition(Duration.seconds(0.25), menu2);
                             tt.setToX(menu2.getTranslateX() - 170);
 
@@ -363,10 +363,10 @@ public class Menu extends Parent {
 
         });
         
-        
+
         Playground information = new Playground("INFORMATION");
         information.createText("This game is a Robot Race animation with betting capabilities.\n"
-                + "Every robot represent a car, that you will choose to bet in the race.");
+                + "Every robot will represent a car. You will select your car to compete in the race.");
         Playground information1 = new Playground("HOW TO PLAY");
         information1.createText("Select the car you want to use for the race.\n"
                 + "Then enter your name and the betting amout.");
@@ -389,19 +389,12 @@ class Cars {
 
     private String imagesMenu;
     private String carNames;
-    private int carArrived;
-    
     
     public Cars() {}
 
     public void setImagesMenu(String imagesMenu) {
         this.imagesMenu = imagesMenu;
     }
-
-    public void setCarArrived(int carArrived) {
-        this.carArrived = carArrived;
-    }
-    
 
     public void setCarNames(String carNames) {
         this.carNames = carNames;
@@ -414,11 +407,4 @@ class Cars {
     public String getCarNames() {
         return carNames;
     }
-
-    public int getCarArrived() {
-        return carArrived;
-    }
-    
-    
-
 }

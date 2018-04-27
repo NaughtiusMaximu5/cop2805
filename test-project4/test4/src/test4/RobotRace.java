@@ -70,70 +70,29 @@ public class RobotRace extends Application {
         
         Scene scene = new Scene(root);
         
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            public void run() {
-//                Platform.runLater(() -> root.getChildren().add(welcome));
-//            }
-//        }, 2000);
-//        timer.schedule(new TimerTask() {
-//            public void run() {
-//                Platform.runLater(() -> root.getChildren().remove(welcome));
-//            }
-//        }, 5000);
-//        timer.schedule(new TimerTask(){
-//            public void run(){
-//                Platform.runLater(() -> gameMenu.setVisible(true));
-//            }
-//        }, 7000);
-//
-//        
-        gameMenu.setVisible(true);
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Platform.runLater(() -> root.getChildren().add(welcome));
+            }
+        }, 2000);
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Platform.runLater(() -> root.getChildren().remove(welcome));
+            }
+        }, 5000);
+        timer.schedule(new TimerTask(){
+            public void run(){
+                Platform.runLater(() -> gameMenu.setVisible(true));
+            }
+        }, 7000);
+
+        
+        //gameMenu.setVisible(true);
         root.getChildren().addAll(i, gameMenu);
         
         //scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
         
-//        scene.setOnKeyPressed(event -> {
-//            if (event.getCode() == KeyCode.ESCAPE) {
-//                // This will bind all the key press events taking place on the Scene to the Menu.
-//                scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
-//
-//                if (!gameMenu.isVisible()) {
-//                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
-//                    ft.setFromValue(0);
-//                    ft.setToValue(1);
-//
-//                    gameMenu.setVisible(true);
-//                    ft.play();
-//                } else {
-//                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
-//                    ft.setFromValue(1);
-//                    ft.setToValue(0);
-//                    ft.setOnFinished(evt -> gameMenu.setVisible(false));
-//                    ft.play();
-//                }
-//            }
-//        });
-        
-//        Button btnRestart = new Button();
-//        btnRestart.setLayoutX(60);
-//        btnRestart.setLayoutY(5);
-//        btnRestart.setText("Restart");
-////        btnRestart.setVisible(false);
-//        root.getChildren().add(btnRestart);
-//        
-//        btnRestart.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                Race r = new Race();
-//                try {
-//                    r.start(primaryStage);
-//                } catch (Exception ex) {
-//                    Logger.getLogger(RobotRace.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//
-//        });
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -198,8 +157,8 @@ class Features{
      */
     ImageView background(int Background){
         ImageView imgView = new ImageView();
-        imgView.setFitWidth(600);
-        imgView.setFitHeight(600);
+        imgView.setFitWidth(610);
+        imgView.setFitHeight(610);
         if(Background == 1)
             imgView.setImage(new Image(getClass().getResource("background.png").toExternalForm()));
         else if(Background == 2)
