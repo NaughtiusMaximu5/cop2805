@@ -43,7 +43,7 @@ public class Menu extends Parent {
     public Menu() {
 
         TextField nameField = new TextField();
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("a.mp3").toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("click.mp3").toString()));
         
         VBox menu0 = new VBox(10);
         VBox menu1 = new VBox(1);

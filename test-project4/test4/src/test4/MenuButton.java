@@ -34,7 +34,7 @@ public class MenuButton extends StackPane {
             setRotate(-0.5);
             getChildren().addAll(bg, text);
             
-            final URL resource = getClass().getResource("a.mp3");
+            final URL resource = getClass().getResource("click.mp3");
             final Media media = new Media(resource.toString());
             final MediaPlayer mediaPlayer = new MediaPlayer(media);
 

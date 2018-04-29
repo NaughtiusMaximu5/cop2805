@@ -50,8 +50,7 @@ public class RobotRace extends Application {
 
     private final double WIDTH = 600;
     private final double HEIGHT = 600;
-    private Menu gameMenu;
-//    private Race race;
+    private Menu game;
 
     @Override
     public void start(final Stage primaryStage) {
@@ -61,12 +60,11 @@ public class RobotRace extends Application {
         
         
         Features f = new Features();
-        ImageView i = f.background(1);
+        ImageView background = f.background(1);
         Pane welcome = f.introduction();
         
-        gameMenu = new Menu();
-//        race = new Race();
-        gameMenu.setVisible(false);
+        game = new Menu();
+        game.setVisible(false);
         
         Scene scene = new Scene(root);
         
@@ -83,16 +81,11 @@ public class RobotRace extends Application {
         }, 5000);
         timer.schedule(new TimerTask(){
             public void run(){
-                Platform.runLater(() -> gameMenu.setVisible(true));
+                Platform.runLater(() -> game.setVisible(true));
             }
         }, 7000);
-
         
-        //gameMenu.setVisible(true);
-        root.getChildren().addAll(i, gameMenu);
-        
-        //scene.onKeyPressedProperty().bind(gameMenu.onKeyPressedProperty());
-        
+        root.getChildren().addAll(background, game);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -141,7 +134,6 @@ class Features{
         text0.setLayoutX(227.0);
         text0.setLayoutY(555.0);
         text0.setText("A COP 2805c Prodution.");
-
         pane.getChildren().addAll(text, text0);
         
         return pane;
@@ -163,7 +155,6 @@ class Features{
             imgView.setImage(new Image(getClass().getResource("background.png").toExternalForm()));
         else if(Background == 2)
             imgView.setImage(new Image(getClass().getResource("backgroundRace.png").toExternalForm()));
-            
         return imgView;
     }
 }

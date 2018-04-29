@@ -26,7 +26,7 @@ public class CarsMovement implements Runnable {
     // Override run method
     public void run() {
         // If car is not at the finish line
-        while (car.getX() < 600) {
+        while (car.getX() < 680) {
 
             Platform.runLater(new Runnable() {
 
