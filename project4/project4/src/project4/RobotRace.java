@@ -1,11 +1,25 @@
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -
+Group Members:  Carlos Abraham Hernandez ------ 4000026424
+                Adriel Camargo ---------------- 1002245851
+                Jose Aparicio ----------------- 1000363048    
+                
+COP 2805C - Java Programming 2
+
+Spring 2018 - T Th 6:15PM - 9:30PM
+
+Project # 4
+
+Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
+whole or otherwise plagiarized the work of other students and/or persons.
+
+@author AAA Group
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 package project4;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -45,7 +59,7 @@ public class RobotRace extends Application {
 
     @Override
     public void start(final Stage primaryStage) {
-        ////Group root = new Group();
+        
         Pane root = new Pane();
         root.setPrefSize(WIDTH, HEIGHT);
 
@@ -85,7 +99,6 @@ public class RobotRace extends Application {
     public static void main(String[] a) {
         launch(a);
     }
-
 }
 
 /**
@@ -165,7 +178,7 @@ class Menu extends Parent {
         MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("click.mp3").toString()));
 
         VBox menu0 = new VBox(10);
-        VBox menu1 = new VBox(1);
+        VBox menu1 = new VBox(10);
         Pane menu2 = new Pane();
 
         menu2.setPrefSize(600, 600);
@@ -180,7 +193,6 @@ class Menu extends Parent {
         drop.setInput(new Glow());
 
         final int offset = 600;
-
         menu1.setTranslateX(offset);
 
         MenuButton btnPlay = new MenuButton("PLAY NOW");
@@ -203,15 +215,6 @@ class Menu extends Parent {
                 getChildren().remove(menu0);
                 mediaPlayer.stop();
             });
-        });
-
-        MenuButton btnResume = new MenuButton("RESUME");
-        btnResume.setOnMouseClicked(event -> {
-            FadeTransition ft = new FadeTransition(Duration.seconds(0.5), this);
-            ft.setFromValue(1);
-            ft.setToValue(0);
-            ft.setOnFinished(evt -> setVisible(false));
-            ft.play();
         });
 
         MenuButton btnOptions = new MenuButton("OPTIONS");
@@ -254,17 +257,20 @@ class Menu extends Parent {
                 getChildren().remove(menu1);
             });
         });
-
+        
+        //array with the list of all the names cars
         String[] cars = {"ferrari", "lamborghini", "mustang", "corvette", "citroen"};
-
+        
+        //add all images to the array list, to store the name
+        //of the cars and the links
         for (int i = 0; i < cars.length; i++) {
             Cars c = new Cars();
             c.setImagesMenu(cars[i] + ".png");
             c.setCarNames(cars[i].toUpperCase());
-
             lists.add(i, c);
         }
 
+        //display all cars and the name when in the menu
         Image images[] = new Image[lists.size()];
         for (int i = 0; i < lists.size(); i++) {
             images[i] = new Image(getClass().getResource(lists.get(i).getImagesMenu()).toExternalForm());
@@ -368,7 +374,7 @@ class Menu extends Parent {
         bettingAmtField.setPromptText("Maximun $1000");
 
         Text carMark = new Text();
-        carMark.setLayoutX(127);//263);
+        carMark.setLayoutX(127);
         carMark.setLayoutY(420.0);
         carMark.setText("FERRARI");
         carMark.setFill(Color.WHITE);
@@ -421,8 +427,7 @@ class Menu extends Parent {
                 if (e.getCode() == KeyCode.LEFT) {// Move to the next car LEFT
                     mediaPlayer.play();
                     imageOrder -= 1;
-                    if (imageOrder == -1) //if image is index -1 set the last image
-                    {
+                    if (imageOrder == -1){ //if image is index -1 set the last image
                         imageOrder = lists.size() - 1;
                     }
                     imageView.setImage(images[imageOrder]);
@@ -461,18 +466,15 @@ class Menu extends Parent {
                             getChildren().removeAll(bg, menu0, menu1);
                             mediaPlayer.stop();
                         });
-
                         mediaPlayer.seek(Duration.ZERO);
-
                     });
                 }
             });
-
         });
 
         Playground information = new Playground("INFORMATION");
         information.createText("This game is a Robot Race animation with betting capabilities.\n"
-                + "Every robot will represent a car. You will select your car to compete in the race.");
+                + "Every robot will represent a car. You will select your car to \n compete in the race.");
         Playground information1 = new Playground("HOW TO PLAY");
         information1.createText("Select the car you want to use for the race.\n"
                 + "Then enter your name and the betting amout.");
@@ -495,8 +497,7 @@ class Cars {
     private String imagesMenu;
     private String carNames;
 
-    public Cars() {
-    }
+    public Cars() {}
 
     public void setImagesMenu(String imagesMenu) {
         this.imagesMenu = imagesMenu;
@@ -663,34 +664,34 @@ class Race extends Pane {
                     podium();
 
                     Text text = new Text();
-                    text.setLayoutX(70);
-                    text.setLayoutY(370);
+                    text.setLayoutX(100);
+                    text.setLayoutY(270);
                     text.setFont(Font.font("text", 20));
                     text.setFill(Color.WHITE);
                     getChildren().add(text);
 
                     switch (racePosition) {
                         case 0:
-                            text.setText("Congratulation " + Menu.name
-                                    + ", You won first place  $" + Menu.amountSelected * 1000);
+                            text.setText("Congratulation " + Menu.name + "\n"
+                                    + "You won first place  $" + Menu.amountSelected * 1000); 
                             break;
                         case 1:
-                            text.setText("Congratulation " + Menu.name
-                                    + ", You won second place  $" + Menu.amountSelected * 500);
+                            text.setText("Congratulation " + Menu.name + "\n"
+                                    + "You won second place  $" + Menu.amountSelected * 500);
                             break;
                         case 2:
-                            text.setText("Congratulation " + Menu.name
-                                    + ", You won third place  $" + Menu.amountSelected * 250);
+                            text.setText("Congratulation " + Menu.name + "\n"
+                                    + "You won third place  $" + Menu.amountSelected * 250);
                             break;
                         case 3:
-                            text.setFont(Font.font("text", 15));
-                            text.setText("Your car was in fourth place and you lost your money, try again to get it back.");
-
+                            text.setFont(Font.font("text", 17));
+                            text.setText("Your car was in fourth place and you lost your money.\n"
+                                    + "try again to get it back.");
                             break;
                         case 4:
-
-                            text.setFont(Font.font("text", 15));
-                            text.setText("Your car was in fifth place and you lost your money, try again to get it back.");
+                            text.setFont(Font.font("text", 17));
+                            text.setText("Your car was in fifth place and you lost your money.\n"
+                                    + "try again to get it back.");
                             break;
 
                     }
@@ -727,71 +728,54 @@ class Race extends Pane {
         if (CarsMovement.positions.get(0) == 0) {
             ferrariSide.setLayoutX(-415);
             ferrariSide.setLayoutY(380);
-
         } else if (CarsMovement.positions.get(1) == 0) {
             ferrariSide.setLayoutX(-555);
             ferrariSide.setLayoutY(460);
-
         } else if (CarsMovement.positions.get(2) == 0) {
             ferrariSide.setLayoutX(-300);
             ferrariSide.setLayoutY(470);
-
         }
-
+        
         if (CarsMovement.positions.get(0) == 1) {
             lamborghiniSide.setLayoutX(-415);
             lamborghiniSide.setLayoutY(380);
-
         } else if (CarsMovement.positions.get(1) == 1) {
             lamborghiniSide.setLayoutX(-555);
             lamborghiniSide.setLayoutY(460);
-
         } else if (CarsMovement.positions.get(2) == 1) {
             lamborghiniSide.setLayoutX(-300);
             lamborghiniSide.setLayoutY(470);
-
         }
 
         if (CarsMovement.positions.get(0) == 2) {
             mustangSide.setLayoutX(-415);
             mustangSide.setLayoutY(380);
-
         } else if (CarsMovement.positions.get(1) == 2) {
             mustangSide.setLayoutX(-555);
             mustangSide.setLayoutY(460);
-
         } else if (CarsMovement.positions.get(2) == 2) {
             mustangSide.setLayoutX(-300);
             mustangSide.setLayoutY(470);
-
         }
-
         if (CarsMovement.positions.get(0) == 3) {
             corvetteSide.setLayoutX(-415);
             corvetteSide.setLayoutY(380);
-
         } else if (CarsMovement.positions.get(1) == 3) {
             corvetteSide.setLayoutX(-555);
             corvetteSide.setLayoutY(460);
-
         } else if (CarsMovement.positions.get(2) == 3) {
             corvetteSide.setLayoutX(-300);
             corvetteSide.setLayoutY(470);
-
         }
-
         if (CarsMovement.positions.get(0) == 4) {
             citroenSide.setLayoutX(-415);
             citroenSide.setLayoutY(380);
-
         } else if (CarsMovement.positions.get(1) == 4) {
             citroenSide.setLayoutX(-555);
             citroenSide.setLayoutY(460);
-
         } else if (CarsMovement.positions.get(2) == 4) {
             citroenSide.setLayoutX(-300);
             citroenSide.setLayoutY(470);
-
         }
         CarsMovement.clearPositions();
     }
@@ -884,14 +868,11 @@ class MenuButton extends StackPane {
         bg.setFill(Color.BLACK);
         bg.setEffect(new GaussianBlur(3.5));
 
-        //setAlignment(Pos.CENTER_LEFT);
         setRotate(-0.5);
         getChildren().addAll(bg, text);
 
-        final URL resource = getClass().getResource("click.mp3");
-        final Media media = new Media(resource.toString());
-        final MediaPlayer mediaPlayer = new MediaPlayer(media);
-
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("click.mp3").toString()));
+        
         setOnMouseEntered(event -> {
             mediaPlayer.play();
             bg.setTranslateX(10);
@@ -916,6 +897,11 @@ class MenuButton extends StackPane {
     }
 }
 
+/**
+ * This class makes the cars move and store the values
+ * of the winners in an array list.
+ * 
+ */
 class CarsMovement implements Runnable {
 
     // Store positions
