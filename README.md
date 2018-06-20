@@ -1,4 +1,4 @@
-![Java Logo](http://www.freepngimg.com/thumb/java/3-2-java-free-download-png-thumb.png)
+![Java Logo](https://image.flaticon.com/icons/png/512/226/226777.png)
 
 # MDC Projects
 
