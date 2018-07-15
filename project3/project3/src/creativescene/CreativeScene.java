@@ -1,19 +1,3 @@
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
-Group Members:  Carlos Abraham Hernandez
-                Adriel Camargo
-                Jose Aparicio
-Student IDs:    4000026424
-                1002245851
-                1000363048
-
-COP 2805C –Java Programming 2
-Spring 2018 - T Th 6:15PM - 9:30PM
-Project # 3
-Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
-whole or otherwise plagiarized the work of other students and/or persons.
-
-@author AAA Group
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 package creativescene;
 
 import javafx.stage.*;
