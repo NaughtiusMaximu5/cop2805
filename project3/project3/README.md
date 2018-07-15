@@ -37,28 +37,6 @@ being drawn, as in the example below:
 …code that draws a moon in the sky goes here
 ```
 
-**Notes:**
-- 2 out 10 points will be given for creativity (to be subjectively determined by me) and 8 out 10
-point will be based on how well the code is written and commented.
-- A 2 point bonus will be assigned to the most creative scene (to be subjectively determined by me).
-
-Place the following header on top of your files:
-
-```
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
-Group Members: Name of all group members
-Student IDs: Student IDs of Group members
-COP 2805C –Java Programming 2
-Spring 2018 - T Th 6:15PM - 9:30PM
-Project # 3
-Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
-whole or otherwise plagiarized the work of other students and/or persons.
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-```
-
-Submission guidelines: Send your code files (CreativeScene.java,) as attachment to my email
-rcruz2@mdc.edu, with the subject Adv. Java Project 2
-
 # Idea
 
 > Draw a rocket Image
