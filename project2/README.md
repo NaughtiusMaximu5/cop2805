@@ -95,24 +95,6 @@ studentList.findStudent();
 ```
 
 
-Place the following header on top of your files:
-
-```
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
-Group Members: Name of all group members
-Student IDs: Student IDs of Group members
-COP 2805C –Java Programming 2
-Spring 2018 - T Th 6:15 PM - 9:30PM
-Project # 2
-Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
-whole or otherwise plagiarized the work of other students and/or persons.
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-```
-
-Submission guidelines: Send your code files (Student.java, StudentList.java and TestStudents.java)
-as attachments to my email rcruz2@mdc.edu, with the subject Adv. Java Project 2
-
-
 # UML Diagram
 
 ![Screen Shot of Find Students](Files/uml.png)
