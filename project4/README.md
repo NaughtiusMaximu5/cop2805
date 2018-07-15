@@ -33,28 +33,6 @@ $250. Display a message congratulating him/her and showing the amount won.
 - If the robot the user bet on finished in fourth place, display a message informing the user of this
 fact
 
-**Notes:**
-
-- In addition to your source code, your file should contain thorough documentation that describes
-what the code does.
-- 2 out 10 points will be given for creativity and 8 out 10 points will be based on how well the code
-is written.
-
-```
-Place the following header on top of your files:
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
-Group Members: Name of all group members
-Student IDs: Student IDs of Group members
-COP 2805C –Java Programming 2
-Spring 2018 - T Th 6:15 PM - 9:30PM
-Project # 4
-Plagiarism Statement: I certify that this assignment is my own work and that I have not copied in part or
-whole or otherwise plagiarized the work of other students and/or persons.
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-```
-
-Submission guidelines: Send your code files (RobotRace.java,) as attachment to my email
-rcruz2@mdc.edu, with the subject Adv. Java Project 4
 
 ![Image](media/example-game.png)
 
