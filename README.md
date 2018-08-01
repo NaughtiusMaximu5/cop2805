@@ -54,6 +54,8 @@ Team name: **AAA** Group
 
 # [Project 4](project4)
 
+![project4](project4/media/project4.gif)
+
 ## Members
 
 Team name: **AAA** Group
