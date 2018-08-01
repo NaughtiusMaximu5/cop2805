@@ -64,7 +64,7 @@ Team name: **AAA** Group
 |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------|
 | [Carlos Abraham](https://github.com/abranhe) | [Adriel Camargo](https://github.com/adriel1221) | [Jose Adrian](https://github.com/JoseAdrianJA) |
 
-## Contributing
+# Contributing
 
 > Pull requests are closed.
 
@@ -75,6 +75,9 @@ Team name: **AAA** Group
 
 I do recommend to use [GitHub Desktop](https://desktop.github.com) and watch [this video](https://www.youtube.com/watch?v=ci3W1T88mzw) to learn how to upload it to Github.
 
+# Related 
+
+- [mdc](https://github.com/abranhe/mdc): 🍇  Miami  Dade College Computer Science Classes Purposes.
 
 # License
 
