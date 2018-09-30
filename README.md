@@ -24,7 +24,7 @@ Team name: **Radicals √**
 
 ## Members
 
-| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50&v=4)](https://github.com/abranhe) | [![Dianet](https://avatars3.githubusercontent.com/u/26179143?s=50&v=4)](https://github.com/diacruz) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
+| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50)](https://github.com/abranhe) | [![Dianet](https://avatars3.githubusercontent.com/u/26179143?s=50&v=4)](https://github.com/diacruz) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
 |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------|
 | [Carlos Abraham](https://github.com/abranhe) | [Dianet Cruz](https://github.com/diacruz) | Richard Toscano |
 
@@ -36,7 +36,7 @@ Team name: **𝓢𝓡𝓒 Group**
 
 ## Members
 
-| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50&v=4)](https://github.com/abranhe) | [![Andy](https://avatars0.githubusercontent.com/u/24887628?s=50&v=4)](https://github.com/zelaznogydna91) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
+| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50)](https://github.com/abranhe) | [![Andy](https://avatars0.githubusercontent.com/u/24887628?s=50&v=4)](https://github.com/zelaznogydna91) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
 |-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------|
 | [Carlos Abraham](https://github.com/abranhe) | [Andy Gonzales](https://github.com/zelaznogydna91) | [Junior Betancourt](https://github.com/jrbetancourt98) |
 
@@ -48,7 +48,7 @@ Team name: **AAA** Group
 
 ## Members
 
-| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50&v=4)](https://github.com/abranhe) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
+| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50)](https://github.com/abranhe) | ![user](https://avatars2.githubusercontent.com/u/36480978?s=50) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
 |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------|
 | [Carlos Abraham](https://github.com/abranhe) | [Adriel Camargo](https://github.com/adriel1221) | [Jose Adrian](https://github.com/JoseAdrianJA) |
 
@@ -60,7 +60,7 @@ Team name: **AAA** Group
 
 Team name: **AAA** Group
 
-| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50&v=4)](https://github.com/abranhe) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
+| [![Carlos Abraham](https://avatars3.githubusercontent.com/u/21347264?s=50)](https://github.com/abranhe) | ![user](https://avatars2.githubusercontent.com/u/36480978?s=50) | ![user](https://png.icons8.com/color/48/000000/administrator-male.png) |
 |-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------|
 | [Carlos Abraham](https://github.com/abranhe) | [Adriel Camargo](https://github.com/adriel1221) | [Jose Adrian](https://github.com/JoseAdrianJA) |
 
